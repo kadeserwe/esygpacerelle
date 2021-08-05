@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+
+        <span class="label label-primary">Plan de Passations Publies</span>
+
+<!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plan-passation" [routerLink]="['/plan-passation/new']">-->
+<!--            <fa-icon icon="plus"></fa-icon>-->
+<!--            <span  jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.home.createLabel">-->
+<!--            Create a new Plan Passation-->
+<!--            </span>-->
+<!--        </button>-->
+    </h2>
+
+    <div class="table-responsive" id="entities" *ngIf="planPassations && planPassations.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage1.bind(this)">
+                <th scope="col"  jhiSortBy="numero"><span >numero du plan </span> </th>
+                <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.annee">Annee</span></th>
+                <th scope="col"  jhiSortBy="dateCreation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateCreation">Date de Creation</span></th>
+                <th scope="col"  jhiSortBy="dateMiseValidation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateMiseValidation">Date de Mise Validation</span></th>
+                <th scope="col"  jhiSortBy="dateValidation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateValidation">Date de Validation</span></th>
+                <th scope="col"  jhiSortBy="statut"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.statut">Statut</span></th>
+                <th scope="col"  jhiSortBy="commentaire"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.commentaire">Commentaire</span></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let planPassation of planPassations">
+                <td>{{ planPassation.numPlan }}</td>
+                <td>{{ planPassation.annee }}</td>
+                <td>{{ planPassation.dateCreation | date:'mediumDate'}}</td>
+                <td>{{ planPassation.dateMiseValidation | date:'mediumDate' }}</td>
+                <td>{{ planPassation.dateValidation | date:'mediumDate' }}</td>
+                <td>
+                    <span class="badge badge-info">{{ planPassation.statut }}</span>
+                </td>
+                <td>{{ planPassation.commentaire }}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/plan-passation', planPassation.id, 'view']"
+                                class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                            <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                            <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>-->
+                        </button>
+
+                        <button type="submit"
+                                [routerLink]="['/plan-passation', planPassation.id, 'edit']"
+                                class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                            <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
+                            </button>
+
+                        <button type="submit" (click)="delete(planPassation)"
+                                class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                            <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="planPassations && planPassations.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage1($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

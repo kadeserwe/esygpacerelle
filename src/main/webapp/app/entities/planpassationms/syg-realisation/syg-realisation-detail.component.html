@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sygRealisation">
+            <h2><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.detail.title">Syg Realisation</span> {{ sygRealisation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateAttribution">Date Attribution</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateAttribution }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.delaiexecution">Delaiexecution</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.delaiexecution }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.objet">Objet</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.objet }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.examenDncmp">Examen Dncmp</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.examenDncmp }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.examenPtf">Examen Ptf</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.examenPtf }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.chapitreImputation">Chapitre Imputation</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.chapitreImputation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.autorisationEngagement">Autorisation Engagement</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.autorisationEngagement }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateReceptionDossier">Date Reception Dossier</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateReceptionDossier }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateNonObjection">Date Non Objection</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateNonObjection }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateAutorisation">Date Autorisation</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateAutorisation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjection">Date Recep Non Objection</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateRecepNonObjection }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepDossCorrige">Date Recep Doss Corrige</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateRecepDossCorrige }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.datePubParPrmp">Date Pub Par Prmp</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.datePubParPrmp }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateOuverturePlis">Date Ouverture Plis</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateOuverturePlis }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjectOcmp">Date Recep Non Object Ocmp</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateRecepNonObjectOcmp }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepRapportEva">Date Recep Rapport Eva</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateRecepRapportEva }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjectPtf">Date Recep Non Object Ptf</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateRecepNonObjectPtf }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateExamenJuridique">Date Examen Juridique</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateExamenJuridique }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateNotifContrat">Date Notif Contrat</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateNotifContrat }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateApprobationContrat">Date Approbation Contrat</span></dt>
+                <dd>
+                    <span>{{ sygRealisation.dateApprobationContrat }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/syg-realisation', sygRealisation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "gatewaysigmapApp": {
+    "planpassationmsPlanPassation": {
+      "home": {
+        "title": "PlanPassations",
+        "createLabel": "Créer un nouveau Plan Passation",
+        "createOrEditLabel": "Créer ou éditer un Plan Passation",
+        "notFound": "Aucun Plan Passation trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Plan Passation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Plan Passation"
+      },
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "commentaire": "Commentaire",
+      "annee": "Annee",
+      "dateCreation": "Date Creation",
+      "dateMiseValidation": "Date Mise Validation",
+      "dateValidation": "Date Validation",
+      "statut": "Statut",
+      "commentaireMiseEnValidationAC": "Commentaire Mise En Validation AC",
+      "referenceMiseValidationAC": "Reference Mise Validation AC",
+      "fichierMiseValidationAC": "Fichier Mise Validation AC",
+      "dateMiseEnValidationCcmp": "Date Mise En Validation Ccmp",
+      "fichierMiseValidationCcmp": "Fichier Mise Validation Ccmp",
+      "referenceMiseValidationCcmp": "Reference Mise Validation Ccmp",
+      "dateValidation1": "Date Validation 1",
+      "commentaireValidation": "Commentaire Validation",
+      "referenceValidation": "Reference Validation",
+      "fichierValidation": "Fichier Validation",
+      "dateValidation2": "Date Validation 2",
+      "dateRejet": "Date Rejet",
+      "datePublication": "Date Publication",
+      "commentairePublication": "Commentaire Publication"
+    }
+  },
+  "planpassationmsApp": {
+    "planpassationmsPlanPassation": {
+      "created": "Un nouveau Plan Passation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Plan Passation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Plan Passation avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

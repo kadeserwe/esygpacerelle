@@ -1,0 +1,43 @@
+{
+  "gatewaysigmapApp": {
+    "planpassationmsConfTableDeTransaction": {
+      "home": {
+        "title": "ConfTableDeTransactions",
+        "createLabel": "Créer un nouveau Conf Table De Transaction",
+        "createOrEditLabel": "Créer ou éditer un Conf Table De Transaction",
+        "notFound": "Aucun Conf Table De Transaction trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Conf Table De Transaction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conf Table De Transaction"
+      },
+      "tableName": "Table Name",
+      "columnName": "Column Name",
+      "numeroLigne": "Numero Ligne",
+      "dataType": "Data Type",
+      "masterId": "Master Id",
+      "intValue": "Int Value",
+      "booleanValue": "Boolean Value",
+      "moneyValue": "Money Value",
+      "stringValue": "String Value",
+      "textValue": "Text Value",
+      "dateValue": "Date Value",
+      "instantValue": "Instant Value",
+      "zonedDateTimeValue": "Zoned Date Time Value",
+      "longValue": "Long Value",
+      "floatValue": "Float Value",
+      "doubleValue": "Double Value",
+      "durationValue": "Duration Value",
+      "uuidValue": "Uuid Value"
+    }
+  },
+  "planpassationmsApp": {
+    "planpassationmsConfTableDeTransaction": {
+      "created": "Un nouveau Conf Table De Transaction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conf Table De Transaction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conf Table De Transaction avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

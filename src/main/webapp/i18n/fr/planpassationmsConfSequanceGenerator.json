@@ -1,0 +1,27 @@
+{
+  "gatewaysigmapApp": {
+    "planpassationmsConfSequanceGenerator": {
+      "home": {
+        "title": "ConfSequanceGenerators",
+        "createLabel": "Créer un nouveau Conf Sequance Generator",
+        "createOrEditLabel": "Créer ou éditer un Conf Sequance Generator",
+        "notFound": "Aucun Conf Sequance Generator trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Conf Sequance Generator {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conf Sequance Generator"
+      },
+      "nomTable": "Nom Table",
+      "currentValue": "Current Value"
+    }
+  },
+  "planpassationmsApp": {
+    "planpassationmsConfSequanceGenerator": {
+      "created": "Un nouveau Conf Sequance Generator a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conf Sequance Generator avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conf Sequance Generator avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

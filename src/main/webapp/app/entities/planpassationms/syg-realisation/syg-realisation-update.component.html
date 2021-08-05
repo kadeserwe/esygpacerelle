@@ -1,0 +1,226 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-syg-realisation-heading" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.home.createOrEditLabel">Create or edit a Syg Realisation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateAttribution" for="field_dateAttribution">Date Attribution</label>
+                    <div class="input-group">
+                        <input id="field_dateAttribution" type="text" class="form-control" name="dateAttribution" ngbDatepicker #dateAttributionDp="ngbDatepicker" formControlName="dateAttribution"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAttributionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateAttribution')!.invalid && (editForm.get('dateAttribution')!.dirty || editForm.get('dateAttribution')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateAttribution')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.delaiexecution" for="field_delaiexecution">Delaiexecution</label>
+                    <input type="number" class="form-control" name="delaiexecution" id="field_delaiexecution"
+                           formControlName="delaiexecution"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.objet" for="field_objet">Objet</label>
+                    <input type="text" class="form-control" name="objet" id="field_objet"
+                           formControlName="objet"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.examenDncmp" for="field_examenDncmp">Examen Dncmp</label>
+                    <input type="number" class="form-control" name="examenDncmp" id="field_examenDncmp"
+                           formControlName="examenDncmp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.examenPtf" for="field_examenPtf">Examen Ptf</label>
+                    <input type="number" class="form-control" name="examenPtf" id="field_examenPtf"
+                           formControlName="examenPtf"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.chapitreImputation" for="field_chapitreImputation">Chapitre Imputation</label>
+                    <input type="text" class="form-control" name="chapitreImputation" id="field_chapitreImputation"
+                           formControlName="chapitreImputation"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.autorisationEngagement" for="field_autorisationEngagement">Autorisation Engagement</label>
+                    <input type="text" class="form-control" name="autorisationEngagement" id="field_autorisationEngagement"
+                           formControlName="autorisationEngagement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateReceptionDossier" for="field_dateReceptionDossier">Date Reception Dossier</label>
+                    <div class="input-group">
+                        <input id="field_dateReceptionDossier" type="text" class="form-control" name="dateReceptionDossier" ngbDatepicker #dateReceptionDossierDp="ngbDatepicker" formControlName="dateReceptionDossier"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReceptionDossierDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateNonObjection" for="field_dateNonObjection">Date Non Objection</label>
+                    <div class="input-group">
+                        <input id="field_dateNonObjection" type="text" class="form-control" name="dateNonObjection" ngbDatepicker #dateNonObjectionDp="ngbDatepicker" formControlName="dateNonObjection"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNonObjectionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateAutorisation" for="field_dateAutorisation">Date Autorisation</label>
+                    <div class="input-group">
+                        <input id="field_dateAutorisation" type="text" class="form-control" name="dateAutorisation" ngbDatepicker #dateAutorisationDp="ngbDatepicker" formControlName="dateAutorisation"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateAutorisationDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjection" for="field_dateRecepNonObjection">Date Recep Non Objection</label>
+                    <div class="input-group">
+                        <input id="field_dateRecepNonObjection" type="text" class="form-control" name="dateRecepNonObjection" ngbDatepicker #dateRecepNonObjectionDp="ngbDatepicker" formControlName="dateRecepNonObjection"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRecepNonObjectionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepDossCorrige" for="field_dateRecepDossCorrige">Date Recep Doss Corrige</label>
+                    <div class="input-group">
+                        <input id="field_dateRecepDossCorrige" type="text" class="form-control" name="dateRecepDossCorrige" ngbDatepicker #dateRecepDossCorrigeDp="ngbDatepicker" formControlName="dateRecepDossCorrige"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRecepDossCorrigeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.datePubParPrmp" for="field_datePubParPrmp">Date Pub Par Prmp</label>
+                    <div class="input-group">
+                        <input id="field_datePubParPrmp" type="text" class="form-control" name="datePubParPrmp" ngbDatepicker #datePubParPrmpDp="ngbDatepicker" formControlName="datePubParPrmp"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="datePubParPrmpDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateOuverturePlis" for="field_dateOuverturePlis">Date Ouverture Plis</label>
+                    <div class="input-group">
+                        <input id="field_dateOuverturePlis" type="text" class="form-control" name="dateOuverturePlis" ngbDatepicker #dateOuverturePlisDp="ngbDatepicker" formControlName="dateOuverturePlis"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOuverturePlisDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjectOcmp" for="field_dateRecepNonObjectOcmp">Date Recep Non Object Ocmp</label>
+                    <div class="input-group">
+                        <input id="field_dateRecepNonObjectOcmp" type="text" class="form-control" name="dateRecepNonObjectOcmp" ngbDatepicker #dateRecepNonObjectOcmpDp="ngbDatepicker" formControlName="dateRecepNonObjectOcmp"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRecepNonObjectOcmpDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepRapportEva" for="field_dateRecepRapportEva">Date Recep Rapport Eva</label>
+                    <div class="input-group">
+                        <input id="field_dateRecepRapportEva" type="text" class="form-control" name="dateRecepRapportEva" ngbDatepicker #dateRecepRapportEvaDp="ngbDatepicker" formControlName="dateRecepRapportEva"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRecepRapportEvaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateRecepNonObjectPtf" for="field_dateRecepNonObjectPtf">Date Recep Non Object Ptf</label>
+                    <div class="input-group">
+                        <input id="field_dateRecepNonObjectPtf" type="text" class="form-control" name="dateRecepNonObjectPtf" ngbDatepicker #dateRecepNonObjectPtfDp="ngbDatepicker" formControlName="dateRecepNonObjectPtf"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateRecepNonObjectPtfDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateExamenJuridique" for="field_dateExamenJuridique">Date Examen Juridique</label>
+                    <div class="input-group">
+                        <input id="field_dateExamenJuridique" type="text" class="form-control" name="dateExamenJuridique" ngbDatepicker #dateExamenJuridiqueDp="ngbDatepicker" formControlName="dateExamenJuridique"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateExamenJuridiqueDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateNotifContrat" for="field_dateNotifContrat">Date Notif Contrat</label>
+                    <div class="input-group">
+                        <input id="field_dateNotifContrat" type="text" class="form-control" name="dateNotifContrat" ngbDatepicker #dateNotifContratDp="ngbDatepicker" formControlName="dateNotifContrat"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNotifContratDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsSygRealisation.dateApprobationContrat" for="field_dateApprobationContrat">Date Approbation Contrat</label>
+                    <div class="input-group">
+                        <input id="field_dateApprobationContrat" type="text" class="form-control" name="dateApprobationContrat" ngbDatepicker #dateApprobationContratDp="ngbDatepicker" formControlName="dateApprobationContrat"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateApprobationContratDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

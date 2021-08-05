@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="confTableRow">
+            <h2><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.detail.title">Conf Table Row</span> {{ confTableRow.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.tableName">Table Name</span></dt>
+                <dd>
+                    <span>{{ confTableRow.tableName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.labelName">Label Name</span></dt>
+                <dd>
+                    <span>{{ confTableRow.labelName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.columnName">Column Name</span></dt>
+                <dd>
+                    <span>{{ confTableRow.columnName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.dataType">Data Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewaysigmapApp.DataType.' + confTableRow.dataType }}">{{ confTableRow.dataType }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/conf-table-row', confTableRow.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

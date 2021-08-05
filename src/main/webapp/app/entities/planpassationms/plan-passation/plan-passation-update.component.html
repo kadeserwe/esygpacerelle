@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 ><span class="badge badge-primary">Créer ou Modifier un Plan de Passation </span></h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.annee" for="field_annee">Annee</label>
+                    <select  class="form-control" name="annee" formControlName="annee" id="field_annee">
+                        <option *ngIf="!editForm.get('annee')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="anCourant" >{{anCourant}}</option>
+                        <option [ngValue]="anSuivant">{{anSuivant}}</option>
+                    </select><br>
+                    <div *ngIf="editForm.get('annee')!.invalid && (editForm.get('annee')!.dirty || editForm.get('annee')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('annee')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+<!--                        <small class="form-text text-danger"-->
+<!--                               [hidden]="!editForm.get('annee')?.errors?.number" jhiTranslate="entity.validation.number">-->
+<!--                            This field should be a number.-->
+<!--                        </small>-->
+                    </div>
+                </div>
+
+               <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="input-group">
+                        <input id="field_dateDebut" type="text" class="form-control" name="dateDebut"
+                               [ngModel]="anCourant+'-01-01'"
+                               formControlName="dateDebut"
+
+                        />
+<!--                        <span class="input-group-append">-->
+<!--                            <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>-->
+<!--                        </span>-->
+                    </div>
+                </div>
+
+<!--               <div class="form-group">-->
+<!--                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateFin" for="field_dateFin">Date Fin</label>-->
+<!--                    <div class="input-group">-->
+<!--                        <input id="field_dateFin" type="text" class="form-control" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>-->
+<!--                        <span class="input-group-append">-->
+<!--                            <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="input-group">
+                        <input id="field_dateFin" type="text" class="form-control" name="dateFin"
+                               [ngModel]="anCourant+'-12-30'"
+                               formControlName="dateFin" />
+<!--                        <span class="input-group-append">-->
+<!--                            <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>-->
+<!--                        </span>-->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_numPlan">Numero du plan de passation</label>
+                    <input type="text" class="form-control" name="numPlan" id="field_numPlan"
+                           formControlName="numPlan"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.commentaire" for="field_commentaire">Commentaire</label>
+                    <textarea type="text" class="form-control" name="commentaire" id="field_commentaire"
+                              formControlName="commentaire"> </textarea>
+                </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>

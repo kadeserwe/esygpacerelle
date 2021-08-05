@@ -1,0 +1,151 @@
+<div>
+    <h2 id="page-heading">
+        <span class="label label-primary" >Plan de Passations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plan-passation"
+                [routerLink]="['/plan-de-passation/plan-passation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span >
+            Ajouter
+            </span>
+        </button>
+
+        <button id="jh-miseval-entity" class="btn btn-info float-right jh-create-entity create-plan-passation"
+                [routerLink]="['/plan-de-passation/plan-passation',selectedId,'demande-validation']" [disabled]=" selectedId == null">
+            <fa-icon icon="share"></fa-icon>
+            <span >
+            Demande de validation
+            </span>
+        </button>
+
+        <button id="jh-export-entity" class="btn float-right export-plan-passation"
+                style="color: #28a745" [routerLink]="">
+            <fa-icon icon="print"></fa-icon>
+            <span >
+            Exporter
+            </span>
+        </button>
+    </h2>
+    <br/>
+    <br/>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="planPassations?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.home.notFound">No planPassations found</span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Recherche" [(ngModel)]="term">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" jhiTranslate="audits.filter.from">from</span>
+                </div>
+                <input type="date" class="form-control" name="start" [(ngModel)]="fromDate" (ngModelChange)="transition()" required/>
+
+                <div class="input-group-append">
+                    <span class="input-group-text" jhiTranslate="audits.filter.to">To</span>
+                </div>
+                <input type="date" class="form-control" name="end" [(ngModel)]="toDate" (ngModelChange)="transition()" required/>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="planPassations && planPassations.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead [ngSwitch]="canLoad()">
+<!--                <tr>-->
+<!--                    <th rowspan="2" data-checkbox="true" data-valign="middle"></th>-->
+<!--                    <th colspan="7" data-aling="center">Header</th>-->
+<!--                </tr>-->
+               <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)" *ngSwitchCase="true">
+<!--                    <th >-->
+<!--                        <span class="custom-checkbox">-->
+<!--                            <input type="checkbox" id="selectAll"/>-->
+<!--                            <label for="selectAll"></label>-->
+<!--                        </span>-->
+<!--                    </th>-->
+                    <th scope="col"  jhiSortBy="numero"><span >numero du plan </span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.annee">Annee</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateCreation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateCreation">Date de création</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateMiseValidation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateMiseValidation">Date de mise à validation</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateValidation"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateValidation">Date de validation</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statut"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.statut">Etat</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commentaire"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.commentaire">Commentaire</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+                <tr *ngSwitchCase="false">
+                    <th scope="col"><span >numero du plan </span> </th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.annee">Année</span></th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateCreation">Date de création</span></th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateMiseValidation">Date de mise à validation</span></th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.dateValidation">Date de validation</span></th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.statut">Etat</span></th>
+                    <th scope="col"><span jhiTranslate="gatewaysigmapApp.planpassationmsPlanPassation.commentaire">Commentaire</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let planPassation of planPassations | filter:term"
+                (click)="highlightRow(planPassation)"
+                [ngClass] = "{'highlight' : planPassation.id == selectedId}">
+                <td>{{ planPassation.numPlan}}</td>
+                <td>{{ planPassation.annee }}</td>
+                <td>{{ planPassation.dateCreation | date:'mediumDate'}}</td>
+                <td>{{ planPassation.dateMiseValidation | date:'mediumDate' }}</td>
+                <td>{{ planPassation.dateValidation | date:'mediumDate' }}</td>
+                <td>
+                    <span class="badge badge-info">{{ planPassation.statut }}</span>
+                </td>
+                <td>{{ planPassation.commentaire }}</td>
+                <td class="text-right">
+                    <div>
+                        <button id="jh-entity" class="btn btn-primary float-right jh-create-entity create-plan-passation" [routerLink]="['/plan-de-passation/plan-passation/ajout-realisation-auplan']">
+                            <fa-icon icon="plus"></fa-icon>
+                            <span>
+                             Ajouter Realisations
+                            </span>
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/plan-de-passation/plan-passation', planPassation.id, 'view']"
+                                class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                            <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                            <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>-->
+                        </button>
+
+                        <button type="submit"
+                                [routerLink]="['/plan-de-passation/plan-passation', planPassation.id, 'edit']"
+                                class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                            <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
+                            <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>-->
+                        </button>
+
+                        <button type="submit" (click)="delete(planPassation)"
+                                class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                            <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="planPassations && planPassations.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="transition()"></ngb-pagination>
+        </div>
+    </div>
+</div>

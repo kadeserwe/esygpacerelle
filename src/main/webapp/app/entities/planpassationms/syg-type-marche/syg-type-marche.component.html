@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span >Syg Type de Marche</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-syg-type-marche" [routerLink]="['/syg-type-marche/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewaysigmapApp.planpassationmsSygTypeMarche.home.createLabel">
+            Create a new Syg Type Marche
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sygTypeMarches?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.planpassationmsSygTypeMarche.home.notFound">No sygTypeMarches found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sygTypeMarches && sygTypeMarches.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+<!--                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.planpassationmsSygTypeMarche.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.planpassationmsSygTypeMarche.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.planpassationmsSygTypeMarche.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sygTypeMarche of sygTypeMarches ;trackBy: trackId">
+<!--                    <td><a [routerLink]="['/syg-type-marche', sygTypeMarche.id, 'view']">{{ sygTypeMarche.id }}</a></td>-->
+                    <td>{{ sygTypeMarche.code }}</td>
+                    <td>{{ sygTypeMarche.libelle }}</td>
+                    <td>{{ sygTypeMarche.description }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/syg-type-marche', sygTypeMarche.id, 'view']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                                <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>-->
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/syg-type-marche', sygTypeMarche.id, 'edit']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
+                                <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>-->
+                            </button>
+
+                            <button type="submit" (click)="delete(sygTypeMarche)"
+                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                                <!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>-->
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="sygTypeMarches && sygTypeMarches.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

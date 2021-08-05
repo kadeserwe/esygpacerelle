@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-conf-table-row-heading" jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.home.createOrEditLabel">Create or edit a Conf Table Row</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.tableName" for="field_tableName">Table Name</label>
+                    <input type="text" class="form-control" name="tableName" id="field_tableName"
+                           formControlName="tableName"/>
+                    <div *ngIf="editForm.get('tableName')!.invalid && (editForm.get('tableName')!.dirty || editForm.get('tableName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tableName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.labelName" for="field_labelName">Label Name</label>
+                    <input type="text" class="form-control" name="labelName" id="field_labelName"
+                           formControlName="labelName"/>
+                    <div *ngIf="editForm.get('labelName')!.invalid && (editForm.get('labelName')!.dirty || editForm.get('labelName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('labelName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.columnName" for="field_columnName">Column Name</label>
+                    <input type="text" class="form-control" name="columnName" id="field_columnName"
+                           formControlName="columnName"/>
+                    <div *ngIf="editForm.get('columnName')!.invalid && (editForm.get('columnName')!.dirty || editForm.get('columnName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('columnName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.planpassationmsConfTableRow.dataType" for="field_dataType">Data Type</label>
+                    <select class="form-control" name="dataType" formControlName="dataType" id="field_dataType">
+                        <option value="INT">{{ 'gatewaysigmapApp.DataType.INT' | translate }}</option>
+                        <option value="MONEY">{{ 'gatewaysigmapApp.DataType.MONEY' | translate }}</option>
+                        <option value="BOOLEAN">{{ 'gatewaysigmapApp.DataType.BOOLEAN' | translate }}</option>
+                        <option value="DATE">{{ 'gatewaysigmapApp.DataType.DATE' | translate }}</option>
+                        <option value="DATE_TIME">{{ 'gatewaysigmapApp.DataType.DATE_TIME' | translate }}</option>
+                        <option value="STRING">{{ 'gatewaysigmapApp.DataType.STRING' | translate }}</option>
+                        <option value="TEXT">{{ 'gatewaysigmapApp.DataType.TEXT' | translate }}</option>
+                        <option value="IMAGE">{{ 'gatewaysigmapApp.DataType.IMAGE' | translate }}</option>
+                        <option value="FILE">{{ 'gatewaysigmapApp.DataType.FILE' | translate }}</option>
+                        <option value="LONG">{{ 'gatewaysigmapApp.DataType.LONG' | translate }}</option>
+                        <option value="FLOAT">{{ 'gatewaysigmapApp.DataType.FLOAT' | translate }}</option>
+                        <option value="DOUBLE">{{ 'gatewaysigmapApp.DataType.DOUBLE' | translate }}</option>
+                        <option value="DURATION">{{ 'gatewaysigmapApp.DataType.DURATION' | translate }}</option>
+                        <option value="UUID">{{ 'gatewaysigmapApp.DataType.UUID' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

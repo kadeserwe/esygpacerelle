@@ -1,0 +1,27 @@
+{
+  "gatewaysigmapApp": {
+    "planpassationmsConfGenSequence": {
+      "home": {
+        "title": "ConfGenSequences",
+        "createLabel": "Créer un nouveau Conf Gen Sequence",
+        "createOrEditLabel": "Créer ou éditer un Conf Gen Sequence",
+        "notFound": "Aucun Conf Gen Sequence trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Conf Gen Sequence {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conf Gen Sequence"
+      },
+      "tableName": "Table Name",
+      "currentValue": "Current Value"
+    }
+  },
+  "planpassationmsApp": {
+    "planpassationmsConfGenSequence": {
+      "created": "Un nouveau Conf Gen Sequence a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conf Gen Sequence avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conf Gen Sequence avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

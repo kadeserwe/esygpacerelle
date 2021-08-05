@@ -1,0 +1,29 @@
+{
+  "gatewaysigmapApp": {
+    "planpassationmsConfTableRow": {
+      "home": {
+        "title": "ConfTableRows",
+        "createLabel": "Créer un nouveau Conf Table Row",
+        "createOrEditLabel": "Créer ou éditer un Conf Table Row",
+        "notFound": "Aucun Conf Table Row trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Conf Table Row {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conf Table Row"
+      },
+      "tableName": "Table Name",
+      "labelName": "Label Name",
+      "columnName": "Column Name",
+      "dataType": "Data Type"
+    }
+  },
+  "planpassationmsApp": {
+    "planpassationmsConfTableRow": {
+      "created": "Un nouveau Conf Table Row a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conf Table Row avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conf Table Row avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

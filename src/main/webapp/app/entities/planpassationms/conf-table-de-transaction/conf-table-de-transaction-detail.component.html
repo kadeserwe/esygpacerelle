@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="confTableDeTransaction">
+            <h2><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.detail.title">Conf Table De Transaction</span> {{ confTableDeTransaction.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.tableName">Table Name</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.tableName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.columnName">Column Name</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.columnName }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.numeroLigne">Numero Ligne</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.numeroLigne }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.dataType">Data Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewaysigmapApp.DataType.' + confTableDeTransaction.dataType }}">{{ confTableDeTransaction.dataType }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.masterId">Master Id</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.masterId }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.intValue">Int Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.intValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.booleanValue">Boolean Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.booleanValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.moneyValue">Money Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.moneyValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.stringValue">String Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.stringValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.textValue">Text Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.textValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.dateValue">Date Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.dateValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.instantValue">Instant Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.instantValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.zonedDateTimeValue">Zoned Date Time Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.zonedDateTimeValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.longValue">Long Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.longValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.floatValue">Float Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.floatValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.doubleValue">Double Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.doubleValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.durationValue">Duration Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.durationValue }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.planpassationmsConfTableDeTransaction.uuidValue">Uuid Value</span></dt>
+                <dd>
+                    <span>{{ confTableDeTransaction.uuidValue }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>
