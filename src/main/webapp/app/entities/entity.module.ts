@@ -7,6 +7,13 @@ import { PpPubliesComponent } from 'app/entities/planpassationms/plan-passation/
 import { SuiviPpComponent } from 'app/entities/planpassationms/plan-passation/suivi-pp/suivi-pp.component';
 import { FonctionnsComponent } from './modules/referentielms/fonctionns/fonctionns.component';
 import { PayysComponent } from './modules/referentielms/payys/payys.component';
+import { CategorieFournisseuurComponent } from './modules/referentielms/categorie-fournisseuur/categorie-fournisseuur.component';
+import { BanquueComponent } from './modules/referentielms/banquue/banquue.component';
+import { TypeAutoriteContractanteComponent } from './modules/referentielms/type-autorite-contractante/type-autorite-contractante.component';
+import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
+import { ConfigurationTauuxComponent } from './modules/referentielms/configuration-tauux/configuration-tauux.component';
+import { DirectionComponent } from './modules/referentielms/direction/direction.component';
+import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
 
 @NgModule({
   imports: [
@@ -45,10 +52,9 @@ import { PayysComponent } from './modules/referentielms/payys/payys.component';
         children: [
           {
             path: 'fonction',
-            loadChildren: () =>
-              import('./referentielms/fonction/fonction.module').then(m => m.ReferentielmsFonctionModule),
+            loadChildren: () => import('./referentielms/fonction/fonction.module').then(m => m.ReferentielmsFonctionModule),
           },
-        ]
+        ],
       },
       {
         path: 'payys',
@@ -56,10 +62,52 @@ import { PayysComponent } from './modules/referentielms/payys/payys.component';
         children: [
           {
             path: 'pays',
-            loadChildren: () =>
-              import('./referentielms/pays/pays.module').then(m => m.ReferentielmsPaysModule),
+            loadChildren: () => import('./referentielms/pays/pays.module').then(m => m.ReferentielmsPaysModule),
           },
-        ]
+        ],
+      },
+      {
+        path: 'type-autorite-contractante',
+        component: TypeAutoriteContractanteComponent,
+        children: [
+          {
+            path: 'type-autorite-contractante',
+            loadChildren: () =>
+              import('./referentielms/type-autorite-contractante/type-autorite-contractante.module').then(
+                m => m.ReferentielmsTypeAutoriteContractanteModule
+              ),
+          },
+        ],
+      },
+      {
+        path: 'banquue',
+        component: BanquueComponent,
+        children: [
+          {
+            path: 'banque',
+            loadChildren: () => import('./referentielms/banque/banque.module').then(m => m.ReferentielmsBanqueModule),
+          },
+        ],
+      },
+      {
+        path: 'categorie-fournisseuur',
+        component: CategorieFournisseuurComponent,
+        children: [
+          {
+            path: 'categorie-fournisseur',
+            loadChildren: () => import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(m => m.ReferentielmsCategorieFournisseurModule),
+          },
+        ],
+      },
+      {
+        path: 'mode-selectioon',
+        component: ModeSelectioonComponent,
+        children: [
+          {
+            path: 'mode-selection',
+            loadChildren: () => import('./referentielms/mode-selection/mode-selection.module').then(m => m.ReferentielmsModeSelectionModule),
+          },
+        ],
       },
       //fin ajout
       {
@@ -130,10 +178,30 @@ import { PayysComponent } from './modules/referentielms/payys/payys.component';
         path: 'fonction',
         loadChildren: () => import('./referentielms/fonction/fonction.module').then(m => m.ReferentielmsFonctionModule),
       },
+      {
+        path: 'banque',
+        loadChildren: () => import('./referentielms/banque/banque.module').then(m => m.ReferentielmsBanqueModule),
+      },
+      {
+        path: 'categorie-fournisseur',
+        loadChildren: () =>
+          import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(m => m.ReferentielmsCategorieFournisseurModule),
+      },
+      {
+        path: 'mode-selection',
+        loadChildren: () => import('./referentielms/mode-selection/mode-selection.module').then(m => m.ReferentielmsModeSelectionModule),
+      },
+      {
+        path: 'type-autorite-contractante',
+        loadChildren: () =>
+          import('./referentielms/type-autorite-contractante/type-autorite-contractante.module').then(
+            m => m.ReferentielmsTypeAutoriteContractanteModule
+          ),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
   ],
-  declarations: [FonctionnsComponent, PayysComponent],
+  declarations: [FonctionnsComponent, PayysComponent, CategorieFournisseuurComponent, BanquueComponent, TypeAutoriteContractanteComponent, ModeSelectioonComponent, ConfigurationTauuxComponent, DirectionComponent, DirectioonComponent],
 })
 export class GatewaysigmapEntityModule {}

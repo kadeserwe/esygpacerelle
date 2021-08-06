@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="modeSelection">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsModeSelection.detail.title">Mode Selection</span> {{ modeSelection.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsModeSelection.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ modeSelection.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsModeSelection.code">Code</span></dt>
+                <dd>
+                    <span>{{ modeSelection.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsModeSelection.description">Description</span></dt>
+                <dd>
+                    <span>{{ modeSelection.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mode-selection', modeSelection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

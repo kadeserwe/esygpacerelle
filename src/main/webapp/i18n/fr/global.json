@@ -22,6 +22,10 @@
         "planpassationmsConfTableRow": "Conf Table Row",
         "referentielmsPays": "Pays",
         "referentielmsFonction": "Fonction",
+        "referentielmsBanque": "Banque",
+        "referentielmsCategorieFournisseur": "Categorie Fournisseur",
+        "referentielmsModeSelection": "Mode Selection",
+        "referentielmsTypeAutoriteContractante": "Type Autorite Contractante",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,27 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsBanque": {
+      "home": {
+        "title": "Banques",
+        "createLabel": "Créer un nouveau Banque",
+        "createOrEditLabel": "Créer ou éditer un Banque",
+        "notFound": "Aucun Banque trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Banque {{ id }} ?"
+      },
+      "detail": {
+        "title": "Banque"
+      },
+      "libelle": "Libelle",
+      "sigle": "Sigle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsBanque": {
+      "created": "Un nouveau Banque a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Banque avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Banque avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

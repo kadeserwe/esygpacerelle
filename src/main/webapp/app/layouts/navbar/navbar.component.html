@@ -98,6 +98,21 @@
                                 <button class="dropdown-item" ngbDropdownToggle>Référentiel</button>
                                 <ul class="dropdown-menu" ngbDropdownMenu>
                                     <li>
+                                        <a class="dropdown-item" routerLink="banquue" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span jhiTranslate="global.menu.entities.referentielmsBanque">Banque</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="categorie-fournisseuur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span jhiTranslate="global.menu.entities.referentielmsCategorieFournisseur">Categorie Fournisseur</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="mode-selectioon" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span jhiTranslate="global.menu.entities.referentielmsModeSelection">Mode Selection</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" routerLink="fonctionns" routerLinkActive="active" (click)="collapseNavbar()">
                                             <span >Fonctions</span>
                                         </a>
@@ -107,6 +122,11 @@
                                 <span jhiTranslate="global.menu.entities.referentielmsPays">Pays</span>
                             </a>
                                 </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="type-autorite-contractante" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -114,102 +134,6 @@
 
 
                     </ul>
-
-
-
-                    <!--<div class="nav-item dropdown pointer" id="entity_sous_menu"> &lt;!&ndash; groupe de boutons &ndash;&gt;
-                        <button type="button" class="btn">Plan de passation</button>
-                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        </button>-->
-                  <!--  <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity_sous_menu">
-
-
-
-                        <a class="dropdown-item" routerLink="plan-passation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span >Plan Passation</span>
-                        </a>
-                        <a class="dropdown-item" routerLink="historique" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            &lt;!&ndash;                            <fa-icon icon="album" [fixedWidth]="true"></fa-icon>&ndash;&gt;
-                            <span >Historique</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="realisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span jhiTranslate="global.menu.entities.planpassationmsRealisation">Realisation</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="syg-service" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span > Service</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="syg-type-service" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span > Type Service</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="syg-type-marche" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span > Type Marche</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="syg-type-source-financement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span > Type Source Financement</span>
-                        </a>
-
-                        <a class="dropdown-item" routerLink="syg-source-financement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-
-                            <span > Source Financement</span>
-                        </a>
-
-                    <li>
-                        <a class="dropdown-item" routerLink="conf-gen-sequence" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.planpassationmsConfGenSequence">Conf Gen Sequence</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="syg-realisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.planpassationmsSygRealisation">Syg Realisation</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="conf-sequance-generator" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.planpassationmsConfSequanceGenerator">Conf Sequance Generator</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="conf-table-de-transaction" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.planpassationmsConfTableDeTransaction">Conf Table De Transaction</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="conf-table-row" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.planpassationmsConfTableRow">Conf Table Row</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="pays" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.referentielmsPays">Pays</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="fonction" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.referentielmsFonction">Fonction</span>
-                        </a>
-                    </li>
-                    &lt;!&ndash; jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here &ndash;&gt;
-
-                </div>-->
-
 
             </li>
 
