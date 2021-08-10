@@ -47,10 +47,38 @@ Logo styles
 }
 
 .dropdown-item{
-  background-color: #dbe0e0;
+  background-color: #cfe2e2;
   min-width: 182px;
   padding: 9px 12px;
 }
 
+
+
+
+a {
+  -webkit-transition: color 1s;
+  transition: color 1s;
+
+}
+a:hover
+{
+  background-color: #b8c7c7;
+  color: #2a8942;
+}
+
+button {
+  -webkit-transition: color 1s;
+  transition: color 1s;
+
+}
+button:hover
+{
+  background-color: #b8c7c7;
+  color: #2a8942;
+}
+
+.active {
+  color: #2a8942;
+}
 
 

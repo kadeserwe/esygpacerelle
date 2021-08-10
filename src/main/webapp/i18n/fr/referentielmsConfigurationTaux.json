@@ -1,0 +1,32 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsConfigurationTaux": {
+      "home": {
+        "title": "ConfigurationTauxes",
+        "createLabel": "Créer un nouveau Configuration Taux",
+        "createOrEditLabel": "Créer ou éditer un Configuration Taux",
+        "notFound": "Aucun Configuration Taux trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Configuration Taux {{ id }} ?"
+      },
+      "detail": {
+        "title": "Configuration Taux"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "taux": "Taux",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "invalid": "Invalid",
+      "paysA": "Pays A"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsConfigurationTaux": {
+      "created": "Un nouveau Configuration Taux a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Configuration Taux avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Configuration Taux avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

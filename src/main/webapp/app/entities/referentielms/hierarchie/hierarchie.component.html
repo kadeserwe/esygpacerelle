@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsHierarchie.home.title">Hierarchies</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hierarchie" [routerLink]="['/hierarchie/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewaysigmapApp.referentielmsHierarchie.home.createLabel">
+            Create a new Hierarchie
+            </span>
+        </button><br>
+
+    </h2>
+
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<jhi-alert-error></jhi-alert-error>-->
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="hierarchies?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsHierarchie.home.notFound">No hierarchies found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="hierarchies && hierarchies.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsHierarchie.libelle">Libelle</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hierarchie of hierarchies | filter:term">
+                    <td><a [routerLink]="['/hierarchie', hierarchie.id, 'view']">{{ hierarchie.id }}</a></td>
+                    <td>{{ hierarchie.libelle }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/hierarchie', hierarchie.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/hierarchie', hierarchie.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(hierarchie)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

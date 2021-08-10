@@ -26,6 +26,13 @@
         "referentielmsCategorieFournisseur": "Categorie Fournisseur",
         "referentielmsModeSelection": "Mode Selection",
         "referentielmsTypeAutoriteContractante": "Type Autorite Contractante",
+        "referentielmsHierarchie": "Hierarchie",
+        "referentielmsDirection": "Direction",
+        "referentielmsCriteresQualification": "Criteres Qualification",
+        "referentielmsPersonnesRessources": "Personnes Ressources",
+        "referentielmsSourcesFinancement": "Sources Financement",
+        "referentielmsPiecesAdministratives": "Pieces Administratives",
+        "referentielmsConfigurationTaux": "Configuration Taux",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

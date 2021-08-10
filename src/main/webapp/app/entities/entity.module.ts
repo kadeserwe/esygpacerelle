@@ -11,9 +11,13 @@ import { CategorieFournisseuurComponent } from './modules/referentielms/categori
 import { BanquueComponent } from './modules/referentielms/banquue/banquue.component';
 import { TypeAutoriteContractanteComponent } from './modules/referentielms/type-autorite-contractante/type-autorite-contractante.component';
 import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
-import { ConfigurationTauuxComponent } from './modules/referentielms/configuration-tauux/configuration-tauux.component';
-import { DirectionComponent } from './modules/referentielms/direction/direction.component';
 import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
+import { HierarchiieComponent } from './modules/referentielms/hierarchiie/hierarchiie.component';
+import { PersonnesRessourcesComponent } from './modules/referentielms/personnes-ressources/personnes-ressources.component';
+import { CriteresQualificatioonComponent } from './modules/referentielms/criteres-qualificatioon/criteres-qualificatioon.component';
+import { SourcesFinancemenntComponent } from './modules/referentielms/sources-financemennt/sources-financemennt.component';
+import { ConfigurationTauuxComponent } from './modules/referentielms/configuration-tauux/configuration-tauux.component';
+import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-administrativees/pieces-administrativees.component';
 
 @NgModule({
   imports: [
@@ -67,6 +71,52 @@ import { DirectioonComponent } from './modules/referentielms/directioon/directio
         ],
       },
       {
+        path: 'criteres-qualificatioon',
+        component: CriteresQualificatioonComponent,
+        children: [
+          {
+            path: 'criteres-qualification',
+            loadChildren: () =>
+              import('./referentielms/criteres-qualification/criteres-qualification.module').then(
+                m => m.ReferentielmsCriteresQualificationModule
+              ),
+          },
+        ],
+      },
+      {
+        path: 'directioon',
+        component: DirectioonComponent,
+        children: [
+          {
+            path: 'direction',
+            loadChildren: () => import('./referentielms/direction/direction.module').then(m => m.ReferentielmsDirectionModule),
+          },
+        ],
+      },
+      {
+        path: 'personnes-ressources',
+        component: PersonnesRessourcesComponent,
+        children: [
+          {
+            path: 'personnes-ressources',
+            loadChildren: () =>
+              import('./referentielms/personnes-ressources/personnes-ressources.module').then(
+                m => m.ReferentielmsPersonnesRessourcesModule
+              ),
+          },
+        ],
+      },
+      {
+        path: 'hierarchiie',
+        component: HierarchiieComponent,
+        children: [
+          {
+            path: 'hierarchie',
+            loadChildren: () => import('./referentielms/hierarchie/hierarchie.module').then(m => m.ReferentielmsHierarchieModule),
+          },
+        ],
+      },
+      {
         path: 'type-autorite-contractante',
         component: TypeAutoriteContractanteComponent,
         children: [
@@ -90,12 +140,39 @@ import { DirectioonComponent } from './modules/referentielms/directioon/directio
         ],
       },
       {
+        path: 'configuration-tauux',
+        component: ConfigurationTauuxComponent,
+        children: [
+          {
+            path: 'configuration-taux',
+            loadChildren: () =>
+              import('./referentielms/configuration-taux/configuration-taux.module').then(m => m.ReferentielmsConfigurationTauxModule),
+          },
+        ],
+      },
+      {
+        path: 'pieces-administrativees',
+        component: PiecesAdministrativeesComponent,
+        children: [
+          {
+            path: 'pieces-administratives',
+            loadChildren: () =>
+              import('./referentielms/pieces-administratives/pieces-administratives.module').then(
+                m => m.ReferentielmsPiecesAdministrativesModule
+              ),
+          },
+        ],
+      },
+      {
         path: 'categorie-fournisseuur',
         component: CategorieFournisseuurComponent,
         children: [
           {
             path: 'categorie-fournisseur',
-            loadChildren: () => import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(m => m.ReferentielmsCategorieFournisseurModule),
+            loadChildren: () =>
+              import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(
+                m => m.ReferentielmsCategorieFournisseurModule
+              ),
           },
         ],
       },
@@ -105,7 +182,19 @@ import { DirectioonComponent } from './modules/referentielms/directioon/directio
         children: [
           {
             path: 'mode-selection',
-            loadChildren: () => import('./referentielms/mode-selection/mode-selection.module').then(m => m.ReferentielmsModeSelectionModule),
+            loadChildren: () =>
+              import('./referentielms/mode-selection/mode-selection.module').then(m => m.ReferentielmsModeSelectionModule),
+          },
+        ],
+      },
+      {
+        path: 'sources-financemennt',
+        component: SourcesFinancemenntComponent,
+        children: [
+          {
+            path: 'sources-financement',
+            loadChildren: () =>
+              import('./referentielms/sources-financement/sources-financement.module').then(m => m.ReferentielmsSourcesFinancementModule),
           },
         ],
       },
@@ -198,10 +287,61 @@ import { DirectioonComponent } from './modules/referentielms/directioon/directio
             m => m.ReferentielmsTypeAutoriteContractanteModule
           ),
       },
+      {
+        path: 'hierarchie',
+        loadChildren: () => import('./referentielms/hierarchie/hierarchie.module').then(m => m.ReferentielmsHierarchieModule),
+      },
+      {
+        path: 'direction',
+        loadChildren: () => import('./referentielms/direction/direction.module').then(m => m.ReferentielmsDirectionModule),
+      },
+      {
+        path: 'criteres-qualification',
+        loadChildren: () =>
+          import('./referentielms/criteres-qualification/criteres-qualification.module').then(
+            m => m.ReferentielmsCriteresQualificationModule
+          ),
+      },
+      {
+        path: 'personnes-ressources',
+        loadChildren: () =>
+          import('./referentielms/personnes-ressources/personnes-ressources.module').then(m => m.ReferentielmsPersonnesRessourcesModule),
+      },
+      {
+        path: 'sources-financement',
+        loadChildren: () =>
+          import('./referentielms/sources-financement/sources-financement.module').then(m => m.ReferentielmsSourcesFinancementModule),
+      },
+      {
+        path: 'pieces-administratives',
+        loadChildren: () =>
+          import('./referentielms/pieces-administratives/pieces-administratives.module').then(
+            m => m.ReferentielmsPiecesAdministrativesModule
+          ),
+      },
+      {
+        path: 'configuration-taux',
+        loadChildren: () =>
+          import('./referentielms/configuration-taux/configuration-taux.module').then(m => m.ReferentielmsConfigurationTauxModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
   ],
-  declarations: [FonctionnsComponent, PayysComponent, CategorieFournisseuurComponent, BanquueComponent, TypeAutoriteContractanteComponent, ModeSelectioonComponent, ConfigurationTauuxComponent, DirectionComponent, DirectioonComponent],
+  declarations: [
+    FonctionnsComponent,
+    PayysComponent,
+    CategorieFournisseuurComponent,
+    BanquueComponent,
+    TypeAutoriteContractanteComponent,
+    ModeSelectioonComponent,
+    DirectioonComponent,
+    HierarchiieComponent,
+    PersonnesRessourcesComponent,
+    CriteresQualificatioonComponent,
+    SourcesFinancemenntComponent,
+    ConfigurationTauuxComponent,
+    PiecesAdministrativeesComponent,
+  ],
 })
 export class GatewaysigmapEntityModule {}

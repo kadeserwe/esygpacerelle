@@ -42,7 +42,7 @@
                         <li>
 
                         <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                            <button class="dropdown-item" ngbDropdownToggle>Plan de passation</button>
+                            <button class="dropdown-item" ngbDropdownToggle >Plan de passation</button>
                             <div class="dropdown-menu" ngbDropdownMenu>
 
                         <a class="dropdown-item" routerLink="plan-de-passation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
@@ -76,12 +76,12 @@
 
                         <a class="dropdown-item" routerLink="syg-type-source-financement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
 
-                            <span > Type Source Financement</span>
+                            <span> Type Source Financement</span>
                         </a>
 
                         <a class="dropdown-item" routerLink="syg-source-financement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
 
-                            <span > Source Financement</span>
+                            <span> Source Financement</span>
                         </a>
                         <a class="dropdown-item" routerLink="syg-realisation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <span jhiTranslate="global.menu.entities.planpassationmsSygRealisation">Syg Realisation</span>
@@ -100,6 +100,31 @@
                                     <li>
                                         <a class="dropdown-item" routerLink="banquue" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                             <span jhiTranslate="global.menu.entities.referentielmsBanque">Banque</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="configuration-tauux" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span >Configuration Taux</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="criteres-qualificatioon" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span>Critères Qualification</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="directioon" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span>Direction</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="hierarchiie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span>Hiérarchie</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="personnes-ressources" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span>Personnes Resources</span>
                                         </a>
                                     </li>
                                     <li>
@@ -122,6 +147,16 @@
                                 <span jhiTranslate="global.menu.entities.referentielmsPays">Pays</span>
                             </a>
                                 </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="pieces-administrativees" routerLinkActive="active" (click)="collapseNavbar()">
+                                            <span >Pièces Administratives</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="sources-financemennt" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                            <span>Sources Financement</span>
+                                        </a>
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" routerLink="type-autorite-contractante" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                             <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>

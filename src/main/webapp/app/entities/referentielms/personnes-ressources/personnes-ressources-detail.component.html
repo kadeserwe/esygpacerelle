@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personnesRessources">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.detail.title">Personnes Ressources</span> {{ personnesRessources.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.email">Email</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.fonction">Fonction</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.fonction }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.commentaires">Commentaires</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.commentaires }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/personnes-ressources', personnesRessources.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

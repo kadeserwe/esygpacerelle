@@ -1,0 +1,27 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsSourcesFinancement": {
+      "home": {
+        "title": "SourcesFinancements",
+        "createLabel": "Créer un nouveau Sources Financement",
+        "createOrEditLabel": "Créer ou éditer un Sources Financement",
+        "notFound": "Aucun Sources Financement trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sources Financement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sources Financement"
+      },
+      "libelle": "Libelle",
+      "type": "Type"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsSourcesFinancement": {
+      "created": "Un nouveau Sources Financement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sources Financement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sources Financement avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

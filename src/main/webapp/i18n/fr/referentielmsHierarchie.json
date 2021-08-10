@@ -1,0 +1,26 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsHierarchie": {
+      "home": {
+        "title": "Hierarchies",
+        "createLabel": "Créer un nouveau Hierarchie",
+        "createOrEditLabel": "Créer ou éditer un Hierarchie",
+        "notFound": "Aucun Hierarchie trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Hierarchie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hierarchie"
+      },
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsHierarchie": {
+      "created": "Un nouveau Hierarchie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hierarchie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hierarchie avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="piecesAdministratives">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.detail.title">Pieces Administratives</span> {{ piecesAdministratives.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.codePiece">Code Piece</span></dt>
+                <dd>
+                    <span>{{ piecesAdministratives.codePiece }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ piecesAdministratives.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.localisation">Localisation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewaysigmapApp.enumLocalisation.' + piecesAdministratives.localisation }}">{{ piecesAdministratives.localisation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.type">Type</span></dt>
+                <dd>
+                    <span>{{ piecesAdministratives.type }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

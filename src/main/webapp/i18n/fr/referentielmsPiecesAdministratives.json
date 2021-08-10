@@ -1,0 +1,29 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsPiecesAdministratives": {
+      "home": {
+        "title": "PiecesAdministratives",
+        "createLabel": "Créer un nouveau Pieces Administratives",
+        "createOrEditLabel": "Créer ou éditer un Pieces Administratives",
+        "notFound": "Aucun Pieces Administratives trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Pieces Administratives {{ id }} ?"
+      },
+      "detail": {
+        "title": "Pieces Administratives"
+      },
+      "codePiece": "Code Piece",
+      "libelle": "Libelle",
+      "localisation": "Localisation",
+      "type": "Type"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsPiecesAdministratives": {
+      "created": "Un nouveau Pieces Administratives a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Pieces Administratives avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Pieces Administratives avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

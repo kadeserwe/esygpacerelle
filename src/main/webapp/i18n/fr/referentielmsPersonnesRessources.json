@@ -1,0 +1,31 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsPersonnesRessources": {
+      "home": {
+        "title": "PersonnesRessources",
+        "createLabel": "Créer un nouveau Personnes Ressources",
+        "createOrEditLabel": "Créer ou éditer un Personnes Ressources",
+        "notFound": "Aucun Personnes Ressources trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Personnes Ressources {{ id }} ?"
+      },
+      "detail": {
+        "title": "Personnes Ressources"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "telephone": "Telephone",
+      "email": "Email",
+      "fonction": "Fonction",
+      "commentaires": "Commentaires"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsPersonnesRessources": {
+      "created": "Un nouveau Personnes Ressources a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Personnes Ressources avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Personnes Ressources avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}
