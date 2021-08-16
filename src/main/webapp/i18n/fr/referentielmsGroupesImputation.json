@@ -1,0 +1,27 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsGroupesImputation": {
+      "home": {
+        "title": "GroupesImputations",
+        "createLabel": "Créer un nouveau Groupes Imputation",
+        "createOrEditLabel": "Créer ou éditer un Groupes Imputation",
+        "notFound": "Aucun Groupes Imputation trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Groupes Imputation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Groupes Imputation"
+      },
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsGroupesImputation": {
+      "created": "Un nouveau Groupes Imputation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Groupes Imputation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Groupes Imputation avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="delais">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.detail.title">Delais</span> {{ delais.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ delais.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.code">Code</span></dt>
+                <dd>
+                    <span>{{ delais.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.unite">Unite</span></dt>
+                <dd>
+                    <span>{{ delais.unite }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.valeur">Valeur</span></dt>
+                <dd>
+                    <span>{{ delais.valeur }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.debutValidite">Debut Validite</span></dt>
+                <dd>
+                    <span>{{ delais.debutValidite }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.finValidite">Fin Validite</span></dt>
+                <dd>
+                    <span>{{ delais.finValidite }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.commentaires">Commentaires</span></dt>
+                <dd>
+                    <span>{{ delais.commentaires }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delais', delais.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

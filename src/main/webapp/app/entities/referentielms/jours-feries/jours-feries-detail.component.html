@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="joursFeries">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsJoursFeries.detail.title">Jours Feries</span> {{ joursFeries.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsJoursFeries.date">Date</span></dt>
+                <dd>
+                    <span>{{ joursFeries.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsJoursFeries.description">Description</span></dt>
+                <dd>
+                    <span>{{ joursFeries.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/jours-feries', joursFeries.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

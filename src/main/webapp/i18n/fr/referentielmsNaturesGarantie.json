@@ -1,0 +1,26 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsNaturesGarantie": {
+      "home": {
+        "title": "NaturesGaranties",
+        "createLabel": "Créer un nouveau Natures Garantie",
+        "createOrEditLabel": "Créer ou éditer un Natures Garantie",
+        "notFound": "Aucun Natures Garantie trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Natures Garantie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Natures Garantie"
+      },
+      "libelle": "Libelle"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsNaturesGarantie": {
+      "created": "Un nouveau Natures Garantie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Natures Garantie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Natures Garantie avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

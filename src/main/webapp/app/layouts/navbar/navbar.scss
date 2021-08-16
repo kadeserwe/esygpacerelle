@@ -16,11 +16,11 @@ Navbar
 }
 
 .navbar {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 3rem;
 
   ul.navbar-nav {
     .nav-item {
-      margin-left: 0.5em;
+      margin-left: 0.6em;
     }
   }
 
@@ -42,26 +42,21 @@ Logo styles
 }
 
 .dropdown:hover .dropdown-men {
-  display:block ;
+  display: block;
   margin-top: 0; // remove the gap so it doesn't close
 }
 
-.dropdown-item{
+.dropdown-item {
   background-color: #cfe2e2;
-  min-width: 182px;
-  padding: 9px 12px;
+  min-width: 170px;
+  padding: 9px 10px;
 }
-
-
-
 
 a {
   -webkit-transition: color 1s;
   transition: color 1s;
-
 }
-a:hover
-{
+a:hover {
   background-color: #b8c7c7;
   color: #2a8942;
 }
@@ -69,10 +64,8 @@ a:hover
 button {
   -webkit-transition: color 1s;
   transition: color 1s;
-
 }
-button:hover
-{
+button:hover {
   background-color: #b8c7c7;
   color: #2a8942;
 }
@@ -81,4 +74,8 @@ button:hover
   color: #2a8942;
 }
 
-
+.scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+}

@@ -18,6 +18,14 @@ import { CriteresQualificatioonComponent } from './modules/referentielms/critere
 import { SourcesFinancemenntComponent } from './modules/referentielms/sources-financemennt/sources-financemennt.component';
 import { ConfigurationTauuxComponent } from './modules/referentielms/configuration-tauux/configuration-tauux.component';
 import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-administrativees/pieces-administrativees.component';
+import { DelaisComponent } from './modules/referentielms/delais/delais.component';
+import { JoursFeriesComponent } from './modules/referentielms/jours-feries/jours-feries.component';
+import { GroupesImputationComponent } from './modules/referentielms/groupes-imputation/groupes-imputation.component';
+import { TypesMarchesComponent } from './modules/referentielms/types-marches/types-marches.component';
+import { DepartementComponent } from './modules/referentielms/departement/departement.component';
+import { SpecialitesPersonnelComponent } from './modules/referentielms/specialites-personnel/specialites-personnel.component';
+import { NaturesGarantieComponent } from './modules/referentielms/natures-garantie/natures-garantie.component';
+import { GarantieComponent } from './modules/referentielms/garantie/garantie.component';
 
 @NgModule({
   imports: [
@@ -67,6 +75,91 @@ import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-
           {
             path: 'pays',
             loadChildren: () => import('./referentielms/pays/pays.module').then(m => m.ReferentielmsPaysModule),
+          },
+        ],
+      },
+      {
+        path: 'delais',
+        component: DelaisComponent,
+        children: [
+          {
+            path: 'delais',
+            loadChildren: () => import('./referentielms/delais/delais.module').then(m => m.ReferentielmsDelaisModule),
+          },
+        ],
+      },
+      {
+        path: 'departement',
+        component: DepartementComponent,
+        children: [
+          {
+            path: 'departement',
+            loadChildren: () => import('./referentielms/departement/departement.module').then(m => m.ReferentielmsDepartementModule),
+          },
+        ],
+      },
+      {
+        path: 'garantie',
+        component: GarantieComponent,
+        children: [
+          {
+            path: 'garantie',
+            loadChildren: () => import('./referentielms/garantie/garantie.module').then(m => m.ReferentielmsGarantieModule),
+          },
+        ],
+      },
+      {
+        path: 'natures-garantie',
+        component: NaturesGarantieComponent,
+        children: [
+          {
+            path: 'natures-garantie',
+            loadChildren: () =>
+              import('./referentielms/natures-garantie/natures-garantie.module').then(m => m.ReferentielmsNaturesGarantieModule),
+          },
+        ],
+      },
+      {
+        path: 'jours-feries',
+        component: JoursFeriesComponent,
+        children: [
+          {
+            path: 'jours-feries',
+            loadChildren: () => import('./referentielms/jours-feries/jours-feries.module').then(m => m.ReferentielmsJoursFeriesModule),
+          },
+        ],
+      },
+      {
+        path: 'groupes-imputation',
+        component: GroupesImputationComponent,
+        children: [
+          {
+            path: 'groupes-imputation',
+            loadChildren: () =>
+              import('./referentielms/groupes-imputation/groupes-imputation.module').then(m => m.ReferentielmsGroupesImputationModule),
+          },
+        ],
+      },
+      {
+        path: 'specialites-personnel',
+        component: SpecialitesPersonnelComponent,
+        children: [
+          {
+            path: 'specialites-personnel',
+            loadChildren: () =>
+              import('./referentielms/specialites-personnel/specialites-personnel.module').then(
+                m => m.ReferentielmsSpecialitesPersonnelModule
+              ),
+          },
+        ],
+      },
+      {
+        path: 'types-marches',
+        component: TypesMarchesComponent,
+        children: [
+          {
+            path: 'types-marches',
+            loadChildren: () => import('./referentielms/types-marches/types-marches.module').then(m => m.ReferentielmsTypesMarchesModule),
           },
         ],
       },
@@ -324,6 +417,41 @@ import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-
         loadChildren: () =>
           import('./referentielms/configuration-taux/configuration-taux.module').then(m => m.ReferentielmsConfigurationTauxModule),
       },
+      {
+        path: 'departement',
+        loadChildren: () => import('./referentielms/departement/departement.module').then(m => m.ReferentielmsDepartementModule),
+      },
+      {
+        path: 'groupes-imputation',
+        loadChildren: () =>
+          import('./referentielms/groupes-imputation/groupes-imputation.module').then(m => m.ReferentielmsGroupesImputationModule),
+      },
+      {
+        path: 'jours-feries',
+        loadChildren: () => import('./referentielms/jours-feries/jours-feries.module').then(m => m.ReferentielmsJoursFeriesModule),
+      },
+      {
+        path: 'delais',
+        loadChildren: () => import('./referentielms/delais/delais.module').then(m => m.ReferentielmsDelaisModule),
+      },
+      {
+        path: 'types-marches',
+        loadChildren: () => import('./referentielms/types-marches/types-marches.module').then(m => m.ReferentielmsTypesMarchesModule),
+      },
+      {
+        path: 'specialites-personnel',
+        loadChildren: () =>
+          import('./referentielms/specialites-personnel/specialites-personnel.module').then(m => m.ReferentielmsSpecialitesPersonnelModule),
+      },
+      {
+        path: 'garantie',
+        loadChildren: () => import('./referentielms/garantie/garantie.module').then(m => m.ReferentielmsGarantieModule),
+      },
+      {
+        path: 'natures-garantie',
+        loadChildren: () =>
+          import('./referentielms/natures-garantie/natures-garantie.module').then(m => m.ReferentielmsNaturesGarantieModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
@@ -342,6 +470,14 @@ import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-
     SourcesFinancemenntComponent,
     ConfigurationTauuxComponent,
     PiecesAdministrativeesComponent,
+    DelaisComponent,
+    JoursFeriesComponent,
+    GroupesImputationComponent,
+    TypesMarchesComponent,
+    DepartementComponent,
+    SpecialitesPersonnelComponent,
+    NaturesGarantieComponent,
+    GarantieComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}

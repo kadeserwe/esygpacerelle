@@ -33,6 +33,14 @@
         "referentielmsSourcesFinancement": "Sources Financement",
         "referentielmsPiecesAdministratives": "Pieces Administratives",
         "referentielmsConfigurationTaux": "Configuration Taux",
+        "referentielmsDepartement": "Departement",
+        "referentielmsDelais": "Delais",
+        "referentielmsGroupesImputation": "Groupes Imputation",
+        "referentielmsJoursFeries": "Jours Feries",
+        "referentielmsTypesMarches": "Types Marches",
+        "referentielmsSpecialitesPersonnel": "Specialites Personnel",
+        "referentielmsGarantie": "Garantie",
+        "referentielmsNaturesGarantie": "Natures Garantie",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
