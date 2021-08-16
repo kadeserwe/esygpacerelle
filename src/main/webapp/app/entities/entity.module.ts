@@ -11,7 +11,8 @@ import { CategorieFournisseuurComponent } from './modules/referentielms/categori
 import { BanquueComponent } from './modules/referentielms/banquue/banquue.component';
 import { TypeAutoriteContractanteComponent } from './modules/referentielms/type-autorite-contractante/type-autorite-contractante.component';
 import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
-import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
+//modifier
+import {  DirectioonComponent  } from './modules/referentielms/directioon/directioon.component';
 import { HierarchiieComponent } from './modules/referentielms/hierarchiie/hierarchiie.component';
 import { PersonnesRessourcesComponent } from './modules/referentielms/personnes-ressources/personnes-ressources.component';
 import { CriteresQualificatioonComponent } from './modules/referentielms/criteres-qualificatioon/criteres-qualificatioon.component';
