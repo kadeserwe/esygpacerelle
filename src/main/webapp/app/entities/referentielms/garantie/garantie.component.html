@@ -52,22 +52,19 @@
                         <div class="btn-group">
                             <button type="submit"
                                     [routerLink]="['/garantie', garantie.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
                                     [routerLink]="['/garantie', garantie.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(garantie)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>
                     </td>

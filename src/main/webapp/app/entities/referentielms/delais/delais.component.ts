@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IDelais } from 'app/shared/model/referentielms/delais.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DelaisService } from './delais.service';
 import { DelaisDeleteDialogComponent } from './delais-delete-dialog.component';
 
@@ -25,6 +25,9 @@ export class DelaisComponent implements OnInit, OnDestroy {
   ascending!: boolean;
   ngbPaginationPage = 1;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected delaisService: DelaisService,

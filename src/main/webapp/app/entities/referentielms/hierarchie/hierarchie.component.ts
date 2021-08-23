@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IHierarchie } from 'app/shared/model/referentielms/hierarchie.model';
 import { HierarchieService } from './hierarchie.service';
 import { HierarchieDeleteDialogComponent } from './hierarchie-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-hierarchie',
@@ -16,6 +17,9 @@ export class HierarchieComponent implements OnInit, OnDestroy {
   hierarchies?: IHierarchie[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(protected hierarchieService: HierarchieService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
 

@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IDepartement } from 'app/shared/model/referentielms/departement.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DepartementService } from './departement.service';
 import { DepartementDeleteDialogComponent } from './departement-delete-dialog.component';
 
@@ -23,6 +23,9 @@ export class DepartementComponent implements OnInit, OnDestroy {
   page!: number;
   predicate!: string;
   ascending!: boolean;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   ngbPaginationPage = 1;
   term: any;
 

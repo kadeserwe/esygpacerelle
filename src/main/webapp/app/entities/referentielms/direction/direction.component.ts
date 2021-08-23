@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IDirection } from 'app/shared/model/referentielms/direction.model';
 import { DirectionService } from './direction.service';
 import { DirectionDeleteDialogComponent } from './direction-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-direction',
@@ -16,6 +17,9 @@ export class DirectionComponent implements OnInit, OnDestroy {
   directions?: IDirection[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(protected directionService: DirectionService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
 

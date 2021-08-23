@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IGarantie } from 'app/shared/model/referentielms/garantie.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { GarantieService } from './garantie.service';
 import { GarantieDeleteDialogComponent } from './garantie-delete-dialog.component';
 
@@ -17,6 +17,10 @@ import { GarantieDeleteDialogComponent } from './garantie-delete-dialog.componen
 })
 export class GarantieComponent implements OnInit, OnDestroy {
   garanties?: IGarantie[];
+
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;

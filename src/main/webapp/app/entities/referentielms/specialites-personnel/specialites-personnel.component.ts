@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ISpecialitesPersonnel } from 'app/shared/model/referentielms/specialites-personnel.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { SpecialitesPersonnelService } from './specialites-personnel.service';
 import { SpecialitesPersonnelDeleteDialogComponent } from './specialites-personnel-delete-dialog.component';
 
@@ -19,6 +19,9 @@ export class SpecialitesPersonnelComponent implements OnInit, OnDestroy {
   specialitesPersonnels?: ISpecialitesPersonnel[];
   eventSubscriber?: Subscription;
   totalItems = 0;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;

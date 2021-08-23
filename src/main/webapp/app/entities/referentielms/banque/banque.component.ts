@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IBanque } from 'app/shared/model/referentielms/banque.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { BanqueService } from './banque.service';
 import { BanqueDeleteDialogComponent } from './banque-delete-dialog.component';
 
@@ -21,6 +21,9 @@ export class BanqueComponent implements OnInit, OnDestroy {
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;

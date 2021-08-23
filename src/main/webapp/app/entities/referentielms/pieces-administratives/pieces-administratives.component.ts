@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IPiecesAdministratives } from 'app/shared/model/referentielms/pieces-administratives.model';
 import { PiecesAdministrativesService } from './pieces-administratives.service';
 import { PiecesAdministrativesDeleteDialogComponent } from './pieces-administratives-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-pieces-administratives',
@@ -15,7 +16,10 @@ import { PiecesAdministrativesDeleteDialogComponent } from './pieces-administrat
 export class PiecesAdministrativesComponent implements OnInit, OnDestroy {
   piecesAdministratives?: IPiecesAdministratives[];
   eventSubscriber?: Subscription;
-  term:any;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected piecesAdministrativesService: PiecesAdministrativesService,

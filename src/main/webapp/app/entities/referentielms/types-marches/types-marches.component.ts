@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ITypesMarches } from 'app/shared/model/referentielms/types-marches.model';
 import { TypesMarchesService } from './types-marches.service';
 import { TypesMarchesDeleteDialogComponent } from './types-marches-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-types-marches',
@@ -16,6 +17,9 @@ export class TypesMarchesComponent implements OnInit, OnDestroy {
   typesMarches?: ITypesMarches[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected typesMarchesService: TypesMarchesService,

@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IConfigurationTaux } from 'app/shared/model/referentielms/configuration-taux.model';
 import { ConfigurationTauxService } from './configuration-taux.service';
 import { ConfigurationTauxDeleteDialogComponent } from './configuration-taux-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-configuration-taux',
@@ -16,6 +17,9 @@ export class ConfigurationTauxComponent implements OnInit, OnDestroy {
   configurationTauxes?: IConfigurationTaux[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected configurationTauxService: ConfigurationTauxService,

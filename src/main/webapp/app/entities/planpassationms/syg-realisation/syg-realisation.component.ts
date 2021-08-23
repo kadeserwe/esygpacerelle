@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ISygRealisation } from 'app/shared/model/planpassationms/syg-realisation.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { SygRealisationService } from './syg-realisation.service';
 import { SygRealisationDeleteDialogComponent } from './syg-realisation-delete-dialog.component';
 
@@ -22,6 +22,9 @@ export class SygRealisationComponent implements OnInit, OnDestroy {
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   ascending!: boolean;
   ngbPaginationPage = 1;
 

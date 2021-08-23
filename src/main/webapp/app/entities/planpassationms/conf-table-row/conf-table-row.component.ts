@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IConfTableRow } from 'app/shared/model/planpassationms/conf-table-row.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { ConfTableRowService } from './conf-table-row.service';
 import { ConfTableRowDeleteDialogComponent } from './conf-table-row-delete-dialog.component';
 
@@ -23,6 +23,9 @@ export class ConfTableRowComponent implements OnInit, OnDestroy {
   page!: number;
   predicate!: string;
   ascending!: boolean;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   ngbPaginationPage = 1;
 
   constructor(

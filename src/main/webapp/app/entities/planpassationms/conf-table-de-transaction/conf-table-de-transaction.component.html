@@ -62,9 +62,9 @@
                         <div class="btn-group">
                             <button type="submit"
                                     [routerLink]="['/conf-table-de-transaction', confTableDeTransaction.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+
                             </button>
                         </div>
                     </td>

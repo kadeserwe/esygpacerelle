@@ -15,6 +15,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     GatewaysigmapHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewaysigmapEntityModule,
+    MatProgressBarModule,
     GatewaysigmapAppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],

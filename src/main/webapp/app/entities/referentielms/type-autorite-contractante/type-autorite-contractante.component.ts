@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ITypeAutoriteContractante } from 'app/shared/model/referentielms/type-autorite-contractante.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { TypeAutoriteContractanteService } from './type-autorite-contractante.service';
 import { TypeAutoriteContractanteDeleteDialogComponent } from './type-autorite-contractante-delete-dialog.component';
 
@@ -24,6 +24,9 @@ export class TypeAutoriteContractanteComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   term: any;
 
   constructor(

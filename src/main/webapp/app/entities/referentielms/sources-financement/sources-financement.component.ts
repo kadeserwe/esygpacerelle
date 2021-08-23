@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ISourcesFinancement } from 'app/shared/model/referentielms/sources-financement.model';
 import { SourcesFinancementService } from './sources-financement.service';
 import { SourcesFinancementDeleteDialogComponent } from './sources-financement-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-sources-financement',
@@ -16,6 +17,9 @@ export class SourcesFinancementComponent implements OnInit, OnDestroy {
   sourcesFinancements?: ISourcesFinancement[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected sourcesFinancementService: SourcesFinancementService,

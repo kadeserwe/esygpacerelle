@@ -7,7 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IJoursFeries } from 'app/shared/model/referentielms/jours-feries.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { JoursFeriesService } from './jours-feries.service';
 import { JoursFeriesDeleteDialogComponent } from './jours-feries-delete-dialog.component';
 
@@ -22,6 +22,10 @@ export class JoursFeriesComponent implements OnInit, OnDestroy {
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
+
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   ascending!: boolean;
   ngbPaginationPage = 1;
   term: any;

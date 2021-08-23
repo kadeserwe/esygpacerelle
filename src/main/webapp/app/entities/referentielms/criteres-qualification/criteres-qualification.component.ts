@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ICriteresQualification } from 'app/shared/model/referentielms/criteres-qualification.model';
 import { CriteresQualificationService } from './criteres-qualification.service';
 import { CriteresQualificationDeleteDialogComponent } from './criteres-qualification-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-criteres-qualification',
@@ -16,6 +17,9 @@ export class CriteresQualificationComponent implements OnInit, OnDestroy {
   criteresQualifications?: ICriteresQualification[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected criteresQualificationService: CriteresQualificationService,

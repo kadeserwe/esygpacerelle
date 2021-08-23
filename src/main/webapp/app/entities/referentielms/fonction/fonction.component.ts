@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IFonction } from 'app/shared/model/referentielms/fonction.model';
 import { FonctionService } from './fonction.service';
 import { FonctionDeleteDialogComponent } from './fonction-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-fonction',
@@ -15,9 +16,11 @@ import { FonctionDeleteDialogComponent } from './fonction-delete-dialog.componen
 export class FonctionComponent implements OnInit, OnDestroy {
   fonctions?: IFonction[];
   eventSubscriber?: Subscription;
- //Ajout des attributs suivants:
+  //Ajout des attributs suivants:
   term: any;
-
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(protected fonctionService: FonctionService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
 

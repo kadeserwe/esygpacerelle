@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IPersonnesRessources } from 'app/shared/model/referentielms/personnes-ressources.model';
 import { PersonnesRessourcesService } from './personnes-ressources.service';
 import { PersonnesRessourcesDeleteDialogComponent } from './personnes-ressources-delete-dialog.component';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-personnes-ressources',
@@ -16,6 +17,9 @@ export class PersonnesRessourcesComponent implements OnInit, OnDestroy {
   personnesRessources?: IPersonnesRessources[];
   eventSubscriber?: Subscription;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected personnesRessourcesService: PersonnesRessourcesService,

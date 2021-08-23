@@ -11,7 +11,7 @@ import { banqueRoute } from './banque.route';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
-  imports: [GatewaysigmapSharedModule,Ng2SearchPipeModule, RouterModule.forChild(banqueRoute)],
+  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(banqueRoute)],
   declarations: [BanqueComponent, BanqueDetailComponent, BanqueUpdateComponent, BanqueDeleteDialogComponent],
   entryComponents: [BanqueDeleteDialogComponent],
 })

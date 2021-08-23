@@ -6,7 +6,7 @@ import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { IConfTableDeTransaction } from 'app/shared/model/planpassationms/conf-table-de-transaction.model';
 
-import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { BOUTON_DETAILS, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { ConfTableDeTransactionService } from './conf-table-de-transaction.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class ConfTableDeTransactionComponent implements OnInit, OnDestroy {
   page!: number;
   predicate!: string;
   ascending!: boolean;
+  btnDetails = BOUTON_DETAILS;
   ngbPaginationPage = 1;
 
   constructor(
