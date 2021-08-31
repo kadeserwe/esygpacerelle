@@ -290,7 +290,11 @@ ngb-alert {
   display: block;
 }
 
-.h5::after {
+.fff::after {
   content: '\A\A\A\A\A\A\A\A\A\A\A\A\A\A\A\A';
+  white-space: pre;
+}
+.ff::after {
+  content: '\A\A\A\A\A\A\A';
   white-space: pre;
 }
