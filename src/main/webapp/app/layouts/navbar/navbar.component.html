@@ -374,6 +374,17 @@
                     <span>Types Marchés</span>
                   </a>
                 </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="fournisseur"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="collapseNavbar()"
+                  >
+                    <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>

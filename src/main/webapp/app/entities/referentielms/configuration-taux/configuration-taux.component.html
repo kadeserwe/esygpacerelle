@@ -57,7 +57,7 @@
                     <td>{{ configurationTaux.invalid }}</td>
                     <td>
                         <div *ngIf="configurationTaux.paysA">
-                            <a [routerLink]="['/pays', configurationTaux.paysA?.id, 'view']" >{{ configurationTaux.paysA?.id }}</a>
+                            <a [routerLink]="['/pays', configurationTaux.paysA?.id, 'view']" >{{ configurationTaux.paysA?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">

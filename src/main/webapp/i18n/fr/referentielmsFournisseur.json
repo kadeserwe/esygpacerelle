@@ -1,0 +1,37 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsFournisseur": {
+      "home": {
+        "title": "Fournisseurs",
+        "createLabel": "Créer un nouveau Fournisseur",
+        "createOrEditLabel": "Créer ou éditer un Fournisseur",
+        "notFound": "Aucun Fournisseur trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fournisseur"
+      },
+      "raisonSociale": "Raison Sociale",
+      "adresse": "Adresse",
+      "email": "Email",
+      "fax": "Fax",
+      "telephone": "Telephone",
+      "pieceJointe": "Piece Jointe",
+      "numeroRegistreCommerce": "Numero Registre Commerce",
+      "date": "Date",
+      "sigle": "Sigle",
+      "numeroIdentiteFiscale": "Numero Identite Fiscale",
+      "categorieFournisseur": "Categorie Fournisseur",
+      "pays": "Pays"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsFournisseur": {
+      "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -75,7 +75,7 @@
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.paysA" for="field_paysA">Pays A</label>
                     <select class="form-control" id="field_paysA" name="paysA" formControlName="paysA">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="paysOption.id === editForm.get('paysA')!.value?.id ? editForm.get('paysA')!.value : paysOption" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.id }}</option>
+                        <option [ngValue]="paysOption.id === editForm.get('paysA')!.value?.id ? editForm.get('paysA')!.value : paysOption" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.libelle }}</option>
                     </select>
                 </div>
             </div>

@@ -41,6 +41,7 @@
         "referentielmsSpecialitesPersonnel": "Specialites Personnel",
         "referentielmsGarantie": "Garantie",
         "referentielmsNaturesGarantie": "Natures Garantie",
+        "referentielmsFournisseur": "Fournisseur",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -12,7 +12,7 @@ import { BanquueComponent } from './modules/referentielms/banquue/banquue.compon
 import { TypeAutoriteContractanteComponent } from './modules/referentielms/type-autorite-contractante/type-autorite-contractante.component';
 import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
 //modifier
-import {  DirectioonComponent  } from './modules/referentielms/directioon/directioon.component';
+import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
 import { HierarchiieComponent } from './modules/referentielms/hierarchiie/hierarchiie.component';
 import { PersonnesRessourcesComponent } from './modules/referentielms/personnes-ressources/personnes-ressources.component';
 import { CriteresQualificatioonComponent } from './modules/referentielms/criteres-qualificatioon/criteres-qualificatioon.component';
@@ -27,6 +27,7 @@ import { DepartementComponent } from './modules/referentielms/departement/depart
 import { SpecialitesPersonnelComponent } from './modules/referentielms/specialites-personnel/specialites-personnel.component';
 import { NaturesGarantieComponent } from './modules/referentielms/natures-garantie/natures-garantie.component';
 import { GarantieComponent } from './modules/referentielms/garantie/garantie.component';
+import { FournisseurComponent } from './modules/referentielms/fournisseur/fournisseur.component';
 
 @NgModule({
   imports: [
@@ -292,6 +293,16 @@ import { GarantieComponent } from './modules/referentielms/garantie/garantie.com
           },
         ],
       },
+      {
+        path: 'fournisseur',
+        component: FournisseurComponent,
+        children: [
+          {
+            path: 'fournisseur',
+            loadChildren: () => import('./referentielms/fournisseur/fournisseur.module').then(m => m.ReferentielmsFournisseurModule),
+          },
+        ],
+      },
       //fin ajout
       {
         path: 'realisation',
@@ -453,6 +464,10 @@ import { GarantieComponent } from './modules/referentielms/garantie/garantie.com
         loadChildren: () =>
           import('./referentielms/natures-garantie/natures-garantie.module').then(m => m.ReferentielmsNaturesGarantieModule),
       },
+      {
+        path: 'fournisseur',
+        loadChildren: () => import('./referentielms/fournisseur/fournisseur.module').then(m => m.ReferentielmsFournisseurModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
@@ -479,6 +494,7 @@ import { GarantieComponent } from './modules/referentielms/garantie/garantie.com
     SpecialitesPersonnelComponent,
     NaturesGarantieComponent,
     GarantieComponent,
+    FournisseurComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}
