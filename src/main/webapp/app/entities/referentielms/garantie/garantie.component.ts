@@ -105,7 +105,7 @@ export class GarantieComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/garantie'], {
+      this.router.navigate(['/garantiie/garantie'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

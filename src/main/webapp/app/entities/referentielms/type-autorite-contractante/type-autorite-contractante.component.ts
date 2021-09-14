@@ -104,7 +104,7 @@ export class TypeAutoriteContractanteComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/type-autorite-contractante'], {
+      this.router.navigate(['/type-autorite-contractantee/type-autorite-contractante'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,
