@@ -1,0 +1,133 @@
+<div _ngcontent-aay-c151="">
+
+    <div >
+        <div role="alert" class="alert alert-success">
+            <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES AUTORITÉS CONTRACTANTES</strong></marquee></h3>
+            <br/>
+        </div>
+    </div>
+</div>
+
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Autorités Contractantes</span>
+
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-syg-autorite-contractante" [routerLink]="['/autorite-contractante/syg-autorite-contractante/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
+    </div>
+
+
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sygAutoriteContractantes?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.home.notFound">No sygAutoriteContractantes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sygAutoriteContractantes && sygAutoriteContractantes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+              <!--      <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ordre"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.ordre">Ordre</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="denomination"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.denomination">Dénomination</span><fa-icon icon="sort"></fa-icon> </th>
+                    <th scope="col"  jhiSortBy="typeAutoriteContractante.id"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.typeAutoriteContractante">Type Autorité Contractante</span><fa-icon icon="sort"></fa-icon> </th>
+                 <!--   <th scope="col"  jhiSortBy="responsable"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.responsable">Responsable</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fax"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.fax">Fax</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sigle"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.sigle">Sigle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="urlsiteweb"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.urlsiteweb">Urlsiteweb</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="approbation"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.approbation">Approbation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="logo"><span jhiTranslate="gatewaysigmapApp.referentielmsSygAutoriteContractante.logo">Logo</span> <fa-icon icon="sort"></fa-icon></th>
+
+                    -->
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sygAutoriteContractante of sygAutoriteContractantes  | filter:term ">
+                    <td>{{ sygAutoriteContractante.denomination }}</td>
+                  <!--  <td><a [routerLink]="['autorite-contractante/syg-autorite-contractante', sygAutoriteContractante.id, 'view']">{{ sygAutoriteContractante.id }}</a></td>
+                    <td>{{ sygAutoriteContractante.ordre }}</td>
+                    <td>{{ sygAutoriteContractante.responsable }}</td>
+                    <td>{{ sygAutoriteContractante.adresse }}</td>
+                    <td>{{ sygAutoriteContractante.telephone }}</td>
+                    <td>{{ sygAutoriteContractante.fax }}</td>
+                    <td>{{ sygAutoriteContractante.email }}</td>
+                    <td>{{ sygAutoriteContractante.sigle }}</td>
+                    <td>{{ sygAutoriteContractante.urlsiteweb }}</td>
+                    <td>{{ sygAutoriteContractante.approbation }}</td>
+                    <td>
+                        <a *ngIf="sygAutoriteContractante.logo" (click)="openFile(sygAutoriteContractante.logoContentType, sygAutoriteContractante.logo)">
+                            <img [src]="'data:' + sygAutoriteContractante.logoContentType + ';base64,' + sygAutoriteContractante.logo" style="max-height: 30px;" alt="sygAutoriteContractante image"/>
+                        </a>
+                        <span *ngIf="sygAutoriteContractante.logo">{{ sygAutoriteContractante.logoContentType }}, {{ byteSize(sygAutoriteContractante.logo) }}</span>
+                    </td> -->
+                    <td>
+                        <div *ngIf="sygAutoriteContractante.typeAutoriteContractante">
+                            <p [routerLink]="['/type-autorite-contractante/type-autorite-contractante', sygAutoriteContractante.typeAutoriteContractante?.id, 'view']" >{{ sygAutoriteContractante.typeAutoriteContractante?.libelle }}</p>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/autorite-contractante/syg-autorite-contractante', sygAutoriteContractante.id, 'view']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/autorite-contractante/syg-autorite-contractante', sygAutoriteContractante.id, 'edit']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt" style="color: #17a2b8" ></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(sygAutoriteContractante)"
+                                    class="btn  btn-sm"  [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="sygAutoriteContractantes && sygAutoriteContractantes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+

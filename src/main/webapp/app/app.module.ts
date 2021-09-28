@@ -15,6 +15,8 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from 'app/loader/interceptor.service';
 
 @NgModule({
   imports: [
@@ -28,6 +30,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     GatewaysigmapAppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [MainComponent],
 })
 export class GatewaysigmapAppModule {}

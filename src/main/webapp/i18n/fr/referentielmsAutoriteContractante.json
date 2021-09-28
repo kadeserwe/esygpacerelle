@@ -1,0 +1,37 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsAutoriteContractante": {
+      "home": {
+        "title": "AutoriteContractantes",
+        "createLabel": "Créer un nouveau Autorite Contractante",
+        "createOrEditLabel": "Créer ou éditer un Autorite Contractante",
+        "notFound": "Aucun Autorite Contractante trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Autorite Contractante {{ id }} ?"
+      },
+      "detail": {
+        "title": "Autorite Contractante"
+      },
+      "ordre": "Ordre",
+      "denomination": "Denomination",
+      "responsable": "Responsable",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "fax": "Fax",
+      "email": "Email",
+      "sigle": "Sigle",
+      "urlsiteweb": "Urlsiteweb",
+      "approbation": "Approbation",
+      "logo": "Logo",
+      "type": "Type"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsAutoriteContractante": {
+      "created": "Un nouveau Autorite Contractante a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Autorite Contractante avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Autorite Contractante avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

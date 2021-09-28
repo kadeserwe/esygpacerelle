@@ -8,11 +8,10 @@ import { TypeAutoriteContractanteUpdateComponent } from './type-autorite-contrac
 import { TypeAutoriteContractanteDeleteDialogComponent } from './type-autorite-contractante-delete-dialog.component';
 import { typeAutoriteContractanteRoute } from './type-autorite-contractante.route';
 
-//Ajouter
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
-  imports: [GatewaysigmapSharedModule,Ng2SearchPipeModule, RouterModule.forChild(typeAutoriteContractanteRoute)],
+  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(typeAutoriteContractanteRoute)],
   declarations: [
     TypeAutoriteContractanteComponent,
     TypeAutoriteContractanteDetailComponent,

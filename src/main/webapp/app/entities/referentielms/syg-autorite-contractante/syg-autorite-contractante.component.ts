@@ -2,59 +2,62 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IBanque } from 'app/shared/model/referentielms/banque.model';
+import { ISygAutoriteContractante } from 'app/shared/model/referentielms/syg-autorite-contractante.model';
 
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
-import { BanqueService } from './banque.service';
-import { BanqueDeleteDialogComponent } from './banque-delete-dialog.component';
+import { SygAutoriteContractanteService } from './syg-autorite-contractante.service';
+import { SygAutoriteContractanteDeleteDialogComponent } from './syg-autorite-contractante-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
-  selector: 'jhi-banque',
-  templateUrl: './banque.component.html',
+  selector: 'jhi-syg-autorite-contractante',
+  templateUrl: './syg-autorite-contractante.component.html',
 })
-export class BanqueComponent implements OnInit, OnDestroy {
-  banques?: IBanque[];
+export class SygAutoriteContractanteComponent implements OnInit, OnDestroy {
+  sygAutoriteContractantes?: ISygAutoriteContractante[];
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
   term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
-    protected banqueService: BanqueService,
+    protected sygAutoriteContractanteService: SygAutoriteContractanteService,
     protected activatedRoute: ActivatedRoute,
+    protected dataUtils: JhiDataUtils,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {
     const pageToLoad: number = page || this.page || 1;
 
-    this.banqueService
+    this.sygAutoriteContractanteService
       .query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
         sort: this.sort(),
       })
       .subscribe(
-        (res: HttpResponse<IBanque[]>) => this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate),
+        (res: HttpResponse<ISygAutoriteContractante[]>) => this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate),
         () => this.onError()
       );
   }
 
   ngOnInit(): void {
     this.handleNavigation();
-    this.registerChangeInBanques();
+    this.registerChangeInSygAutoriteContractantes();
   }
 
   protected handleNavigation(): void {
@@ -78,18 +81,26 @@ export class BanqueComponent implements OnInit, OnDestroy {
     }
   }
 
-  trackId(index: number, item: IBanque): number {
+  trackId(index: number, item: ISygAutoriteContractante): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
 
-  registerChangeInBanques(): void {
-    this.eventSubscriber = this.eventManager.subscribe('banqueListModification', () => this.loadPage());
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
   }
 
-  delete(banque: IBanque): void {
-    const modalRef = this.modalService.open(BanqueDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.banque = banque;
+  openFile(contentType = '', base64String: string): void {
+    return this.dataUtils.openFile(contentType, base64String);
+  }
+
+  registerChangeInSygAutoriteContractantes(): void {
+    this.eventSubscriber = this.eventManager.subscribe('sygAutoriteContractanteListModification', () => this.loadPage());
+  }
+
+  delete(sygAutoriteContractante: ISygAutoriteContractante): void {
+    const modalRef = this.modalService.open(SygAutoriteContractanteDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.sygAutoriteContractante = sygAutoriteContractante;
   }
 
   sort(): string[] {
@@ -100,11 +111,11 @@ export class BanqueComponent implements OnInit, OnDestroy {
     return result;
   }
 
-  protected onSuccess(data: IBanque[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
+  protected onSuccess(data: ISygAutoriteContractante[] | null, headers: HttpHeaders, page: number, navigate: boolean): void {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['banquue/banque'], {
+      this.router.navigate(['autorite-contractante/syg-autorite-contractante'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,
@@ -112,7 +123,7 @@ export class BanqueComponent implements OnInit, OnDestroy {
         },
       });
     }
-    this.banques = data || [];
+    this.sygAutoriteContractantes = data || [];
     this.ngbPaginationPage = this.page;
   }
 

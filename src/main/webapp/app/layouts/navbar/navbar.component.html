@@ -385,6 +385,28 @@
                     <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
                   </a>
                 </li>
+                  <li>
+                      <a
+                          class="dropdown-item"
+                          routerLink="referentiel-prix/categories"
+                          routerLinkActive="active"
+                          [routerLinkActiveOptions]="{ exact: true }"
+                          (click)="collapseNavbar()"
+                      >
+                          <span>Référentiel Prix</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a
+                          class="dropdown-item"
+                          routerLink="autorite-contractante/syg-autorite-contractante"
+                          routerLinkActive="active"
+                          [routerLinkActiveOptions]="{ exact: true }"
+                          (click)="collapseNavbar()"
+                      >
+                          <span>Autorite Contractante</span>
+                      </a>
+                  </li>
               </ul>
             </div>
           </li>

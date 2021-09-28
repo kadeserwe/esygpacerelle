@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PlanDePassationComponent } from './modules/plan-de-passation/plan-de-passation.component';
+import { ReferentielPrixComponent } from './modules/referentielms/referentiel-prix/referentiel-prix.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MiseAJourPpComponent } from 'app/entities/planpassationms/plan-passation/mise-a-jour-pp/mise-a-jour-pp.component';
 import { PpPubliesComponent } from 'app/entities/planpassationms/plan-passation/pp-publies/pp-publies.component';
@@ -28,6 +29,7 @@ import { SpecialitesPersonnelComponent } from './modules/referentielms/specialit
 import { NaturesGarantieComponent } from './modules/referentielms/natures-garantie/natures-garantie.component';
 import { GarantieComponent } from './modules/referentielms/garantie/garantie.component';
 import { FournisseurComponent } from './modules/referentielms/fournisseur/fournisseur.component';
+import { AutoriteContractanteComponent } from 'app/entities/modules/referentielms/autorite-contractante/autorite-contractante.component';
 
 @NgModule({
   imports: [
@@ -35,6 +37,16 @@ import { FournisseurComponent } from './modules/referentielms/fournisseur/fourni
       {
         path: 'historique',
         loadChildren: () => import('./planpassationms/historique/historique.module').then(m => m.PlanpassationmsHistoriqueModule),
+      },
+      {
+        path: 'referentiel-prix',
+        component: ReferentielPrixComponent,
+        children: [
+          {
+            path: 'categories',
+            loadChildren: () => import('./referentielms/categories/categories.module').then(m => m.ReferentielmsCategoriesModule),
+          },
+        ],
       },
       {
         path: 'plan-de-passation',
@@ -142,6 +154,20 @@ import { FournisseurComponent } from './modules/referentielms/fournisseur/fourni
           },
         ],
       },
+      {
+        path: 'autorite-contractante',
+        component: AutoriteContractanteComponent,
+        children: [
+          {
+            path: 'syg-autorite-contractante',
+            loadChildren: () =>
+              import('./referentielms/syg-autorite-contractante/syg-autorite-contractante.module').then(
+                m => m.ReferentielmsSygAutoriteContractanteModule
+              ),
+          },
+        ],
+      },
+
       {
         path: 'specialites-personnel',
         component: SpecialitesPersonnelComponent,
@@ -468,6 +494,7 @@ import { FournisseurComponent } from './modules/referentielms/fournisseur/fourni
         path: 'fournisseur',
         loadChildren: () => import('./referentielms/fournisseur/fournisseur.module').then(m => m.ReferentielmsFournisseurModule),
       },
+
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
@@ -495,6 +522,7 @@ import { FournisseurComponent } from './modules/referentielms/fournisseur/fourni
     NaturesGarantieComponent,
     GarantieComponent,
     FournisseurComponent,
+    AutoriteContractanteComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}

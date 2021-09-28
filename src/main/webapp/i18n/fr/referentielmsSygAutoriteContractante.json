@@ -1,0 +1,37 @@
+{
+  "gatewaysigmapApp": {
+    "referentielmsSygAutoriteContractante": {
+      "home": {
+        "title": "SygAutoriteContractantes",
+        "createLabel": "Créer un nouveau Syg Autorite Contractante",
+        "createOrEditLabel": "Créer ou éditer un Syg Autorite Contractante",
+        "notFound": "Aucun Syg Autorite Contractante trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Syg Autorite Contractante {{ id }} ?"
+      },
+      "detail": {
+        "title": "Syg Autorite Contractante"
+      },
+      "ordre": "Ordre",
+      "denomination": "Denomination",
+      "responsable": "Responsable",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "fax": "Fax",
+      "email": "Email",
+      "sigle": "Sigle",
+      "urlsiteweb": "Urlsiteweb",
+      "approbation": "Approbation",
+      "logo": "Logo",
+      "typeAutoriteContractante": "Type Autorite Contractante"
+    }
+  },
+  "referentielmsApp": {
+    "referentielmsSygAutoriteContractante": {
+      "created": "Un nouveau Syg Autorite Contractante a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Syg Autorite Contractante avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Syg Autorite Contractante avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}
