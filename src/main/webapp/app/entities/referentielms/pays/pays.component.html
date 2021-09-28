@@ -43,19 +43,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let pays of pays | filter:term">
-                    <td><a [routerLink]="['/pays', pays.id, 'view']">{{ pays.id }}</a></td>
+                    <td><a [routerLink]="['/payys/pays', pays.id, 'view']">{{ pays.id }}</a></td>
                     <td>{{ pays.libelle }}</td>
                     <td>{{ pays.codepays }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/pays', pays.id, 'view']"
+                                    [routerLink]="['/payys/pays', pays.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/pays', pays.id, 'edit']"
+                                    [routerLink]="['/payys/pays', pays.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

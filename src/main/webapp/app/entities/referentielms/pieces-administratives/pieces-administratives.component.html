@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let piecesAdministratives of piecesAdministratives | filter:term">
-                    <td><a [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'view']">{{ piecesAdministratives.id }}</a></td>
+                    <td><a [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'view']">{{ piecesAdministratives.id }}</a></td>
                     <td>{{ piecesAdministratives.codePiece }}</td>
                     <td>{{ piecesAdministratives.libelle }}</td>
                     <td jhiTranslate="{{ 'gatewaysigmapApp.enumLocalisation.' + piecesAdministratives.localisation }}">{{ piecesAdministratives.localisation }}</td>
@@ -52,13 +52,13 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'view']"
+                                    [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'edit']"
+                                    [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

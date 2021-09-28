@@ -28,6 +28,7 @@ import { SpecialitesPersonneelComponent } from './modules/referentielms/speciali
 import { NaturesGarantiieComponent } from './modules/referentielms/natures-garantiie/natures-garantiie.component';
 import { GarantiieComponent } from './modules/referentielms/garantiie/garantiie.component';
 import { FournisseuurComponent } from './modules/referentielms/fournisseuur/fournisseuur.component';
+import { AvisGenerauuxComponent } from './modules/referentielms/avis-generauux/avis-generauux.component';
 
 @NgModule({
   imports: [
@@ -303,8 +304,18 @@ import { FournisseuurComponent } from './modules/referentielms/fournisseuur/four
           },
         ],
       },
+      {
+        path: 'avis-generauux',
+        component: AvisGenerauuxComponent,
+        children: [
+          {
+            path: 'avis-generaux',
+            loadChildren: () => import('./referentielms/avis-generaux/avis-generaux.module').then(m => m.ReferentielmsAvisGenerauxModule),
+          },
+        ],
+      },
       //fin ajout
-     
+
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
@@ -332,6 +343,7 @@ import { FournisseuurComponent } from './modules/referentielms/fournisseuur/four
     NaturesGarantiieComponent,
     GarantiieComponent,
     FournisseuurComponent,
+    AvisGenerauuxComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}

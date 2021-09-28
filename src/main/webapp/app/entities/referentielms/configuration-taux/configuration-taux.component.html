@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let configurationTaux of configurationTauxes | filter:term">
-                    <td><a [routerLink]="['/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td>
+                    <td><a [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td>
                     <td>{{ configurationTaux.code }}</td>
                     <td>{{ configurationTaux.libelle }}</td>
                     <td>{{ configurationTaux.taux }}</td>
@@ -57,19 +57,19 @@
                     <td>{{ configurationTaux.invalid }}</td>
                     <td>
                         <div *ngIf="configurationTaux.paysA">
-                            <a [routerLink]="['/pays', configurationTaux.paysA?.id, 'view']" >{{ configurationTaux.paysA?.libelle }}</a>
+                            <a [routerLink]="['/payys/pays', configurationTaux.paysA?.id, 'view']" >{{ configurationTaux.paysA?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/configuration-taux', configurationTaux.id, 'view']"
+                                    [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/configuration-taux', configurationTaux.id, 'edit']"
+                                    [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

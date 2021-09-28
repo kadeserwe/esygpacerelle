@@ -64,24 +64,24 @@
                     <td>{{ fournisseur.numeroIdentiteFiscale }}</td>
                     <td>
                         <div *ngIf="fournisseur.categorieFournisseur">
-                            <a [routerLink]="['/categorie-fournisseur', fournisseur.categorieFournisseur?.id, 'view']" >{{ fournisseur.categorieFournisseur?.libelle }}</a>
+                            <a [routerLink]="['/fournisseuur/categorie-fournisseur', fournisseur.categorieFournisseur?.id, 'view']" >{{ fournisseur.categorieFournisseur?.libelle }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="fournisseur.pays">
-                            <a [routerLink]="['/pays', fournisseur.pays?.id, 'view']" >{{ fournisseur.pays?.libelle}}</a>
+                            <a [routerLink]="['/payys/pays', fournisseur.pays?.id, 'view']" >{{ fournisseur.pays?.libelle}}</a>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/fournisseur', fournisseur.id, 'view']"
+                                    [routerLink]="['/fournisseuur/fournisseur', fournisseur.id, 'view']"
                                     class="btn btn-info btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                                    [routerLink]="['/fournisseuur/fournisseur', fournisseur.id, 'edit']"
                                     class="btn btn-primary btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

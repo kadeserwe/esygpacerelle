@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avisGeneraux">
+            <h2><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.detail.title">Avis Generaux</span> {{ avisGeneraux.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.annee">Annee</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.annee }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.description">Description</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.fichierAvis">Fichier Avis</span></dt>
+                <dd>
+                    <div *ngIf="avisGeneraux.fichierAvis">
+                        <a (click)="openFile(avisGeneraux.fichierAvisContentType, avisGeneraux.fichierAvis)" jhiTranslate="entity.action.open">open</a>
+                        {{ avisGeneraux.fichierAvisContentType }}, {{ byteSize(avisGeneraux.fichierAvis) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.version">Version</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.lastVersionValid }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.datePublication">Date Publication</span></dt>
+                <dd>
+                    <span>{{ avisGeneraux.datePublication }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avis-generaux', avisGeneraux.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

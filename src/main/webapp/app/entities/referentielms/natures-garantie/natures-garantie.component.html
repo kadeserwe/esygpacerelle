@@ -42,18 +42,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let naturesGarantie of naturesGaranties | filter:term">
-                    <td><a [routerLink]="['/natures-garantie', naturesGarantie.id, 'view']">{{ naturesGarantie.id }}</a></td>
+                    <td><a [routerLink]="['/natures-garantiie/natures-garantie', naturesGarantie.id, 'view']">{{ naturesGarantie.id }}</a></td>
                     <td>{{ naturesGarantie.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/natures-garantie', naturesGarantie.id, 'view']"
+                                    [routerLink]="['/natures-garantiie/natures-garantie', naturesGarantie.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/natures-garantie', naturesGarantie.id, 'edit']"
+                                    [routerLink]="['/natures-garantiie/natures-garantie', naturesGarantie.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

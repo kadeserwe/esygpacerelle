@@ -42,18 +42,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let departement of departements | filter:term">
-                    <td><a [routerLink]="['/departement', departement.id, 'view']">{{ departement.id }}</a></td>
+                    <td><a [routerLink]="['/departemeent/departement', departement.id, 'view']">{{ departement.id }}</a></td>
                     <td>{{ departement.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/departement', departement.id, 'view']"
+                                    [routerLink]="['/departemeent/departement', departement.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/departement', departement.id, 'edit']"
+                                    [routerLink]="['/departemeent/departement', departement.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

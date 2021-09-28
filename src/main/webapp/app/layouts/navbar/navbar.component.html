@@ -172,7 +172,7 @@
                   >
                     <span>Banque</span>
                   </a>
-                </li>
+                </li>            
                 <li>
                   <a
                     class="dropdown-item"
@@ -383,6 +383,24 @@
                     (click)="collapseNavbar()"
                   >
                     <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="dropdown-item" ngbDropdownToggle>Avis Généraux</button>
+              <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="avis-generauux"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="collapseNavbar()"
+                  >
+                    <span>Avis Generaux</span>
                   </a>
                 </li>
               </ul>

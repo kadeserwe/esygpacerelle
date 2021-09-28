@@ -42,6 +42,7 @@
         "referentielmsGarantie": "Garantie",
         "referentielmsNaturesGarantie": "Natures Garantie",
         "referentielmsFournisseur": "Fournisseur",
+        "referentielmsAvisGeneraux": "Avis Generaux",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

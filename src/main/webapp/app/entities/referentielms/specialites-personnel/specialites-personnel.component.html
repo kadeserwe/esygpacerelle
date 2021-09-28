@@ -42,18 +42,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let specialitesPersonnel of specialitesPersonnels | filter:term">
-                    <td><a [routerLink]="['/specialites-personnel', specialitesPersonnel.id, 'view']">{{ specialitesPersonnel.id }}</a></td>
+                    <td><a [routerLink]="['/specialites-personneel/specialites-personnel', specialitesPersonnel.id, 'view']">{{ specialitesPersonnel.id }}</a></td>
                     <td>{{ specialitesPersonnel.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/specialites-personnel', specialitesPersonnel.id, 'view']"
+                                    [routerLink]="['/specialites-personneel/specialites-personnel', specialitesPersonnel.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/specialites-personnel', specialitesPersonnel.id, 'edit']"
+                                    [routerLink]="['/specialites-personneel/specialites-personnel', specialitesPersonnel.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

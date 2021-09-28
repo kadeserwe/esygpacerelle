@@ -1,0 +1,96 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.home.title">Avis Generauxes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-avis-generaux" [routerLink]="['/avis-generauux/avis-generaux/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Ajouter
+            </span>
+        </button>
+    </h2>
+
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <!--<jhi-alert-error></jhi-alert-error>-->
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="avisGenerauxes?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.home.notFound">No avisGenerauxes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.annee">Annee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fichierAvis"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.fichierAvis">Fichier Avis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="version"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.version">Version</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lastVersionValid"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etat"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.etat">Etat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="datePublication"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.datePublication">Date Publication</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let avisGeneraux of avisGenerauxes | filter:term">
+                    <td><a [routerLink]="['/avis-generauux/avis-generaux', avisGeneraux.id, 'view']">{{ avisGeneraux.id }}</a></td>
+                    <td>{{ avisGeneraux.numero }}</td>
+                    <td>{{ avisGeneraux.annee }}</td>
+                    <td>{{ avisGeneraux.description }}</td>
+                    <td>
+                        <a *ngIf="avisGeneraux.fichierAvis" (click)="openFile(avisGeneraux.fichierAvisContentType, avisGeneraux.fichierAvis)" jhiTranslate="entity.action.open">open</a>
+                        <span *ngIf="avisGeneraux.fichierAvis">{{ avisGeneraux.fichierAvisContentType }}, {{ byteSize(avisGeneraux.fichierAvis) }}</span>
+                    </td>
+                    <td>{{ avisGeneraux.version }}</td>
+                    <td>{{ avisGeneraux.lastVersionValid }}</td>
+                    <td>{{ avisGeneraux.etat }}</td>
+                    <td>{{ avisGeneraux.datePublication | date:'medium' }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/avis-generauux/avis-generaux', avisGeneraux.id, 'view']"
+                                    class="btn btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/avis-generauux/avis-generaux', avisGeneraux.id, 'edit']"
+                                    class="btn btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(avisGeneraux)"
+                                    class="btn btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

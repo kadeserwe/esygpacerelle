@@ -45,7 +45,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let typeAutoriteContractante of typeAutoriteContractantes | filter:term">
-                    <td><a [routerLink]="['/type-autorite-contractante', typeAutoriteContractante.id, 'view']">{{ typeAutoriteContractante.id }}</a></td>
+                    <td><a [routerLink]="['/type-autorite-contractante/type-autorite-contractante', typeAutoriteContractante.id, 'view']">{{ typeAutoriteContractante.id }}</a></td>
                     <td>{{ typeAutoriteContractante.libelle }}</td>
                     <td>{{ typeAutoriteContractante.code }}</td>
                     <td>{{ typeAutoriteContractante.description }}</td>

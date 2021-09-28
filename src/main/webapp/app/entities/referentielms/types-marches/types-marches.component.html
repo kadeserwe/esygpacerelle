@@ -44,20 +44,20 @@
             </thead>
             <tbody>
                 <tr *ngFor="let typesMarches of typesMarches | filter:term">
-                    <td><a [routerLink]="['/types-marches', typesMarches.id, 'view']">{{ typesMarches.id }}</a></td>
+                    <td><a [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'view']">{{ typesMarches.id }}</a></td>
                     <td>{{ typesMarches.code }}</td>
                     <td>{{ typesMarches.libelle }}</td>
                     <td>{{ typesMarches.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/types-marches', typesMarches.id, 'view']"
+                                    [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/types-marches', typesMarches.id, 'edit']"
+                                    [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
