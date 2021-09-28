@@ -1,0 +1,92 @@
+<div >
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsCategories.home.title">Categories</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categories" [routerLink]="['/referentiel-prix/categories/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>  Ajouter
+            </span>
+        </button>
+    </h2>
+    <br>
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+                <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+  <!--  <jhi-alert-error></jhi-alert-error> -->
+
+    <jhi-alert  class="app-loading"></jhi-alert>
+
+    <div  class="alert alert-warning" id="no-result" *ngIf="categories?.length === 0">
+        <span jhiTranslate="gatewaysigmapApp.referentielmsCategories.home.notFound">No categories found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="categories && categories.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+               <!--     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsCategories.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="designation"><span jhiTranslate="gatewaysigmapApp.referentielmsCategories.designation">Designation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commentaire"><span jhiTranslate="gatewaysigmapApp.referentielmsCategories.commentaire">Commentaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let categories of categories  | filter:term">
+              <!--      <td><a [routerLink]="['/categories', categories.id, 'view']">{{ categories.id }}</a></td> -->
+                    <td>{{ categories.code }}</td>
+                    <td>{{ categories.designation }}</td>
+                    <td>{{ categories.commentaire }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/referentiel-prix/categories', categories.id, 'view']"
+                                    class="btn btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/referentiel-prix/categories', categories.id, 'edit']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt" style="color: #17a2b8" ></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(categories)"
+                                    class="btn btn-sm" [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="categories && categories.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>
+
