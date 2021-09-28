@@ -42,9 +42,7 @@
         "referentielmsGarantie": "Garantie",
         "referentielmsNaturesGarantie": "Natures Garantie",
         "referentielmsFournisseur": "Fournisseur",
-        "referentielmsCategories": "Categories",
-        "referentielmsAutoriteContractante": "Autorite Contractante",
-        "referentielmsSygAutoriteContractante": "Syg Autorite Contractante",
+        "referentielmsAvisGeneraux": "Avis Generaux",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

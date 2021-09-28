@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsHierarchie.home.title">Hierarchies</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hierarchie" [routerLink]="['/hierarchie/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-hierarchie" [routerLink]="['/hierarchiie/hierarchie/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -42,18 +42,18 @@
             </thead>
             <tbody>
                 <tr *ngFor="let hierarchie of hierarchies | filter:term">
-                    <td><a [routerLink]="['/hierarchie', hierarchie.id, 'view']">{{ hierarchie.id }}</a></td>
+                    <td><a [routerLink]="['/hierarchiie/hierarchie', hierarchie.id, 'view']">{{ hierarchie.id }}</a></td>
                     <td>{{ hierarchie.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/hierarchie', hierarchie.id, 'view']"
+                                    [routerLink]="['/hierarchiie/hierarchie', hierarchie.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/hierarchie', hierarchie.id, 'edit']"
+                                    [routerLink]="['/hierarchiie/hierarchie', hierarchie.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

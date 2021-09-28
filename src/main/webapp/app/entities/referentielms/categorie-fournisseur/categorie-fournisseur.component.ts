@@ -104,7 +104,7 @@ export class CategorieFournisseurComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/categorie-fournisseur'], {
+      this.router.navigate(['/categorie-fournisseuur/categorie-fournisseur'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

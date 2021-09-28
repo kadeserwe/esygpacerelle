@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsGroupesImputation.home.title">Groupes Imputations</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-groupes-imputation" [routerLink]="['/groupes-imputation/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-groupes-imputation" [routerLink]="['/groupes-imputatioon/groupes-imputation/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -43,19 +43,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let groupesImputation of groupesImputations | filter:term">
-                    <td><a [routerLink]="['/groupes-imputation', groupesImputation.id, 'view']">{{ groupesImputation.id }}</a></td>
+                    <td><a [routerLink]="['/groupes-imputatioon/groupes-imputation', groupesImputation.id, 'view']">{{ groupesImputation.id }}</a></td>
                     <td>{{ groupesImputation.libelle }}</td>
                     <td>{{ groupesImputation.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/groupes-imputation', groupesImputation.id, 'view']"
+                                    [routerLink]="['/groupes-imputatioon/groupes-imputation', groupesImputation.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/groupes-imputation', groupesImputation.id, 'edit']"
+                                    [routerLink]="['/groupes-imputatioon/groupes-imputation', groupesImputation.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

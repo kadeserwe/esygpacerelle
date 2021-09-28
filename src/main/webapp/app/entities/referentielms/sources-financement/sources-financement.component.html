@@ -1,8 +1,8 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.home.title">Sources Financements</span>
+        <span>Sources Financements</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sources-financement" [routerLink]="['/sources-financement/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sources-financement" [routerLink]="['/sources-financemennt/sources-financement/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -43,19 +43,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let sourcesFinancement of sourcesFinancements | filter:term">
-                    <td><a [routerLink]="['/sources-financement', sourcesFinancement.id, 'view']">{{ sourcesFinancement.id }}</a></td>
+                    <td><a [routerLink]="['sources-financemennt/sources-financement', sourcesFinancement.id, 'view']">{{ sourcesFinancement.id }}</a></td>
                     <td>{{ sourcesFinancement.libelle }}</td>
                     <td>{{ sourcesFinancement.type }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/sources-financement', sourcesFinancement.id, 'view']"
+                                    [routerLink]="['/sources-financemennt/sources-financement', sourcesFinancement.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/sources-financement', sourcesFinancement.id, 'edit']"
+                                    [routerLink]="['/sources-financemennt/sources-financement', sourcesFinancement.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

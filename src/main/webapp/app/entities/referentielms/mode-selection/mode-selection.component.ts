@@ -104,7 +104,7 @@ export class ModeSelectionComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/mode-selection'], {
+      this.router.navigate(['/mode-selectioon/mode-selection'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

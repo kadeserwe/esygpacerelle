@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsDelais.home.title">Delais</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delais" [routerLink]="['/delais/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delais" [routerLink]="['/delaiis/delais/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let delais of delais | filter:term">
-                    <td><a [routerLink]="['/delais', delais.id, 'view']">{{ delais.id }}</a></td>
+                    <td><a [routerLink]="['/delaiis/delais', delais.id, 'view']">{{ delais.id }}</a></td>
                     <td>{{ delais.libelle }}</td>
                     <td>{{ delais.code }}</td>
                     <td>{{ delais.unite }}</td>
@@ -59,13 +59,13 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/delais', delais.id, 'view']"
+                                    [routerLink]="['/delaiis/delais', delais.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/delais', delais.id, 'edit']"
+                                    [routerLink]="['/delaiis/delais', delais.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

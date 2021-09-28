@@ -1,8 +1,8 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsCategorieFournisseur.home.title">Categorie Fournisseurs</span>
+        <span>Categories Fournisseur</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseur/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseuur/categorie-fournisseur/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -43,19 +43,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let categorieFournisseur of categorieFournisseurs | filter:term">
-                    <td><a [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td>
+                    <td><a [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td>
                     <td>{{ categorieFournisseur.libelle }}</td>
                     <td>{{ categorieFournisseur.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'view']"
+                                    [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'edit']"
+                                    [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.home.title">Personnes Ressources</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-personnes-ressources" [routerLink]="['/personnes-ressources/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-personnes-ressources" [routerLink]="['/personnes-ressourcees/personnes-ressources/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -47,7 +47,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let personnesRessources of personnesRessources | filter:term">
-                    <td><a [routerLink]="['/personnes-ressources', personnesRessources.id, 'view']">{{ personnesRessources.id }}</a></td>
+                    <td><a [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'view']">{{ personnesRessources.id }}</a></td>
                     <td>{{ personnesRessources.nom }}</td>
                     <td>{{ personnesRessources.prenom }}</td>
                     <td>{{ personnesRessources.telephone }}</td>
@@ -57,13 +57,13 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/personnes-ressources', personnesRessources.id, 'view']"
+                                    [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/personnes-ressources', personnesRessources.id, 'edit']"
+                                    [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

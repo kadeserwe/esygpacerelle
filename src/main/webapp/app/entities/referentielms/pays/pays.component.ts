@@ -105,7 +105,7 @@ export class PaysComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/pays'], {
+      this.router.navigate(['/payys/pays'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

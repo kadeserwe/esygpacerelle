@@ -104,7 +104,7 @@ export class SpecialitesPersonnelComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/specialites-personnel'], {
+      this.router.navigate(['/specialites-personneel/specialites-personnel'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

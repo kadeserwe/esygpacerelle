@@ -1,0 +1,54 @@
+application {
+  config {
+    applicationType gateway
+    authenticationType jwt
+    baseName gatewaysigmap
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1610374535328
+    databaseType sql
+    devDatabaseType postgresql
+    dtoSuffix DTO
+    embeddableLaunchScript false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "6.10.5"
+    jwtSecretKey "YWM4ZmI4MWNjY2ZkYjhjNjc4MWFlYWNmZWJkMDY0MTNkNWJlMDRhZDM4ODNiOTk3NDZkMDI1MDIxMWZlZWM3OTNmNjI4NGUzN2FkMzliZjliNWEzNjFmNGQyZDM3ZjU5MmM0OTE5NmU5N2E0Y2E0Nzg4Y2JkNWViZmQyYjBlYzI="
+    languages [fr]
+    messageBroker false
+    nativeLanguage fr
+    otherModules []
+    packageName sn.ssi.sigmap
+    prodDatabaseType postgresql
+    searchEngine false
+    serverPort 7071
+    serviceDiscoveryType eureka
+    skipClient false
+    skipServer false
+    skipUserManagement false
+    testFrameworks []
+    useSass true
+    websocket false
+  }
+
+  entities Delais
+}
+
+entity Delais {
+  libelle String required,
+  code String required,
+  unite String required,
+  valeur Integer required,
+  debutValidite Instant required,
+  finValidite Instant required,
+  commentaires String
+}
+paginate Delais with pagination
+microservice Delais with referentielms
+clientRootFolder Delais with referentielms

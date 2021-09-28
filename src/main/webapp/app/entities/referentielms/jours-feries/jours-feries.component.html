@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsJoursFeries.home.title">Jours Feries</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-jours-feries" [routerLink]="['/jours-feries/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-jours-feries" [routerLink]="['/jours-feriies/jours-feries/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Ajouter
@@ -43,19 +43,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let joursFeries of joursFeries | filter:term">
-                    <td><a [routerLink]="['/jours-feries', joursFeries.id, 'view']">{{ joursFeries.id }}</a></td>
+                    <td><a [routerLink]="['/jours-feriies/jours-feries', joursFeries.id, 'view']">{{ joursFeries.id }}</a></td>
                     <td>{{ joursFeries.date | date:'medium' }}</td>
                     <td>{{ joursFeries.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/jours-feries', joursFeries.id, 'view']"
+                                    [routerLink]="['/jours-feriies/jours-feries', joursFeries.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/jours-feries', joursFeries.id, 'edit']"
+                                    [routerLink]="['/jours-feriies/jours-feries', joursFeries.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

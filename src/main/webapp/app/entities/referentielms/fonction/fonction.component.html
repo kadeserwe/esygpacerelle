@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsFonction.home.title">Fonctions</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fonction" [routerLink]="['/fonction/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fonction" [routerLink]="['/fonctionns/fonction/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  >
             Ajouter
@@ -44,19 +44,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let fonction of fonctions | filter:term">
-                    <td><a [routerLink]="['/fonction', fonction.id, 'view']">{{ fonction.id }}</a></td>
+                    <td><a [routerLink]="['/fonctionns/fonction', fonction.id, 'view']">{{ fonction.id }}</a></td>
                     <td>{{ fonction.libelle }}</td>
                     <td>{{ fonction.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                       [routerLink]="['/fonction', fonction.id, 'view']"
+                                       [routerLink]="['/fonctionns/fonction', fonction.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/fonction', fonction.id, 'edit']"
+                                    [routerLink]="['/fonctionns/fonction', fonction.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

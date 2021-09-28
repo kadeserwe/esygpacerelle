@@ -104,7 +104,7 @@ export class DepartementComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/departement'], {
+      this.router.navigate(['/departemeent/departement'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

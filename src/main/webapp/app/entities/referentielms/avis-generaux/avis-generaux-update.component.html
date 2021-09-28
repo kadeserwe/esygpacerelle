@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2><span class="badge badge-primary">Créer un avis général</span></h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.annee" for="field_annee">Annee</label>
+                    <input type="text" class="form-control" name="annee" id="field_annee"
+                           formControlName="annee"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.fichierAvis" for="field_fichierAvis">Fichier Avis</label>
+                    <div>
+                        <div *ngIf="editForm.get('fichierAvis')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('fichierAvisContentType')!.value, editForm.get('fichierAvis')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{ editForm.get('fichierAvisContentType')!.value }}, {{ byteSize(editForm.get('fichierAvis')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({fichierAvis: null});editForm.patchValue({fichierAvisContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_fichierAvis" (change)="setFileData($event, 'fichierAvis', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="fichierAvis" id="field_fichierAvis"
+                           formControlName="fichierAvis"/>
+                    <input type="hidden" class="form-control" name="fichierAvisContentType" id="field_fichierAvisContentType"
+                           formControlName="fichierAvisContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.version" for="field_version">Version</label>
+                    <input type="number" class="form-control" name="version" id="field_version"
+                           formControlName="version"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.lastVersionValid" for="field_lastVersionValid">Last Version Valid</label>
+                    <input type="number" class="form-control" name="lastVersionValid" id="field_lastVersionValid"
+                           formControlName="lastVersionValid"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.etat" for="field_etat">Etat</label>
+                    <input type="text" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.datePublication" for="field_datePublication">Date Publication</label>
+                    <div class="d-flex">
+                        <input id="field_datePublication" type="datetime-local" class="form-control" name="datePublication" formControlName="datePublication" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

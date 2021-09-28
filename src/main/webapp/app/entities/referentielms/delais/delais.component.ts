@@ -104,7 +104,7 @@ export class DelaisComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/delais'], {
+      this.router.navigate(['/delaiis/delais'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,
