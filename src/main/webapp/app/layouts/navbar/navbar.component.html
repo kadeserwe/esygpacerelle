@@ -165,18 +165,18 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="banquue"
+                    routerLink="banquue/banque"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
                   >
                     <span>Banque</span>
                   </a>
-                </li>            
+                </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="categorie-fournisseuur"
+                    routerLink="categorie-fournisseuur/categorie-fournisseur"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -187,7 +187,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="configuration-tauux"
+                    routerLink="configuration-tauux/configuration-taux"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -198,7 +198,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="criteres-qualificatioon"
+                    routerLink="criteres-qualificatioon/criteres-qualification"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -209,7 +209,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="delaiis"
+                    routerLink="delaiis/delais"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -220,7 +220,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="departemeent"
+                    routerLink="departemeent/departement"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -231,7 +231,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="directioon"
+                    routerLink="directioon/direction"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -247,7 +247,7 @@
                   <li>
                       <a
                           class="dropdown-item"
-                          routerLink="garantiie"
+                          routerLink="garantiie/garantie"
                           routerLinkActive="active"
                           [routerLinkActiveOptions]="{ exact: true }"
                           (click)="collapseNavbar()"
@@ -256,14 +256,16 @@
                       </a>
                   </li>
                 <li>
-                  <a class="dropdown-item" routerLink="groupes-imputatioon" routerLinkActive="active" (click)="collapseNavbar()">
+                  <a class="dropdown-item"
+                     routerLink="groupes-imputatioon/groupes-imputation"
+                     routerLinkActive="active" (click)="collapseNavbar()">
                     <span>Groupes Imputation</span>
                   </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="hierarchiie"
+                    routerLink="hierarchiie/hierarchie"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -272,14 +274,14 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="jours-feriies" routerLinkActive="active" (click)="collapseNavbar()">
+                  <a class="dropdown-item" routerLink="jours-feriies/jours-feries" routerLinkActive="active" (click)="collapseNavbar()">
                     <span>Jours Fériés</span>
                   </a>
                 </li>
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="mode-selectioon"
+                    routerLink="mode-selectioon/mode-selection"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -288,14 +290,14 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="payys" routerLinkActive="active" (click)="collapseNavbar()">
+                  <a class="dropdown-item" routerLink="payys/pays" routerLinkActive="active" (click)="collapseNavbar()">
                     <span>Pays</span>
                   </a>
                 </li>
                   <li>
                       <a
                           class="dropdown-item"
-                          routerLink="natures-garantiie"
+                          routerLink="natures-garantiie/natures-garantie"
                           routerLinkActive="active"
                           [routerLinkActiveOptions]="{ exact: true }"
                           (click)="collapseNavbar()"
@@ -306,7 +308,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="personnes-ressourcees"
+                    routerLink="personnes-ressourcees/personnes-ressources"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -315,7 +317,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" routerLink="pieces-administrativees" routerLinkActive="active" (click)="collapseNavbar()">
+                  <a class="dropdown-item" routerLink="pieces-administrativees/pieces-administratives" routerLinkActive="active" (click)="collapseNavbar()">
                     <span>Pièces Administratives</span>
                   </a>
                 </li>
@@ -333,7 +335,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="sources-financemennt"
+                    routerLink="sources-financemennt/sources-financement"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -344,7 +346,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="specialites-personneel"
+                    routerLink="specialites-personneel/specialites-personnel"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -355,7 +357,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="type-autorite-contractantee"
+                    routerLink="type-autorite-contractantee/type-autorite-contractante"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -366,7 +368,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="types-marchees"
+                    routerLink="types-marchees/types-marches"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -377,7 +379,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="fournisseuur"
+                    routerLink="fournisseuur/fournisseur"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"
@@ -417,7 +419,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    routerLink="avis-generauux"
+                    routerLink="avis-generauux/avis-generaux"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     (click)="collapseNavbar()"

@@ -29,6 +29,8 @@ import { NaturesGarantiieComponent } from './modules/referentielms/natures-garan
 import { GarantiieComponent } from './modules/referentielms/garantiie/garantiie.component';
 import { FournisseuurComponent } from './modules/referentielms/fournisseuur/fournisseuur.component';
 import { AvisGenerauuxComponent } from './modules/referentielms/avis-generauux/avis-generauux.component';
+import { ReferentielPrixComponent } from 'app/entities/modules/referentielms/referentiel-prix/referentiel-prix.component';
+import { AutoriteContractanteComponent } from 'app/entities/modules/referentielms/autorite-contractante/autorite-contractante.component';
 
 @NgModule({
   imports: [
@@ -314,6 +316,29 @@ import { AvisGenerauuxComponent } from './modules/referentielms/avis-generauux/a
           },
         ],
       },
+      {
+        path: 'referentiel-prix',
+        component: ReferentielPrixComponent,
+        children: [
+          {
+            path: 'categories',
+            loadChildren: () => import('./referentielms/categories/categories.module').then(m => m.ReferentielmsCategoriesModule),
+          },
+        ],
+      },
+      {
+        path: 'autorite-contractante',
+        component: AutoriteContractanteComponent,
+        children: [
+          {
+            path: 'syg-autorite-contractante',
+            loadChildren: () =>
+              import('./referentielms/syg-autorite-contractante/syg-autorite-contractante.module').then(
+                m => m.ReferentielmsSygAutoriteContractanteModule
+              ),
+          },
+        ],
+      },
       //fin ajout
 
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
@@ -344,6 +369,7 @@ import { AvisGenerauuxComponent } from './modules/referentielms/avis-generauux/a
     GarantiieComponent,
     FournisseuurComponent,
     AvisGenerauuxComponent,
+    AutoriteContractanteComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}
