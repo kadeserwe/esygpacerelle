@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
@@ -35,7 +35,8 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
     protected configurationTauxService: ConfigurationTauxService,
     protected paysService: PaysService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -72,8 +73,9 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const configurationTaux = this.createFromForm();
+    const link = ['configuration-tauux/configuration-taux'];
     if (configurationTaux.id !== undefined) {
-      this.subscribeToSaveResponse(this.configurationTauxService.update(configurationTaux));
+      this.subscribeToSaveResponse(this.configurationTauxService.update(configurationTaux, configurationTaux.id));
     } else {
       this.subscribeToSaveResponse(this.configurationTauxService.create(configurationTaux));
     }

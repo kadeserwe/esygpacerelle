@@ -47,7 +47,7 @@ export class DirectionUpdateComponent implements OnInit {
     this.isSaving = true;
     const direction = this.createFromForm();
     if (direction.id !== undefined) {
-      this.subscribeToSaveResponse(this.directionService.update(direction));
+      this.subscribeToSaveResponse(this.directionService.update(direction, direction.id));
     } else {
       this.subscribeToSaveResponse(this.directionService.create(direction));
     }

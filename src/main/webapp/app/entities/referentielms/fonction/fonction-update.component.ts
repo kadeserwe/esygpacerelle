@@ -45,7 +45,7 @@ export class FonctionUpdateComponent implements OnInit {
     this.isSaving = true;
     const fonction = this.createFromForm();
     if (fonction.id !== undefined) {
-      this.subscribeToSaveResponse(this.fonctionService.update(fonction));
+      this.subscribeToSaveResponse(this.fonctionService.update(fonction, fonction.id));
     } else {
       this.subscribeToSaveResponse(this.fonctionService.create(fonction));
     }

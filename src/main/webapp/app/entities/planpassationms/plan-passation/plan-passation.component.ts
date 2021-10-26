@@ -11,8 +11,6 @@ import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from
 import { PlanPassationService } from './plan-passation.service';
 import { PlanPassationDeleteDialogComponent } from './plan-passation-delete-dialog.component';
 import { DatePipe } from '@angular/common';
-import { AuditsService } from '../../../admin/audits/audits.service';
-import { Audit } from '../../../admin/audits/audit.model';
 
 @Component({
   selector: 'jhi-plan-passation',

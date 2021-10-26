@@ -1,26 +1,70 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsTypeAutoriteContractante.home.title">Type Autorite Contractantes</span>
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-autorite-contractante" [routerLink]="['/type-autorite-contractantee/type-autorite-contractante/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button> <br>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES TYPES D'AUTORITÉS CONTRACTANTES</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    </h2>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span >Type Autorité Contractante</span>
 
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
             <div class="form-group">
                 <strong><b>Rechercher terme(s) :</b></strong>
                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
                 <br>
             </div>
         </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-type-autorite-contractante" [routerLink]="['/type-autorite-contractantee/type-autorite-contractante/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
     </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <h2 id="page-heading">
+         <span jhiTranslate="gatewaysigmapApp.referentielmsTypeAutoriteContractante.home.title">Type Autorite Contractantes</span>
+
+         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-type-autorite-contractante" [routerLink]="['/type-autorite-contractantee/type-autorite-contractante/new']">
+             <fa-icon icon="plus"></fa-icon>
+             <span>
+             Ajouter
+             </span>
+         </button> <br>
+
+     </h2>
+
+     <div class="row">
+         <div class="col-md-9"></div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <strong><b>Rechercher terme(s) :</b></strong>
+                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                 <br>
+             </div>
+         </div>
+     </div> -->
 
 
     <!--<jhi-alert-error></jhi-alert-error>-->
@@ -34,7 +78,7 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                   <!-- <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsTypeAutoriteContractante.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsTypeAutoriteContractante.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsTypeAutoriteContractante.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
@@ -45,7 +89,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let typeAutoriteContractante of typeAutoriteContractantes | filter:term">
-                    <td><a [routerLink]="['/type-autorite-contractante/type-autorite-contractante', typeAutoriteContractante.id, 'view']">{{ typeAutoriteContractante.id }}</a></td>
+                 <!--   <td><a [routerLink]="['/type-autorite-contractante/type-autorite-contractante', typeAutoriteContractante.id, 'view']">{{ typeAutoriteContractante.id }}</a></td> -->
                     <td>{{ typeAutoriteContractante.libelle }}</td>
                     <td>{{ typeAutoriteContractante.code }}</td>
                     <td>{{ typeAutoriteContractante.description }}</td>
@@ -54,13 +98,13 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/type-autorite-contractante', typeAutoriteContractante.id, 'view']"
+                                    [routerLink]="['/type-autorite-contractantee/type-autorite-contractante', typeAutoriteContractante.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/type-autorite-contractante', typeAutoriteContractante.id, 'edit']"
+                                    [routerLink]="['/type-autorite-contractantee/type-autorite-contractante', typeAutoriteContractante.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>

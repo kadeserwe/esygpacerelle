@@ -55,7 +55,7 @@ export class TypeAutoriteContractanteUpdateComponent implements OnInit {
     this.isSaving = true;
     const typeAutoriteContractante = this.createFromForm();
     if (typeAutoriteContractante.id !== undefined) {
-      this.subscribeToSaveResponse(this.typeAutoriteContractanteService.update(typeAutoriteContractante));
+      this.subscribeToSaveResponse(this.typeAutoriteContractanteService.update(typeAutoriteContractante, typeAutoriteContractante.id));
     } else {
       this.subscribeToSaveResponse(this.typeAutoriteContractanteService.create(typeAutoriteContractante));
     }

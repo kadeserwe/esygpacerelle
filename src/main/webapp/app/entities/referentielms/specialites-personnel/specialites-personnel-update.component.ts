@@ -47,7 +47,7 @@ export class SpecialitesPersonnelUpdateComponent implements OnInit {
     this.isSaving = true;
     const specialitesPersonnel = this.createFromForm();
     if (specialitesPersonnel.id !== undefined) {
-      this.subscribeToSaveResponse(this.specialitesPersonnelService.update(specialitesPersonnel));
+      this.subscribeToSaveResponse(this.specialitesPersonnelService.update(specialitesPersonnel, specialitesPersonnel.id));
     } else {
       this.subscribeToSaveResponse(this.specialitesPersonnelService.create(specialitesPersonnel));
     }

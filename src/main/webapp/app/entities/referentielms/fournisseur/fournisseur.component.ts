@@ -10,6 +10,7 @@ import { IFournisseur } from 'app/shared/model/referentielms/fournisseur.model';
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { FournisseurService } from './fournisseur.service';
 import { FournisseurDeleteDialogComponent } from './fournisseur-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-fournisseur',
@@ -34,7 +35,8 @@ export class FournisseurComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {
@@ -79,7 +81,6 @@ export class FournisseurComponent implements OnInit, OnDestroy {
   }
 
   trackId(index: number, item: IFournisseur): number {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
 

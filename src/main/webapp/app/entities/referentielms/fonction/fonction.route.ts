@@ -40,6 +40,7 @@ export const fonctionRoute: Routes = [
     component: FonctionComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsFonction.home.title',
     },
     canActivate: [UserRouteAccessService],

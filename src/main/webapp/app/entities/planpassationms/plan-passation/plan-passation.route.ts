@@ -13,7 +13,6 @@ import { PlanPassationDetailComponent } from './plan-passation-detail.component'
 import { PlanPassationUpdateComponent } from './plan-passation-update.component';
 import { PlanPassationDemandeValidationComponent } from './plan-passation-demande-validation.component';
 import { AjoutRealisationAuplanComponent } from './ajout-realisation-auplan.component';
-import { PpPubliesComponent } from './pp-publies/pp-publies.component';
 
 @Injectable({ providedIn: 'root' })
 export class PlanPassationResolve implements Resolve<IPlanPassation> {

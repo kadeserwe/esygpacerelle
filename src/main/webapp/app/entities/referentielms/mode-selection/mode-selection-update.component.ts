@@ -47,7 +47,7 @@ export class ModeSelectionUpdateComponent implements OnInit {
     this.isSaving = true;
     const modeSelection = this.createFromForm();
     if (modeSelection.id !== undefined) {
-      this.subscribeToSaveResponse(this.modeSelectionService.update(modeSelection));
+      this.subscribeToSaveResponse(this.modeSelectionService.update(modeSelection, modeSelection.id));
     } else {
       this.subscribeToSaveResponse(this.modeSelectionService.create(modeSelection));
     }

@@ -10,6 +10,7 @@ import { ISpecialitesPersonnel } from 'app/shared/model/referentielms/specialite
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { SpecialitesPersonnelService } from './specialites-personnel.service';
 import { SpecialitesPersonnelDeleteDialogComponent } from './specialites-personnel-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-specialites-personnel',
@@ -34,7 +35,8 @@ export class SpecialitesPersonnelComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

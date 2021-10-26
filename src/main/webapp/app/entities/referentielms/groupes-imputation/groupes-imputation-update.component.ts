@@ -49,7 +49,7 @@ export class GroupesImputationUpdateComponent implements OnInit {
     this.isSaving = true;
     const groupesImputation = this.createFromForm();
     if (groupesImputation.id !== undefined) {
-      this.subscribeToSaveResponse(this.groupesImputationService.update(groupesImputation));
+      this.subscribeToSaveResponse(this.groupesImputationService.update(groupesImputation, groupesImputation.id));
     } else {
       this.subscribeToSaveResponse(this.groupesImputationService.create(groupesImputation));
     }

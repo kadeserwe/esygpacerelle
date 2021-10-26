@@ -10,6 +10,7 @@ import { ICategorieFournisseur } from 'app/shared/model/referentielms/categorie-
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { CategorieFournisseurService } from './categorie-fournisseur.service';
 import { CategorieFournisseurDeleteDialogComponent } from './categorie-fournisseur-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-categorie-fournisseur',
@@ -34,7 +35,8 @@ export class CategorieFournisseurComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

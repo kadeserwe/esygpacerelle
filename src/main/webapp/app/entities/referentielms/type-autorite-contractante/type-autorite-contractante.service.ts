@@ -19,8 +19,8 @@ export class TypeAutoriteContractanteService {
     return this.http.post<ITypeAutoriteContractante>(this.resourceUrl, typeAutoriteContractante, { observe: 'response' });
   }
 
-  update(typeAutoriteContractante: ITypeAutoriteContractante): Observable<EntityResponseType> {
-    return this.http.put<ITypeAutoriteContractante>(this.resourceUrl, typeAutoriteContractante, { observe: 'response' });
+  update(typeAutoriteContractante: ITypeAutoriteContractante, id: number): Observable<EntityResponseType> {
+    return this.http.put<ITypeAutoriteContractante>(`${this.resourceUrl}/${id}`, typeAutoriteContractante, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

@@ -40,6 +40,7 @@ export const personnesRessourcesRoute: Routes = [
     component: PersonnesRessourcesComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsPersonnesRessources.home.title',
     },
     canActivate: [UserRouteAccessService],

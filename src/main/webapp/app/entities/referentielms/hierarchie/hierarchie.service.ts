@@ -19,8 +19,8 @@ export class HierarchieService {
     return this.http.post<IHierarchie>(this.resourceUrl, hierarchie, { observe: 'response' });
   }
 
-  update(hierarchie: IHierarchie): Observable<EntityResponseType> {
-    return this.http.put<IHierarchie>(this.resourceUrl, hierarchie, { observe: 'response' });
+  update(hierarchie: IHierarchie, id: number): Observable<EntityResponseType> {
+    return this.http.put<IHierarchie>(`${this.resourceUrl}/${id}`, hierarchie, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

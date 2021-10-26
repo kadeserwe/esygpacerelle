@@ -19,8 +19,8 @@ export class BanqueService {
     return this.http.post<IBanque>(this.resourceUrl, banque, { observe: 'response' });
   }
 
-  update(banque: IBanque): Observable<EntityResponseType> {
-    return this.http.put<IBanque>(this.resourceUrl, banque, { observe: 'response' });
+  update(banque: IBanque, id: number): Observable<EntityResponseType> {
+    return this.http.put<IBanque>(`${this.resourceUrl}/${id}`, banque, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

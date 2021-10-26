@@ -19,8 +19,8 @@ export class PersonnesRessourcesService {
     return this.http.post<IPersonnesRessources>(this.resourceUrl, personnesRessources, { observe: 'response' });
   }
 
-  update(personnesRessources: IPersonnesRessources): Observable<EntityResponseType> {
-    return this.http.put<IPersonnesRessources>(this.resourceUrl, personnesRessources, { observe: 'response' });
+  update(personnesRessources: IPersonnesRessources, id: number): Observable<EntityResponseType> {
+    return this.http.put<IPersonnesRessources>(`${this.resourceUrl}/${id}`, personnesRessources, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

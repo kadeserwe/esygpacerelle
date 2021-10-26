@@ -40,6 +40,7 @@ export const directionRoute: Routes = [
     component: DirectionComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsDirection.home.title',
     },
     canActivate: [UserRouteAccessService],

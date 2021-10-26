@@ -1,4 +1,49 @@
 <div>
+    <div _ngcontent-aay-c151="">
+
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES DELAIS</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Délais</span>
+
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-syg-delais" [routerLink]="['/delaiis/delais/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
+    </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!--
     <h2 id="page-heading">
         <span jhiTranslate="gatewaysigmapApp.referentielmsDelais.home.title">Delais</span>
 
@@ -20,7 +65,7 @@
                 <br>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!--<jhi-alert-error></jhi-alert-error>-->
@@ -35,7 +80,7 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+             <!--       <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unite"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.unite">Unite</span> <fa-icon icon="sort"></fa-icon></th>
@@ -48,7 +93,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let delais of delais | filter:term">
-                    <td><a [routerLink]="['/delaiis/delais', delais.id, 'view']">{{ delais.id }}</a></td>
+               <!--   <td><a [routerLink]="['/delaiis/delais', delais.id, 'view']">{{ delais.id }}</a></td> -->
                     <td>{{ delais.libelle }}</td>
                     <td>{{ delais.code }}</td>
                     <td>{{ delais.unite }}</td>

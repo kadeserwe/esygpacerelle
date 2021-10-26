@@ -1,5 +1,48 @@
 <div>
-    <h2 id="page-heading">
+    <div _ngcontent-aay-c151="">
+
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES CATÉGORIES DE FOURNISSEURS</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Categories Fournisseur</span>
+
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseuur/categorie-fournisseur/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
+    </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+  <!--  <h2 id="page-heading">
         <span>Categories Fournisseur</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseuur/categorie-fournisseur/new']">
@@ -23,7 +66,7 @@
     </div>
 
 
-    <!--<jhi-alert-error></jhi-alert-error>-->
+-->
 
     <jhi-alert></jhi-alert>
 
@@ -35,7 +78,7 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                <!--    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsCategorieFournisseur.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsCategorieFournisseur.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
@@ -43,7 +86,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let categorieFournisseur of categorieFournisseurs | filter:term">
-                    <td><a [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td>
+                <!--    <td><a [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td> -->
                     <td>{{ categorieFournisseur.libelle }}</td>
                     <td>{{ categorieFournisseur.description }}</td>
                     <td class="text-right">

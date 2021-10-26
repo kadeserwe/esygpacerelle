@@ -40,6 +40,7 @@ export const criteresQualificationRoute: Routes = [
     component: CriteresQualificationComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsCriteresQualification.home.title',
     },
     canActivate: [UserRouteAccessService],

@@ -40,6 +40,7 @@ export const piecesAdministrativesRoute: Routes = [
     component: PiecesAdministrativesComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsPiecesAdministratives.home.title',
     },
     canActivate: [UserRouteAccessService],

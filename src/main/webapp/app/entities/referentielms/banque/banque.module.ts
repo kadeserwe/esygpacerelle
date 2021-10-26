@@ -7,7 +7,7 @@ import { BanqueDetailComponent } from './banque-detail.component';
 import { BanqueUpdateComponent } from './banque-update.component';
 import { BanqueDeleteDialogComponent } from './banque-delete-dialog.component';
 import { banqueRoute } from './banque.route';
-//Ajouter
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({

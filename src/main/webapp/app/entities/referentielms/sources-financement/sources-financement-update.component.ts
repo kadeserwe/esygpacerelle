@@ -49,7 +49,7 @@ export class SourcesFinancementUpdateComponent implements OnInit {
     this.isSaving = true;
     const sourcesFinancement = this.createFromForm();
     if (sourcesFinancement.id !== undefined) {
-      this.subscribeToSaveResponse(this.sourcesFinancementService.update(sourcesFinancement));
+      this.subscribeToSaveResponse(this.sourcesFinancementService.update(sourcesFinancement, sourcesFinancement.id));
     } else {
       this.subscribeToSaveResponse(this.sourcesFinancementService.create(sourcesFinancement));
     }

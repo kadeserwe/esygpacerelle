@@ -10,6 +10,7 @@ import { ITypeAutoriteContractante } from 'app/shared/model/referentielms/type-a
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { TypeAutoriteContractanteService } from './type-autorite-contractante.service';
 import { TypeAutoriteContractanteDeleteDialogComponent } from './type-autorite-contractante-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-type-autorite-contractante',
@@ -34,7 +35,8 @@ export class TypeAutoriteContractanteComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

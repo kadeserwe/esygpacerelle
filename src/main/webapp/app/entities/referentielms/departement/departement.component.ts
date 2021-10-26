@@ -10,6 +10,7 @@ import { IDepartement } from 'app/shared/model/referentielms/departement.model';
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DepartementService } from './departement.service';
 import { DepartementDeleteDialogComponent } from './departement-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-departement',
@@ -34,7 +35,8 @@ export class DepartementComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

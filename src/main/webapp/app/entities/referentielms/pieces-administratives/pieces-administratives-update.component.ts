@@ -53,7 +53,12 @@ export class PiecesAdministrativesUpdateComponent implements OnInit {
     this.isSaving = true;
     const piecesAdministratives = this.createFromForm();
     if (piecesAdministratives.id !== undefined) {
-      this.subscribeToSaveResponse(this.piecesAdministrativesService.update(piecesAdministratives));
+      // eslint-disable-next-line no-console
+      console.log(
+        'testt',
+        this.subscribeToSaveResponse(this.piecesAdministrativesService.update(piecesAdministratives, piecesAdministratives.id))
+      );
+      this.subscribeToSaveResponse(this.piecesAdministrativesService.update(piecesAdministratives, piecesAdministratives.id));
     } else {
       this.subscribeToSaveResponse(this.piecesAdministrativesService.create(piecesAdministratives));
     }

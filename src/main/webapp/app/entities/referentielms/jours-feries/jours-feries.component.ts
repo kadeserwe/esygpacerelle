@@ -10,6 +10,7 @@ import { IJoursFeries } from 'app/shared/model/referentielms/jours-feries.model'
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { JoursFeriesService } from './jours-feries.service';
 import { JoursFeriesDeleteDialogComponent } from './jours-feries-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-jours-feries',
@@ -22,7 +23,6 @@ export class JoursFeriesComponent implements OnInit, OnDestroy {
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
-
   btnSuprimer = BOUTON_SUPRIMER;
   btnModifier = BOUTON_MODIFIER;
   btnDetails = BOUTON_DETAILS;
@@ -35,7 +35,8 @@ export class JoursFeriesComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

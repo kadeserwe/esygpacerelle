@@ -19,8 +19,8 @@ export class GroupesImputationService {
     return this.http.post<IGroupesImputation>(this.resourceUrl, groupesImputation, { observe: 'response' });
   }
 
-  update(groupesImputation: IGroupesImputation): Observable<EntityResponseType> {
-    return this.http.put<IGroupesImputation>(this.resourceUrl, groupesImputation, { observe: 'response' });
+  update(groupesImputation: IGroupesImputation, id: number): Observable<EntityResponseType> {
+    return this.http.put<IGroupesImputation>(`${this.resourceUrl}/${id}`, groupesImputation, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

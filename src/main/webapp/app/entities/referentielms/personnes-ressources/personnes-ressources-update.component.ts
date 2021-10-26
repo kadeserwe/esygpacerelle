@@ -57,7 +57,7 @@ export class PersonnesRessourcesUpdateComponent implements OnInit {
     this.isSaving = true;
     const personnesRessources = this.createFromForm();
     if (personnesRessources.id !== undefined) {
-      this.subscribeToSaveResponse(this.personnesRessourcesService.update(personnesRessources));
+      this.subscribeToSaveResponse(this.personnesRessourcesService.update(personnesRessources, personnesRessources.id));
     } else {
       this.subscribeToSaveResponse(this.personnesRessourcesService.create(personnesRessources));
     }

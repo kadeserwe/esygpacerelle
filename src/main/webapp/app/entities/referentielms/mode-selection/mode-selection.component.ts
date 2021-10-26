@@ -10,6 +10,7 @@ import { IModeSelection } from 'app/shared/model/referentielms/mode-selection.mo
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { ModeSelectionService } from './mode-selection.service';
 import { ModeSelectionDeleteDialogComponent } from './mode-selection-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-mode-selection',
@@ -34,7 +35,8 @@ export class ModeSelectionComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

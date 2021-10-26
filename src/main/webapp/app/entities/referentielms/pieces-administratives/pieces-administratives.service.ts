@@ -19,8 +19,8 @@ export class PiecesAdministrativesService {
     return this.http.post<IPiecesAdministratives>(this.resourceUrl, piecesAdministratives, { observe: 'response' });
   }
 
-  update(piecesAdministratives: IPiecesAdministratives): Observable<EntityResponseType> {
-    return this.http.put<IPiecesAdministratives>(this.resourceUrl, piecesAdministratives, { observe: 'response' });
+  update(piecesAdministratives: IPiecesAdministratives, id: number): Observable<EntityResponseType> {
+    return this.http.put<IPiecesAdministratives>(`${this.resourceUrl}/${id}`, piecesAdministratives, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

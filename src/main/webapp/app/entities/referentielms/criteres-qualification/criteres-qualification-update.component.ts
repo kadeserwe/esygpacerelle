@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { ICriteresQualification, CriteresQualification } from 'app/shared/model/referentielms/criteres-qualification.model';
@@ -23,7 +23,8 @@ export class CriteresQualificationUpdateComponent implements OnInit {
   constructor(
     protected criteresQualificationService: CriteresQualificationService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class CriteresQualificationUpdateComponent implements OnInit {
     this.isSaving = true;
     const criteresQualification = this.createFromForm();
     if (criteresQualification.id !== undefined) {
-      this.subscribeToSaveResponse(this.criteresQualificationService.update(criteresQualification));
+      this.subscribeToSaveResponse(this.criteresQualificationService.update(criteresQualification, criteresQualification.id));
     } else {
       this.subscribeToSaveResponse(this.criteresQualificationService.create(criteresQualification));
     }

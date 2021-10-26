@@ -40,6 +40,7 @@ export const sourcesFinancementRoute: Routes = [
     component: SourcesFinancementComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsSourcesFinancement.home.title',
     },
     canActivate: [UserRouteAccessService],

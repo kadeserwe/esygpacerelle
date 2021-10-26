@@ -44,8 +44,9 @@ export class BanqueUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const banque = this.createFromForm();
+
     if (banque.id !== undefined) {
-      this.subscribeToSaveResponse(this.banqueService.update(banque));
+      this.subscribeToSaveResponse(this.banqueService.update(banque, banque.id));
     } else {
       this.subscribeToSaveResponse(this.banqueService.create(banque));
     }

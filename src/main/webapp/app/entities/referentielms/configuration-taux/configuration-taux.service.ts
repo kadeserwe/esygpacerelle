@@ -24,10 +24,10 @@ export class ConfigurationTauxService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  update(configurationTaux: IConfigurationTaux): Observable<EntityResponseType> {
+  update(configurationTaux: IConfigurationTaux, id: number): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(configurationTaux);
     return this.http
-      .put<IConfigurationTaux>(this.resourceUrl, copy, { observe: 'response' })
+      .put<IConfigurationTaux>(`${this.resourceUrl}/${id}`, copy, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 

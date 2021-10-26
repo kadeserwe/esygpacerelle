@@ -10,6 +10,7 @@ import { IAvisGeneraux } from 'app/shared/model/referentielms/avis-generaux.mode
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { AvisGenerauxService } from './avis-generaux.service';
 import { AvisGenerauxDeleteDialogComponent } from './avis-generaux-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-avis-generaux',
@@ -35,7 +36,8 @@ export class AvisGenerauxComponent implements OnInit, OnDestroy {
     protected dataUtils: JhiDataUtils,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

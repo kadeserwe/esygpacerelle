@@ -7,11 +7,11 @@ import { ModeSelectionDetailComponent } from './mode-selection-detail.component'
 import { ModeSelectionUpdateComponent } from './mode-selection-update.component';
 import { ModeSelectionDeleteDialogComponent } from './mode-selection-delete-dialog.component';
 import { modeSelectionRoute } from './mode-selection.route';
-//Ajouter
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
-  imports: [GatewaysigmapSharedModule,Ng2SearchPipeModule, RouterModule.forChild(modeSelectionRoute)],
+  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(modeSelectionRoute)],
   declarations: [ModeSelectionComponent, ModeSelectionDetailComponent, ModeSelectionUpdateComponent, ModeSelectionDeleteDialogComponent],
   entryComponents: [ModeSelectionDeleteDialogComponent],
 })

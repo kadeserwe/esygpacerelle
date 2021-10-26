@@ -40,6 +40,7 @@ export const configurationTauxRoute: Routes = [
     component: ConfigurationTauxComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsConfigurationTaux.home.title',
     },
     canActivate: [UserRouteAccessService],

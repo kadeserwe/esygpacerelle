@@ -10,6 +10,7 @@ import { INaturesGarantie } from 'app/shared/model/referentielms/natures-garanti
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { NaturesGarantieService } from './natures-garantie.service';
 import { NaturesGarantieDeleteDialogComponent } from './natures-garantie-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-natures-garantie',
@@ -34,7 +35,8 @@ export class NaturesGarantieComponent implements OnInit, OnDestroy {
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

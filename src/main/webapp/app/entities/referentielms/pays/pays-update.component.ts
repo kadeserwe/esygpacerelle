@@ -45,7 +45,7 @@ export class PaysUpdateComponent implements OnInit {
     this.isSaving = true;
     const pays = this.createFromForm();
     if (pays.id !== undefined) {
-      this.subscribeToSaveResponse(this.paysService.update(pays));
+      this.subscribeToSaveResponse(this.paysService.update(pays, pays.id));
     } else {
       this.subscribeToSaveResponse(this.paysService.create(pays));
     }

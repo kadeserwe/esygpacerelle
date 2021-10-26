@@ -10,6 +10,7 @@ import { IBanque } from 'app/shared/model/referentielms/banque.model';
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { BanqueService } from './banque.service';
 import { BanqueDeleteDialogComponent } from './banque-delete-dialog.component';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-banque',
@@ -18,23 +19,24 @@ import { BanqueDeleteDialogComponent } from './banque-delete-dialog.component';
 export class BanqueComponent implements OnInit, OnDestroy {
   banques?: IBanque[];
   eventSubscriber?: Subscription;
-  totalItems = 0;
-  itemsPerPage = ITEMS_PER_PAGE;
-  page!: number;
+  term: any;
   btnSuprimer = BOUTON_SUPRIMER;
   btnModifier = BOUTON_MODIFIER;
   btnDetails = BOUTON_DETAILS;
+  totalItems = 0;
+  itemsPerPage = ITEMS_PER_PAGE;
+  page!: number;
+  ngbPaginationPage = 1;
   predicate!: string;
   ascending!: boolean;
-  ngbPaginationPage = 1;
-  term: any;
 
   constructor(
     protected banqueService: BanqueService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {

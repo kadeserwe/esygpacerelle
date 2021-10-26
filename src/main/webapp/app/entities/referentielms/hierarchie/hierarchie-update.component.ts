@@ -43,7 +43,7 @@ export class HierarchieUpdateComponent implements OnInit {
     this.isSaving = true;
     const hierarchie = this.createFromForm();
     if (hierarchie.id !== undefined) {
-      this.subscribeToSaveResponse(this.hierarchieService.update(hierarchie));
+      this.subscribeToSaveResponse(this.hierarchieService.update(hierarchie, hierarchie.id));
     } else {
       this.subscribeToSaveResponse(this.hierarchieService.create(hierarchie));
     }

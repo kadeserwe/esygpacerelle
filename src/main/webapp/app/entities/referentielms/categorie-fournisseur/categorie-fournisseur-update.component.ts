@@ -48,8 +48,9 @@ export class CategorieFournisseurUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const categorieFournisseur = this.createFromForm();
+
     if (categorieFournisseur.id !== undefined) {
-      this.subscribeToSaveResponse(this.categorieFournisseurService.update(categorieFournisseur));
+      this.subscribeToSaveResponse(this.categorieFournisseurService.update(categorieFournisseur, categorieFournisseur.id));
     } else {
       this.subscribeToSaveResponse(this.categorieFournisseurService.create(categorieFournisseur));
     }

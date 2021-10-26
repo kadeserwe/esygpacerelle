@@ -40,6 +40,7 @@ export const hierarchieRoute: Routes = [
     component: HierarchieComponent,
     data: {
       authorities: [Authority.USER],
+      defaultSort: 'id,asc',
       pageTitle: 'gatewaysigmapApp.referentielmsHierarchie.home.title',
     },
     canActivate: [UserRouteAccessService],

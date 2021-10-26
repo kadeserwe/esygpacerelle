@@ -1,29 +1,47 @@
 <div>
-    <h2 id="page-heading">
-        <span >Configuration Taux</span>
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-configuration-taux" [routerLink]="['/configuration-tauux/configuration-taux/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button> <br>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES CONFIGURATIONS TAUX</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    </h2>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Configuration Taux</span>
 
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
             <div class="form-group">
                 <strong><b>Rechercher terme(s) :</b></strong>
                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
                 <br>
             </div>
         </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-configuration-taux" [routerLink]="['/configuration-tauux/configuration-taux/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
     </div>
 
-
-    <!--<jhi-alert-error></jhi-alert-error>-->
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
 
     <jhi-alert></jhi-alert>
 
@@ -35,7 +53,7 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                 <!--   <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.code">Code</span></th>
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.libelle">Libelle</span></th>
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.taux">Taux</span></th>
@@ -48,7 +66,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let configurationTaux of configurationTauxes | filter:term">
-                    <td><a [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td>
+               <!--     <td><a [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td> -->
                     <td>{{ configurationTaux.code }}</td>
                     <td>{{ configurationTaux.libelle }}</td>
                     <td>{{ configurationTaux.taux }}</td>
@@ -56,8 +74,8 @@
                     <td>{{ configurationTaux.dateFin | date:'medium' }}</td>
                     <td>{{ configurationTaux.invalid }}</td>
                     <td>
-                        <div *ngIf="configurationTaux.paysA">
-                            <a [routerLink]="['/payys/pays', configurationTaux.paysA?.id, 'view']" >{{ configurationTaux.paysA?.libelle }}</a>
+                        <div *ngIf="configurationTaux.pays">
+                            <a [routerLink]="['/payys/pays', configurationTaux.pays?.id, 'view']" >{{ configurationTaux.pays?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">
@@ -83,5 +101,14 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="configurationTauxes && configurationTauxes.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
     </div>
 </div>

@@ -3,14 +3,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'jhi-banquue',
   templateUrl: './banquue.component.html',
-  styleUrls: ['./banquue.component.scss']
+  styleUrls: ['./banquue.component.scss'],
 })
 export class BanquueComponent implements OnInit {
   rdInvisible: any;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public highlightRow() {
     this.rdInvisible = 'disabled';

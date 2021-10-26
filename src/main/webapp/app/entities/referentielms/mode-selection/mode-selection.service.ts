@@ -19,8 +19,8 @@ export class ModeSelectionService {
     return this.http.post<IModeSelection>(this.resourceUrl, modeSelection, { observe: 'response' });
   }
 
-  update(modeSelection: IModeSelection): Observable<EntityResponseType> {
-    return this.http.put<IModeSelection>(this.resourceUrl, modeSelection, { observe: 'response' });
+  update(modeSelection: IModeSelection, id: number): Observable<EntityResponseType> {
+    return this.http.put<IModeSelection>(`${this.resourceUrl}/${id}`, modeSelection, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

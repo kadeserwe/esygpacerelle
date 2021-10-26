@@ -19,8 +19,8 @@ export class FonctionService {
     return this.http.post<IFonction>(this.resourceUrl, fonction, { observe: 'response' });
   }
 
-  update(fonction: IFonction): Observable<EntityResponseType> {
-    return this.http.put<IFonction>(this.resourceUrl, fonction, { observe: 'response' });
+  update(fonction: IFonction, id: number): Observable<EntityResponseType> {
+    return this.http.put<IFonction>(`${this.resourceUrl}/${id}`, fonction, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

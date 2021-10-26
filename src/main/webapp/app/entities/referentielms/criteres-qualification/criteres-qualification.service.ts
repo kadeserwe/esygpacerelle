@@ -19,8 +19,8 @@ export class CriteresQualificationService {
     return this.http.post<ICriteresQualification>(this.resourceUrl, criteresQualification, { observe: 'response' });
   }
 
-  update(criteresQualification: ICriteresQualification): Observable<EntityResponseType> {
-    return this.http.put<ICriteresQualification>(this.resourceUrl, criteresQualification, { observe: 'response' });
+  update(criteresQualification: ICriteresQualification, id: number): Observable<EntityResponseType> {
+    return this.http.put<ICriteresQualification>(`${this.resourceUrl}/${id}`, criteresQualification, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

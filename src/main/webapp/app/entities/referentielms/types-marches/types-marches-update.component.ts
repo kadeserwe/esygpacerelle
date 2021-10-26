@@ -47,7 +47,7 @@ export class TypesMarchesUpdateComponent implements OnInit {
     this.isSaving = true;
     const typesMarches = this.createFromForm();
     if (typesMarches.id !== undefined) {
-      this.subscribeToSaveResponse(this.typesMarchesService.update(typesMarches));
+      this.subscribeToSaveResponse(this.typesMarchesService.update(typesMarches, typesMarches.id));
     } else {
       this.subscribeToSaveResponse(this.typesMarchesService.create(typesMarches));
     }

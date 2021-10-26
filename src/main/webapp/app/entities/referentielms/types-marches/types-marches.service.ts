@@ -19,8 +19,8 @@ export class TypesMarchesService {
     return this.http.post<ITypesMarches>(this.resourceUrl, typesMarches, { observe: 'response' });
   }
 
-  update(typesMarches: ITypesMarches): Observable<EntityResponseType> {
-    return this.http.put<ITypesMarches>(this.resourceUrl, typesMarches, { observe: 'response' });
+  update(typesMarches: ITypesMarches, id: number): Observable<EntityResponseType> {
+    return this.http.put<ITypesMarches>(`${this.resourceUrl}/${id}`, typesMarches, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

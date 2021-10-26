@@ -1,26 +1,70 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsDirection.home.title">Directions</span>
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-direction" [routerLink]="['/directioon/direction/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button><br>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES DIRECTIONS</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    </h2>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Directions</span>
 
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
             <div class="form-group">
                 <strong><b>Rechercher terme(s) :</b></strong>
                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
                 <br>
             </div>
         </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-syg-direction" [routerLink]="['/directioon/direction/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
     </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <h2 id="page-heading">
+         <span jhiTranslate="gatewaysigmapApp.referentielmsDirection.home.title">Directions</span>
+
+         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-direction" [routerLink]="['/directioon/direction/new']">
+             <fa-icon icon="plus"></fa-icon>
+             <span>
+             Ajouter
+             </span>
+         </button><br>
+
+     </h2>
+
+     <div class="row">
+         <div class="col-md-9"></div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <strong><b>Rechercher terme(s) :</b></strong>
+                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                 <br>
+             </div>
+         </div>
+     </div> -->
 
 
     <!--<jhi-alert-error></jhi-alert-error>-->
@@ -35,7 +79,7 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                  <!--  <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsDirection.sigle">Sigle</span></th>
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsDirection.libelle">Libelle</span></th>
                     <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsDirection.description">Description</span></th>
@@ -44,7 +88,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let direction of directions | filter:term">
-                    <td><a [routerLink]="['/directioon/direction', direction.id, 'view']">{{ direction.id }}</a></td>
+              <!--      <td><a [routerLink]="['/directioon/direction', direction.id, 'view']">{{ direction.id }}</a></td> -->
                     <td>{{ direction.sigle }}</td>
                     <td>{{ direction.libelle }}</td>
                     <td>{{ direction.description }}</td>
@@ -71,5 +115,14 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="directions && directions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
     </div>
 </div>

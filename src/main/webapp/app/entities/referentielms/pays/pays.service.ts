@@ -19,8 +19,8 @@ export class PaysService {
     return this.http.post<IPays>(this.resourceUrl, pays, { observe: 'response' });
   }
 
-  update(pays: IPays): Observable<EntityResponseType> {
-    return this.http.put<IPays>(this.resourceUrl, pays, { observe: 'response' });
+  update(pays: IPays, id: number): Observable<EntityResponseType> {
+    return this.http.put<IPays>(`${this.resourceUrl}/${id}`, pays, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

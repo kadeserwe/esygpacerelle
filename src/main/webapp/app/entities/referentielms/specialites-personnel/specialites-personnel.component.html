@@ -1,26 +1,70 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsSpecialitesPersonnel.home.title">Specialites Personnels</span>
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specialites-personnel" [routerLink]="['/specialites-personneel/specialites-personnel/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button> <br>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES SPÉCIALITÉS PERSONNELS</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    </h2>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Spécialités Personnels</span>
 
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
             <div class="form-group">
                 <strong><b>Rechercher terme(s) :</b></strong>
                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
                 <br>
             </div>
         </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-specialites-personnel" [routerLink]="['/specialites-personneel/specialites-personnel/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
     </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <h2 id="page-heading">
+         <span jhiTranslate="gatewaysigmapApp.referentielmsSpecialitesPersonnel.home.title">Specialites Personnels</span>
+
+         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-specialites-personnel" [routerLink]="['/specialites-personneel/specialites-personnel/new']">
+             <fa-icon icon="plus"></fa-icon>
+             <span>
+             Ajouter
+             </span>
+         </button> <br>
+
+     </h2>
+
+     <div class="row">
+         <div class="col-md-9"></div>
+         <div class="col-md-3">
+             <div class="form-group">
+                 <strong><b>Rechercher terme(s) :</b></strong>
+                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                 <br>
+             </div>
+         </div>
+     </div> -->
 
 
     <!--<jhi-alert-error></jhi-alert-error>-->
@@ -35,14 +79,14 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                 <!--   <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsSpecialitesPersonnel.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let specialitesPersonnel of specialitesPersonnels | filter:term">
-                    <td><a [routerLink]="['/specialites-personneel/specialites-personnel', specialitesPersonnel.id, 'view']">{{ specialitesPersonnel.id }}</a></td>
+                 <!--   <td><a [routerLink]="['/specialites-personneel/specialites-personnel', specialitesPersonnel.id, 'view']">{{ specialitesPersonnel.id }}</a></td> -->
                     <td>{{ specialitesPersonnel.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">

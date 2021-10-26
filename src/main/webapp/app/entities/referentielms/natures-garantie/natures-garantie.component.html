@@ -1,26 +1,70 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsNaturesGarantie.home.title">Natures Garanties</span>
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-natures-garantie" [routerLink]="['/natures-garantiie/natures-garantie/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button><br>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES NATURES GARANTIES</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    </h2>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Natures Garantie</span>
 
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
             <div class="form-group">
                 <strong><b>Rechercher terme(s) :</b></strong>
                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
                 <br>
             </div>
         </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-natures-garantie" [routerLink]="['/natures-garantiie/natures-garantie/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+
     </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!--   <h2 id="page-heading">
+           <span jhiTranslate="gatewaysigmapApp.referentielmsNaturesGarantie.home.title">Natures Garanties</span>
+
+           <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-natures-garantie" [routerLink]="['/natures-garantiie/natures-garantie/new']">
+               <fa-icon icon="plus"></fa-icon>
+               <span>
+               Ajouter
+               </span>
+           </button><br>
+
+       </h2>
+
+       <div class="row">
+           <div class="col-md-9"></div>
+           <div class="col-md-3">
+               <div class="form-group">
+                   <strong><b>Rechercher terme(s) :</b></strong>
+                   <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                   <br>
+               </div>
+           </div>
+       </div> -->
 
 
     <!--<jhi-alert-error></jhi-alert-error>-->
@@ -35,14 +79,14 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                  <!--  <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsNaturesGarantie.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let naturesGarantie of naturesGaranties | filter:term">
-                    <td><a [routerLink]="['/natures-garantiie/natures-garantie', naturesGarantie.id, 'view']">{{ naturesGarantie.id }}</a></td>
+                <!--    <td><a [routerLink]="['/natures-garantiie/natures-garantie', naturesGarantie.id, 'view']">{{ naturesGarantie.id }}</a></td> -->
                     <td>{{ naturesGarantie.libelle }}</td>
                     <td class="text-right">
                         <div class="btn-group">

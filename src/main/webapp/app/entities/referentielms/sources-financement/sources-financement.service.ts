@@ -19,8 +19,8 @@ export class SourcesFinancementService {
     return this.http.post<ISourcesFinancement>(this.resourceUrl, sourcesFinancement, { observe: 'response' });
   }
 
-  update(sourcesFinancement: ISourcesFinancement): Observable<EntityResponseType> {
-    return this.http.put<ISourcesFinancement>(this.resourceUrl, sourcesFinancement, { observe: 'response' });
+  update(sourcesFinancement: ISourcesFinancement, id: number): Observable<EntityResponseType> {
+    return this.http.put<ISourcesFinancement>(`${this.resourceUrl}/${id}`, sourcesFinancement, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

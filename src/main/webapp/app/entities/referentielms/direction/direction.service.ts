@@ -19,8 +19,8 @@ export class DirectionService {
     return this.http.post<IDirection>(this.resourceUrl, direction, { observe: 'response' });
   }
 
-  update(direction: IDirection): Observable<EntityResponseType> {
-    return this.http.put<IDirection>(this.resourceUrl, direction, { observe: 'response' });
+  update(direction: IDirection, id: number): Observable<EntityResponseType> {
+    return this.http.put<IDirection>(`${this.resourceUrl}/${id}`, direction, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

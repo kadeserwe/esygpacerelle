@@ -7,7 +7,7 @@ import { FonctionDetailComponent } from './fonction-detail.component';
 import { FonctionUpdateComponent } from './fonction-update.component';
 import { FonctionDeleteDialogComponent } from './fonction-delete-dialog.component';
 import { fonctionRoute } from './fonction.route';
-//Ajouter
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({

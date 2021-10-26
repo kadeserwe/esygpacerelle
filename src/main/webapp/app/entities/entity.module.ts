@@ -11,7 +11,7 @@ import { CategorieFournisseuurComponent } from './modules/referentielms/categori
 import { BanquueComponent } from './modules/referentielms/banquue/banquue.component';
 import { TypeAutoriteContractanteeComponent } from './modules/referentielms/type-autorite-contractantee/type-autorite-contractantee.component';
 import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
-//modifier
+
 import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
 import { HierarchiieComponent } from './modules/referentielms/hierarchiie/hierarchiie.component';
 import { PersonnesRessourceesComponent } from './modules/referentielms/personnes-ressourcees/personnes-ressourcees.component';
@@ -62,7 +62,7 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           },
         ],
       },
-      //ajouter
+
       {
         path: 'fonctionns',
         component: FonctionnsComponent,
@@ -339,7 +339,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           },
         ],
       },
-      //fin ajout
 
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
