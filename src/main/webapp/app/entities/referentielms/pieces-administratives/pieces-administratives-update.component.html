@@ -1,23 +1,24 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="fff" >
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 [hidden]="!editForm.get('id')!.value"><span class="badge badge-primary">Modifier une Pièce Administrative</span></h2>
-            <h2 [hidden]="editForm.get('id')!.value"><span class="badge badge-primary">Créer une Pièce Administrative</span></h2>
+
+            <h2 [hidden]="!editForm.get('id')!.value"><span  class="badge badge-primary">Modifier une pièce administrative</span></h2>
+            <h2 [hidden]="editForm.get('id')!.value"><span  class="badge badge-primary">Créer une pièce administrative</span></h2>
             <div>
-                <jhi-alert-error></jhi-alert-error>
+              <!--  <jhi-alert-error></jhi-alert-error> -->
 
                 <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <!--  <label for="id" jhiTranslate="global.field.id">ID</label>
-                      <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly /> -->
-
+                  <!--  <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly /> -->
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.codePiece" for="field_codePiece">Code Piece</label>
-                    <input type="text" class="form-control" name="codePiece" id="field_codePiece"
-                           formControlName="codePiece"/>
-                    <div *ngIf="editForm.get('codePiece')!.invalid && (editForm.get('codePiece')!.dirty || editForm.get('codePiece')!.touched)">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                    <div *ngIf="editForm.get('code')!.invalid && (editForm.get('code')!.dirty || editForm.get('code')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('codePiece')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('code')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                     </div>
@@ -33,6 +34,12 @@
                         This field is required.
                         </small>
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
                 </div>
 
                 <div class="form-group">

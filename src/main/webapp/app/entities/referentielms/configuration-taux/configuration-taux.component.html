@@ -1,9 +1,9 @@
-<div>
+<div class="ff">
     <div _ngcontent-aay-c151="">
 
         <div >
             <div role="alert" class="alert alert-success">
-                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES CONFIGURATIONS TAUX</strong></marquee></h3>
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES CONFIGURATION TAUX</strong></marquee></h3>
                 <br/>
             </div>
         </div>
@@ -12,7 +12,7 @@
     <div class="row ">
         <div class="col-4">
             <h2 id="page-heading">
-                <span > Configuration Taux</span>
+                <span > Configuraton Taux</span>
 
             </h2>
         </div> <div class="col-4"></div>
@@ -25,16 +25,15 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-configuration-taux" [routerLink]="['/configuration-tauux/configuration-taux/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-configuration-taux" [routerLink]="['/configuration-taux/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
             </button>
         </div>
-
     </div>
 
-    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+    <div *ngIf="loaderService.isLoading  | async" class="app-loading">
         <div class="lds-css ng-scope">
             <div class="lds-pacman">
                 <div><div></div><div></div><div></div></div>
@@ -43,57 +42,60 @@
         </div>
     </div>
 
+
+    <!--  <jhi-alert-error></jhi-alert-error> -->
+
     <jhi-alert></jhi-alert>
 
-    <div class="alert alert-warning" id="no-result" *ngIf="configurationTauxes?.length === 0">
+    <div class="alert alert-warning text-nowrap" id="no-result" *ngIf="configurationTauxes?.length === 0">
         <span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.home.notFound">No configurationTauxes found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="configurationTauxes && configurationTauxes.length > 0">
+    <div class="table-responsive  text-nowrap" id="entities" *ngIf="configurationTauxes && configurationTauxes.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                 <!--   <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.code">Code</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.libelle">Libelle</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.taux">Taux</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.dateDebut">Date Debut</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.dateFin">Date Fin</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.invalid">Invalid</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.paysA">Pays A</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                <!--    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.code">Code</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.libelle">Libelle</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taux"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.taux">Taux</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDebut"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.dateDebut">Date Debut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateFin"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.dateFin">Date Fin</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invalid"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.invalid">Invalid</span><fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pays.id"><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.pays">Pays</span><fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let configurationTaux of configurationTauxes | filter:term">
-               <!--     <td><a [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td> -->
+                <tr *ngFor="let configurationTaux of configurationTauxes | filter: term">
+                <!--    <td><a [routerLink]="['/configuration-taux', configurationTaux.id, 'view']">{{ configurationTaux.id }}</a></td> -->
                     <td>{{ configurationTaux.code }}</td>
-                    <td>{{ configurationTaux.libelle }}</td>
+                   <td>{{ configurationTaux.libelle }}</td>
                     <td>{{ configurationTaux.taux }}</td>
                     <td>{{ configurationTaux.dateDebut | date:'medium' }}</td>
                     <td>{{ configurationTaux.dateFin | date:'medium' }}</td>
                     <td>{{ configurationTaux.invalid }}</td>
                     <td>
                         <div *ngIf="configurationTaux.pays">
-                            <a [routerLink]="['/payys/pays', configurationTaux.pays?.id, 'view']" >{{ configurationTaux.pays?.libelle }}</a>
+                            <a [routerLink]="['/pays', configurationTaux.pays?.id, 'view']" >{{ configurationTaux.pays?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'view']"
-                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                    [routerLink]="['/configuration-taux', configurationTaux.id, 'view']"
+                                    class="btn btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/configuration-tauux/configuration-taux', configurationTaux.id, 'edit']"
-                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                    [routerLink]="['/configuration-taux', configurationTaux.id, 'edit']"
+                                    class="btn btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(configurationTaux)"
-                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                                    class="btn btn-sm" [ngbTooltip]="btnSuprimer">
                                 <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>
@@ -102,6 +104,7 @@
             </tbody>
         </table>
     </div>
+
     <div *ngIf="configurationTauxes && configurationTauxes.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>

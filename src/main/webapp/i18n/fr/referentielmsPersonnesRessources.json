@@ -13,10 +13,10 @@
       "detail": {
         "title": "Personnes Ressources"
       },
-      "nom": "Nom",
       "prenom": "Prenom",
-      "telephone": "Telephone",
+      "nom": "Nom",
       "email": "Email",
+      "telephone": "Telephone",
       "fonction": "Fonction",
       "commentaires": "Commentaires"
     }

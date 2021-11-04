@@ -1,4 +1,4 @@
-<div>
+<div class="ff">
     <div _ngcontent-aay-c151="">
 
         <div >
@@ -12,7 +12,7 @@
     <div class="row ">
         <div class="col-4">
             <h2 id="page-heading">
-                <span >Pieces Administratives</span>
+                <span > Pièces Administratives</span>
 
             </h2>
         </div> <div class="col-4"></div>
@@ -25,16 +25,15 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-pieces-administratives" [routerLink]="['/pieces-administrativees/pieces-administratives/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-pièce-administratives" [routerLink]="['/pieces-administratives/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
             </button>
         </div>
-
     </div>
 
-    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+    <div *ngIf="loaderService.isLoading  | async" class="app-loading">
         <div class="lds-css ng-scope">
             <div class="lds-pacman">
                 <div><div></div><div></div><div></div></div>
@@ -43,48 +42,54 @@
         </div>
     </div>
 
+
+
+   <!-- <jhi-alert-error></jhi-alert-error> -->
+
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="piecesAdministratives?.length === 0">
         <span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.home.notFound">No piecesAdministratives found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="piecesAdministratives && piecesAdministratives.length > 0">
+    <div class="table-responsive text-nowrap" id="entities" *ngIf="piecesAdministratives && piecesAdministratives.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                  <!--  <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.codePiece">Code Piece</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.libelle">Libelle</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.localisation">Localisation</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.type">Type</span></th>
+                 <!--   <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="localisation"><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.localisation">Localisation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let piecesAdministratives of piecesAdministratives | filter:term">
-             <!--      <td><a [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'view']">{{ piecesAdministratives.id }}</a></td> -->
-                    <td>{{ piecesAdministratives.codePiece }}</td>
+                <!--    <td><a [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'view']">{{ piecesAdministratives.id }}</a></td>  -->
+                    <td>{{ piecesAdministratives.code }}</td>
                     <td>{{ piecesAdministratives.libelle }}</td>
+                    <td>{{ piecesAdministratives.description }}</td>
                     <td jhiTranslate="{{ 'gatewaysigmapApp.enumLocalisation.' + piecesAdministratives.localisation }}">{{ piecesAdministratives.localisation }}</td>
                     <td>{{ piecesAdministratives.type }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'view']"
-                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                    [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'view']"
+                                    class="btn btn btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/pieces-administrativees/pieces-administratives', piecesAdministratives.id, 'edit']"
-                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                    [routerLink]="['/pieces-administratives', piecesAdministratives.id, 'edit']"
+                                    class="btn btn btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(piecesAdministratives)"
-                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
-                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                                    class="btn btn btn-sm" [ngbTooltip]="btnSuprimer">
+                                    <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>
                     </td>
@@ -92,6 +97,7 @@
             </tbody>
         </table>
     </div>
+
     <div *ngIf="piecesAdministratives && piecesAdministratives.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>

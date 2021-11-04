@@ -115,7 +115,7 @@ export class AvisGenerauxComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/avis-generaux'], {
+      this.router.navigate(['/avis-generauux/avis-generaux'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

@@ -2,8 +2,9 @@ import { enumLocalisation } from 'app/shared/model/enumerations/enum-localisatio
 
 export interface IPiecesAdministratives {
   id?: number;
-  codePiece?: string;
+  code?: string;
   libelle?: string;
+  description?: string;
   localisation?: enumLocalisation;
   type?: number;
 }
@@ -11,8 +12,9 @@ export interface IPiecesAdministratives {
 export class PiecesAdministratives implements IPiecesAdministratives {
   constructor(
     public id?: number,
-    public codePiece?: string,
+    public code?: string,
     public libelle?: string,
+    public description?: string,
     public localisation?: enumLocalisation,
     public type?: number
   ) {}

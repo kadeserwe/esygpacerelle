@@ -1,15 +1,16 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="ff">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 [hidden]="!editForm.get('id')!.value"><span class="badge badge-primary">Modifier une Configuration de Taux</span></h2>
-            <h2 [hidden]="editForm.get('id')!.value"><span class="badge badge-primary">Créer une Configuration de Taux</span></h2>
-            <div>
-                <jhi-alert-error></jhi-alert-error>
 
-            <!--    <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div> -->
+            <h2 [hidden]="!editForm.get('id')!.value"><span  class="badge badge-primary">Modifier une configuration taux</span></h2>
+            <h2 [hidden]="editForm.get('id')!.value"><span  class="badge badge-primary">Créer une configuration taux</span></h2>
+            <div>
+               <!-- <jhi-alert-error></jhi-alert-error> -->
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                  <!--  <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />  -->
+                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.code" for="field_code">Code</label>
@@ -72,11 +73,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.paysA" for="field_paysA">Pays A</label>
-                    <select class="form-control" id="field_paysA" name="paysA" formControlName="paysA">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="paysOption.id === editForm.get('paysA')!.value?.id ? editForm.get('paysA')!.value : paysOption" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.libelle }}</option>
+                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.pays" for="field_pays">Pays</label>
+                    <select class="form-control" id="field_pays" name="pays" formControlName="pays">
+                        <option *ngIf="!editForm.get('pays')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="paysOption.id === editForm.get('pays')!.value?.id ? editForm.get('pays')!.value : paysOption" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.libelle }}</option>
                     </select>
+                </div>
+                <div *ngIf="editForm.get('pays')!.invalid && (editForm.get('pays')!.dirty || editForm.get('pays')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('pays')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
                 </div>
             </div>
 

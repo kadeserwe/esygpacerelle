@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="fff">
     <div class="col-8">
         <div *ngIf="pays">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsPays.detail.title">Pays</span> {{ pays.id }}</h2>
@@ -8,14 +8,15 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPays.codePays">Code Pays</span></dt>
+                <dd>
+                    <span>{{ pays.codePays }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPays.libelle">Libelle</span></dt>
                 <dd>
                     <span>{{ pays.libelle }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPays.codepays">Codepays</span></dt>
-                <dd>
-                    <span>{{ pays.codepays }}</span>
-                </dd>
+
             </dl>
 
             <button type="submit"

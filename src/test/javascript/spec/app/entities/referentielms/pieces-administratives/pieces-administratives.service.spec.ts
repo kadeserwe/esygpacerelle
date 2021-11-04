@@ -21,7 +21,7 @@ describe('Service Tests', () => {
       service = injector.get(PiecesAdministrativesService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new PiecesAdministratives(0, 'AAAAAAA', 'AAAAAAA', enumLocalisation.LOCALES, 0);
+      elemDefault = new PiecesAdministratives(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', enumLocalisation.LOCALES, 0);
     });
 
     describe('Service methods', () => {
@@ -55,8 +55,9 @@ describe('Service Tests', () => {
       it('should update a PiecesAdministratives', () => {
         const returnedFromService = Object.assign(
           {
-            codePiece: 'BBBBBB',
+            code: 'BBBBBB',
             libelle: 'BBBBBB',
+            description: 'BBBBBB',
             localisation: 'BBBBBB',
             type: 1,
           },
@@ -75,8 +76,9 @@ describe('Service Tests', () => {
       it('should return a list of PiecesAdministratives', () => {
         const returnedFromService = Object.assign(
           {
-            codePiece: 'BBBBBB',
+            code: 'BBBBBB',
             libelle: 'BBBBBB',
+            description: 'BBBBBB',
             localisation: 'BBBBBB',
             type: 1,
           },

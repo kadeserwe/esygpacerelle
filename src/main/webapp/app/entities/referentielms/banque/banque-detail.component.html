@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center"  >
     <div class="col-8">
         <div *ngIf="banque">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsBanque.detail.title">Banque</span> {{ banque.id }}</h2>
@@ -25,7 +25,7 @@
             </button>
 
             <button type="button"
-                    [routerLink]="['/banque', banque.id, 'edit']"
+                    [routerLink]="['/banquue/banque', banque.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
             </button>

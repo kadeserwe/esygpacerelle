@@ -1,16 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { combineLatest, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
+import { Subscription, combineLatest } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IPersonnesRessources } from 'app/shared/model/referentielms/personnes-ressources.model';
 import { PersonnesRessourcesService } from './personnes-ressources.service';
 import { PersonnesRessourcesDeleteDialogComponent } from './personnes-ressources-delete-dialog.component';
-import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
 import { LoaderService } from '../../../loader/loader.service';
-
-import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
+import { IPersonnesRessources } from '../../../shared/model/referentielms/personnes-ressources.model';
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
 
 @Component({
   selector: 'jhi-personnes-ressources',
@@ -19,23 +18,23 @@ import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
 export class PersonnesRessourcesComponent implements OnInit, OnDestroy {
   personnesRessources?: IPersonnesRessources[];
   eventSubscriber?: Subscription;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected personnesRessourcesService: PersonnesRessourcesService,
-    protected eventManager: JhiEventManager,
-    protected modalService: NgbModal,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal,
     public loaderService: LoaderService
   ) {}
 
@@ -53,6 +52,12 @@ export class PersonnesRessourcesComponent implements OnInit, OnDestroy {
         () => this.onError()
       );
   }
+
+  ngOnInit(): void {
+    this.handleNavigation();
+    this.registerChangeInPersonnesRessources();
+  }
+
   protected handleNavigation(): void {
     combineLatest(this.activatedRoute.data, this.activatedRoute.queryParamMap, (data: Data, params: ParamMap) => {
       const page = params.get('page');
@@ -66,17 +71,6 @@ export class PersonnesRessourcesComponent implements OnInit, OnDestroy {
         this.loadPage(pageNumber, true);
       }
     }).subscribe();
-  }
-
-  loadAll(): void {
-    this.personnesRessourcesService
-      .query()
-      .subscribe((res: HttpResponse<IPersonnesRessources[]>) => (this.personnesRessources = res.body || []));
-  }
-
-  ngOnInit(): void {
-    this.handleNavigation();
-    this.registerChangeInPersonnesRessources();
   }
 
   ngOnDestroy(): void {
@@ -111,7 +105,7 @@ export class PersonnesRessourcesComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['personnes-ressourcees/personnes-ressources'], {
+      this.router.navigate(['/personnes-ressources'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

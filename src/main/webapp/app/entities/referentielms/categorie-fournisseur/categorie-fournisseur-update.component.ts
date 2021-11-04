@@ -17,8 +17,8 @@ export class CategorieFournisseurUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [null, [Validators.required, Validators.maxLength(255)]],
-    description: [],
+    libelle: [null, [Validators.required]],
+    description: [null, [Validators.required]],
   });
 
   constructor(
@@ -48,9 +48,8 @@ export class CategorieFournisseurUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const categorieFournisseur = this.createFromForm();
-
     if (categorieFournisseur.id !== undefined) {
-      this.subscribeToSaveResponse(this.categorieFournisseurService.update(categorieFournisseur, categorieFournisseur.id));
+      this.subscribeToSaveResponse(this.categorieFournisseurService.update(categorieFournisseur));
     } else {
       this.subscribeToSaveResponse(this.categorieFournisseurService.create(categorieFournisseur));
     }

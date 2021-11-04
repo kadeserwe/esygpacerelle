@@ -1,4 +1,5 @@
-<div>
+<div class="ff">
+
     <div _ngcontent-aay-c151="">
 
         <div >
@@ -25,7 +26,7 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-fournisseur" [routerLink]="['/fournisseuur/fournisseur/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-fournisseur" [routerLink]="['/fournisseur/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
@@ -43,29 +44,7 @@
         </div>
     </div>
 
-    <!-- <h2 id="page-heading">
-         <span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.home.title">Fournisseurs</span>
-
-         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fournisseur" [routerLink]="['/fournisseuur/fournisseur/new']">
-             <fa-icon icon="plus"></fa-icon>
-             <span>
-             Ajouter
-             </span>
-         </button>
-     </h2>
-
-     <div class="row">
-         <div class="col-md-9"></div>
-         <div class="col-md-3">
-             <div class="form-group">
-                 <strong><b>Rechercher terme(s) :</b></strong>
-                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
-                 <br>
-             </div>
-         </div>
-     </div> -->
-
-    <!--<jhi-alert-error></jhi-alert-error>-->
+    <!-- <jhi-alert-error></jhi-alert-error> -->
 
     <jhi-alert></jhi-alert>
 
@@ -73,33 +52,31 @@
         <span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.home.notFound">No fournisseurs found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="fournisseurs && fournisseurs.length > 0">
+    <div class="table-responsive text-nowrap" id="entities" *ngIf="fournisseurs && fournisseurs.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                  <!--   <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                  <!--  <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
                     <th scope="col"  jhiSortBy="raisonSociale"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.raisonSociale">Raison Sociale</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="fax"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.fax">Fax</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="pieceJointe"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.pieceJointe">Piece Jointe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="numeroRegistreCommerce"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.numeroRegistreCommerce">Numero Registre Commerce</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date">Date d'inscription <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="sigle"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.sigle">Sigle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="numeroIdentiteFiscale"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.numeroIdentiteFiscale">Numero Identite Fiscale</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="categorieFournisseur.id"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.categorieFournisseur">Categorie Fournisseur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categorieFournisseur.id">Categorie Fournisseur <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="pays.id"><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.pays">Pays</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let fournisseur of fournisseurs | filter:term">
-                  <!--  <td><a [routerLink]="['/fournisseur', fournisseur.id, 'view']">{{ fournisseur.id }}</a></td> -->
+                <tr *ngFor="let fournisseur of fournisseurs | filter: term">
+                   <!-- <td><a [routerLink]="['/fournisseur', fournisseur.id, 'view']">{{ fournisseur.id }}</a></td>n-->
                     <td>{{ fournisseur.raisonSociale }}</td>
                     <td>{{ fournisseur.adresse }}</td>
                     <td>{{ fournisseur.email }}</td>
-                    <td>{{ fournisseur.fax }}</td>
                     <td>{{ fournisseur.telephone }}</td>
                     <td>{{ fournisseur.pieceJointe }}</td>
                     <td>{{ fournisseur.numeroRegistreCommerce }}</td>
@@ -108,30 +85,30 @@
                     <td>{{ fournisseur.numeroIdentiteFiscale }}</td>
                     <td>
                         <div *ngIf="fournisseur.categorieFournisseur">
-                            <a [routerLink]="['/fournisseuur/categorie-fournisseur', fournisseur.categorieFournisseur?.id, 'view']" >{{ fournisseur.categorieFournisseur?.libelle }}</a>
+                            <a [routerLink]="['/categorie-fournisseur', fournisseur.categorieFournisseur?.id, 'view']" >{{ fournisseur.categorieFournisseur?.libelle }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="fournisseur.pays">
-                            <a [routerLink]="['/payys/pays', fournisseur.pays?.id, 'view']" >{{ fournisseur.pays?.libelle}}</a>
+                            <a [routerLink]="['/pays', fournisseur.pays?.id, 'view']" >{{ fournisseur.pays?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/fournisseuur/fournisseur', fournisseur.id, 'view']"
-                                    class="btn btn-info btn-sm" [ngbTooltip]="btnDetails">
+                                    [routerLink]="['/fournisseur', fournisseur.id, 'view']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/fournisseuur/fournisseur', fournisseur.id, 'edit']"
-                                    class="btn btn-primary btn-sm" [ngbTooltip]="btnModifier">
+                                    [routerLink]="['/fournisseur', fournisseur.id, 'edit']"
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(fournisseur)"
-                                    class="btn btn-danger btn-sm" [ngbTooltip]="btnSuprimer">
+                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
                                 <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>

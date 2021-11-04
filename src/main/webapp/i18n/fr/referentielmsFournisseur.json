@@ -16,14 +16,13 @@
       "raisonSociale": "Raison Sociale",
       "adresse": "Adresse",
       "email": "Email",
-      "fax": "Fax",
       "telephone": "Telephone",
       "pieceJointe": "Piece Jointe",
       "numeroRegistreCommerce": "Numero Registre Commerce",
       "date": "Date",
       "sigle": "Sigle",
       "numeroIdentiteFiscale": "Numero Identite Fiscale",
-      "categorieFournisseur": "Categorie Fournisseur",
+      "categorieFourniseur": "Categorie Fourniseur",
       "pays": "Pays"
     }
   },

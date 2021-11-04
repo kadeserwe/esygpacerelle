@@ -55,7 +55,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             libelle: 'BBBBBB',
-            codepays: 'BBBBBB',
+            codePays: 'BBBBBB',
           },
           elemDefault
         );
@@ -73,7 +73,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             libelle: 'BBBBBB',
-            codepays: 'BBBBBB',
+            codePays: 'BBBBBB',
           },
           elemDefault
         );

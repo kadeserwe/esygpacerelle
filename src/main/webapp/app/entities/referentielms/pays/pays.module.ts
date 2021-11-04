@@ -7,7 +7,6 @@ import { PaysDetailComponent } from './pays-detail.component';
 import { PaysUpdateComponent } from './pays-update.component';
 import { PaysDeleteDialogComponent } from './pays-delete-dialog.component';
 import { paysRoute } from './pays.route';
-
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({

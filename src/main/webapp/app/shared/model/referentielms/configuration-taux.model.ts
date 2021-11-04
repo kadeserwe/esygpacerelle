@@ -9,7 +9,7 @@ export interface IConfigurationTaux {
   dateDebut?: Moment;
   dateFin?: Moment;
   invalid?: boolean;
-  paysA?: IPays;
+  pays?: IPays;
 }
 
 export class ConfigurationTaux implements IConfigurationTaux {
@@ -21,7 +21,7 @@ export class ConfigurationTaux implements IConfigurationTaux {
     public dateDebut?: Moment,
     public dateFin?: Moment,
     public invalid?: boolean,
-    public paysA?: IPays
+    public pays?: IPays
   ) {
     this.invalid = this.invalid || false;
   }

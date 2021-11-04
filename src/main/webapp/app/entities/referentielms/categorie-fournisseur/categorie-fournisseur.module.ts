@@ -8,10 +8,8 @@ import { CategorieFournisseurUpdateComponent } from './categorie-fournisseur-upd
 import { CategorieFournisseurDeleteDialogComponent } from './categorie-fournisseur-delete-dialog.component';
 import { categorieFournisseurRoute } from './categorie-fournisseur.route';
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
 @NgModule({
-  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(categorieFournisseurRoute)],
+  imports: [GatewaysigmapSharedModule, RouterModule.forChild(categorieFournisseurRoute)],
   declarations: [
     CategorieFournisseurComponent,
     CategorieFournisseurDetailComponent,

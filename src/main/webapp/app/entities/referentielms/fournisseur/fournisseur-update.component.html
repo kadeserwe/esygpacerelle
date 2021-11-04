@@ -1,15 +1,16 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center " class="ff">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <h2 [hidden]="!editForm.get('id')!.value"><span class="badge badge-primary">Modifier un Fournisseur</span></h2>
             <h2 [hidden]="editForm.get('id')!.value"><span class="badge badge-primary">Créer un Fournisseur</span></h2>
-            <div>
-                <jhi-alert-error></jhi-alert-error>
 
-               <!-- <div class="form-group" [hidden]="!editForm.get('id')!.value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div> -->
+            <div>
+              <!--  <jhi-alert-error></jhi-alert-error> -->
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                  <!--  <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly /> -->
+                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.raisonSociale" for="field_raisonSociale">Raison Sociale</label>
@@ -19,10 +20,6 @@
                         <small class="form-text text-danger"
                                *ngIf="editForm.get('raisonSociale')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('raisonSociale')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
-                        This field cannot be longer than 255 characters.
                         </small>
                     </div>
                 </div>
@@ -45,20 +42,8 @@
                            formControlName="email"/>
                     <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('email')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
-                        This field cannot be longer than 20 characters.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.fax" for="field_fax">Fax</label>
-                    <input type="text" class="form-control" name="fax" id="field_fax"
-                           formControlName="fax"/>
-                    <div *ngIf="editForm.get('fax')!.invalid && (editForm.get('fax')!.dirty || editForm.get('fax')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('fax')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
-                        This field cannot be longer than 15 characters.
+                               *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
                         </small>
                     </div>
                 </div>
@@ -69,8 +54,8 @@
                            formControlName="telephone"/>
                     <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('telephone')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
-                        This field cannot be longer than 15 characters.
+                               *ngIf="editForm.get('telephone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
                         </small>
                     </div>
                 </div>
@@ -79,24 +64,12 @@
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.pieceJointe" for="field_pieceJointe">Piece Jointe</label>
                     <input type="text" class="form-control" name="pieceJointe" id="field_pieceJointe"
                            formControlName="pieceJointe"/>
-                    <div *ngIf="editForm.get('pieceJointe')!.invalid && (editForm.get('pieceJointe')!.dirty || editForm.get('pieceJointe')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('pieceJointe')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
-                        This field cannot be longer than 15 characters.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.numeroRegistreCommerce" for="field_numeroRegistreCommerce">Numero Registre Commerce</label>
                     <input type="text" class="form-control" name="numeroRegistreCommerce" id="field_numeroRegistreCommerce"
                            formControlName="numeroRegistreCommerce"/>
-                    <div *ngIf="editForm.get('numeroRegistreCommerce')!.invalid && (editForm.get('numeroRegistreCommerce')!.dirty || editForm.get('numeroRegistreCommerce')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('numeroRegistreCommerce')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
-                        This field cannot be longer than 15 characters.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -120,52 +93,28 @@
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.sigle" for="field_sigle">Sigle</label>
                     <input type="text" class="form-control" name="sigle" id="field_sigle"
                            formControlName="sigle"/>
-                    <div *ngIf="editForm.get('sigle')!.invalid && (editForm.get('sigle')!.dirty || editForm.get('sigle')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('sigle')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 7 }">
-                        This field cannot be longer than 7 characters.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.numeroIdentiteFiscale" for="field_numeroIdentiteFiscale">Numero Identite Fiscale</label>
                     <input type="text" class="form-control" name="numeroIdentiteFiscale" id="field_numeroIdentiteFiscale"
                            formControlName="numeroIdentiteFiscale"/>
-                    <div *ngIf="editForm.get('numeroIdentiteFiscale')!.invalid && (editForm.get('numeroIdentiteFiscale')!.dirty || editForm.get('numeroIdentiteFiscale')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('numeroIdentiteFiscale')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 7 }">
-                        This field cannot be longer than 7 characters.
-                        </small>
-                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.categorieFournisseur" for="field_categorieFournisseur">Categorie Fournisseur</label>
+                    <label class="form-control-label" for="field_categorieFournisseur">Categorie Fourniseur</label>
                     <select class="form-control" id="field_categorieFournisseur" name="categorieFournisseur" formControlName="categorieFournisseur">
-                        <option *ngIf="!editForm.get('categorieFournisseur')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="null"></option>
                         <option [ngValue]="categorieFournisseurOption.id === editForm.get('categorieFournisseur')!.value?.id ? editForm.get('categorieFournisseur')!.value : categorieFournisseurOption" *ngFor="let categorieFournisseurOption of categoriefournisseurs; trackBy: trackById">{{ categorieFournisseurOption.libelle }}</option>
                     </select>
-                </div>
-                <div *ngIf="editForm.get('categorieFournisseur')!.invalid && (editForm.get('categorieFournisseur')!.dirty || editForm.get('categorieFournisseur')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('categorieFournisseur')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.pays" for="field_pays">Pays</label>
                     <select class="form-control" id="field_pays" name="pays" formControlName="pays">
-                        <option *ngIf="!editForm.get('pays')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="null"></option>
                         <option [ngValue]="paysOption.id === editForm.get('pays')!.value?.id ? editForm.get('pays')!.value : paysOption" *ngFor="let paysOption of pays; trackBy: trackById">{{ paysOption.libelle }}</option>
                     </select>
-                </div>
-                <div *ngIf="editForm.get('pays')!.invalid && (editForm.get('pays')!.dirty || editForm.get('pays')!.touched)">
-                    <small class="form-text text-danger"
-                           *ngIf="editForm.get('pays')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
                 </div>
             </div>
 

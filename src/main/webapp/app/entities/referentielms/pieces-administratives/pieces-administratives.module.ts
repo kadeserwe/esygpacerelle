@@ -7,7 +7,7 @@ import { PiecesAdministrativesDetailComponent } from './pieces-administratives-d
 import { PiecesAdministrativesUpdateComponent } from './pieces-administratives-update.component';
 import { PiecesAdministrativesDeleteDialogComponent } from './pieces-administratives-delete-dialog.component';
 import { piecesAdministrativesRoute } from './pieces-administratives.route';
-import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(piecesAdministrativesRoute)],

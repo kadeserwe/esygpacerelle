@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(SourcesFinancementService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new SourcesFinancement(0, 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new SourcesFinancement(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,8 +54,9 @@ describe('Service Tests', () => {
       it('should update a SourcesFinancement', () => {
         const returnedFromService = Object.assign(
           {
+            code: 'BBBBBB',
             libelle: 'BBBBBB',
-            type: 'BBBBBB',
+            corbeille: 'BBBBBB',
           },
           elemDefault
         );
@@ -72,8 +73,9 @@ describe('Service Tests', () => {
       it('should return a list of SourcesFinancement', () => {
         const returnedFromService = Object.assign(
           {
+            code: 'BBBBBB',
             libelle: 'BBBBBB',
-            type: 'BBBBBB',
+            corbeille: 'BBBBBB',
           },
           elemDefault
         );

@@ -19,16 +19,16 @@ import { LoaderService } from '../../../loader/loader.service';
 export class PaysComponent implements OnInit, OnDestroy {
   pays?: IPays[];
   eventSubscriber?: Subscription;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
   ascending!: boolean;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   ngbPaginationPage = 1;
-  term: any;
 
   constructor(
     protected paysService: PaysService,
@@ -106,7 +106,7 @@ export class PaysComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/payys/pays'], {
+      this.router.navigate(['/pays'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

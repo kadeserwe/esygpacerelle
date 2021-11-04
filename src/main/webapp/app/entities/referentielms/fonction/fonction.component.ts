@@ -10,7 +10,6 @@ import { FonctionDeleteDialogComponent } from './fonction-delete-dialog.componen
 import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
 import { LoaderService } from '../../../loader/loader.service';
 import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
-import { IBanque } from '../../../shared/model/referentielms/banque.model';
 
 @Component({
   selector: 'jhi-fonction',

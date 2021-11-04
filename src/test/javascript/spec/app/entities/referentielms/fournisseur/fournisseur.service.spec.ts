@@ -24,19 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Fournisseur(
-        0,
-        'AAAAAAA',
-        'AAAAAAA',
-        'AAAAAAA',
-        'AAAAAAA',
-        'AAAAAAA',
-        'AAAAAAA',
-        'AAAAAAA',
-        currentDate,
-        'AAAAAAA',
-        'AAAAAAA'
-      );
+      elemDefault = new Fournisseur(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -84,7 +72,6 @@ describe('Service Tests', () => {
             raisonSociale: 'BBBBBB',
             adresse: 'BBBBBB',
             email: 'BBBBBB',
-            fax: 'BBBBBB',
             telephone: 'BBBBBB',
             pieceJointe: 'BBBBBB',
             numeroRegistreCommerce: 'BBBBBB',
@@ -115,7 +102,6 @@ describe('Service Tests', () => {
             raisonSociale: 'BBBBBB',
             adresse: 'BBBBBB',
             email: 'BBBBBB',
-            fax: 'BBBBBB',
             telephone: 'BBBBBB',
             pieceJointe: 'BBBBBB',
             numeroRegistreCommerce: 'BBBBBB',

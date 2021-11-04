@@ -17,11 +17,11 @@ export class PersonnesRessourcesUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nom: [null, [Validators.required]],
     prenom: [null, [Validators.required]],
+    nom: [null, [Validators.required]],
+    email: [null, [Validators.required]],
     telephone: [null, [Validators.required]],
-    email: [],
-    fonction: [],
+    fonction: [null, [Validators.required]],
     commentaires: [],
   });
 
@@ -40,10 +40,10 @@ export class PersonnesRessourcesUpdateComponent implements OnInit {
   updateForm(personnesRessources: IPersonnesRessources): void {
     this.editForm.patchValue({
       id: personnesRessources.id,
-      nom: personnesRessources.nom,
       prenom: personnesRessources.prenom,
-      telephone: personnesRessources.telephone,
+      nom: personnesRessources.nom,
       email: personnesRessources.email,
+      telephone: personnesRessources.telephone,
       fonction: personnesRessources.fonction,
       commentaires: personnesRessources.commentaires,
     });
@@ -57,7 +57,7 @@ export class PersonnesRessourcesUpdateComponent implements OnInit {
     this.isSaving = true;
     const personnesRessources = this.createFromForm();
     if (personnesRessources.id !== undefined) {
-      this.subscribeToSaveResponse(this.personnesRessourcesService.update(personnesRessources, personnesRessources.id));
+      this.subscribeToSaveResponse(this.personnesRessourcesService.update(personnesRessources));
     } else {
       this.subscribeToSaveResponse(this.personnesRessourcesService.create(personnesRessources));
     }
@@ -67,10 +67,10 @@ export class PersonnesRessourcesUpdateComponent implements OnInit {
     return {
       ...new PersonnesRessources(),
       id: this.editForm.get(['id'])!.value,
-      nom: this.editForm.get(['nom'])!.value,
       prenom: this.editForm.get(['prenom'])!.value,
-      telephone: this.editForm.get(['telephone'])!.value,
+      nom: this.editForm.get(['nom'])!.value,
       email: this.editForm.get(['email'])!.value,
+      telephone: this.editForm.get(['telephone'])!.value,
       fonction: this.editForm.get(['fonction'])!.value,
       commentaires: this.editForm.get(['commentaires'])!.value,
     };

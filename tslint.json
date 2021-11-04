@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "experimentalDecorators": true
+  },
   "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
     "directive-selector": [true, "attribute", "jhi", "camelCase"],

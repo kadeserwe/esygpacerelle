@@ -73,17 +73,17 @@
         <span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.home.notFound">No avisGenerauxes found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+    <div class="table-responsive  text-nowrap"  id="entities" *ngIf="avisGenerauxes && avisGenerauxes.length > 0">
+        <table style="border-collapse: collapse" class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                <tr  jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                   <!--  <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
-                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th   scope="col"  jhiSortBy="numero"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="annee"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.annee">Annee</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="fichierAvis"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.fichierAvis">Fichier Avis</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="version"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.version">Version</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="lastVersionValid"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col" class="inline-block" jhiSortBy="lastVersionValid"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.lastVersionValid">Last Version Valid</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="etat"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.etat">Etat</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="datePublication"><span jhiTranslate="gatewaysigmapApp.referentielmsAvisGeneraux.datePublication">Date Publication</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
@@ -97,7 +97,7 @@
                     <td>{{ avisGeneraux.description }}</td>
                     <td>
                         <a *ngIf="avisGeneraux.fichierAvis" (click)="openFile(avisGeneraux.fichierAvisContentType, avisGeneraux.fichierAvis)" jhiTranslate="entity.action.open">open</a>
-                        <span *ngIf="avisGeneraux.fichierAvis">{{ avisGeneraux.fichierAvisContentType }}, {{ byteSize(avisGeneraux.fichierAvis) }}</span>
+                        <span *ngIf="avisGeneraux.fichierAvis">{{ avisGeneraux.fichierAvisContentType }} <!--, {{ byteSize(avisGeneraux.fichierAvis) }}--></span>
                     </td>
                     <td>{{ avisGeneraux.version }}</td>
                     <td>{{ avisGeneraux.lastVersionValid }}</td>
@@ -108,18 +108,18 @@
                             <button type="submit"
                                     [routerLink]="['/avis-generauux/avis-generaux', avisGeneraux.id, 'view']"
                                     class="btn btn-sm" [ngbTooltip]="btnDetails">
-                                <fa-icon icon="eye"></fa-icon>
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
                                     [routerLink]="['/avis-generauux/avis-generaux', avisGeneraux.id, 'edit']"
                                     class="btn btn-sm" [ngbTooltip]="btnModifier">
-                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <fa-icon icon="pencil-alt"  style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(avisGeneraux)"
-                                    class="btn btn-sm">
-                                <fa-icon icon="trash-alt"></fa-icon>
+                                    class="btn btn-sm" [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>
                     </td>

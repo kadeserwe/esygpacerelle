@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
@@ -28,15 +28,14 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
     dateDebut: [],
     dateFin: [],
     invalid: [],
-    paysA: [],
+    pays: [null, Validators.required],
   });
 
   constructor(
     protected configurationTauxService: ConfigurationTauxService,
     protected paysService: PaysService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder,
-    public router: Router
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
       dateDebut: configurationTaux.dateDebut ? configurationTaux.dateDebut.format(DATE_TIME_FORMAT) : null,
       dateFin: configurationTaux.dateFin ? configurationTaux.dateFin.format(DATE_TIME_FORMAT) : null,
       invalid: configurationTaux.invalid,
-      paysA: configurationTaux.paysA,
+      pays: configurationTaux.pays,
     });
   }
 
@@ -73,9 +72,8 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const configurationTaux = this.createFromForm();
-    const link = ['configuration-tauux/configuration-taux'];
     if (configurationTaux.id !== undefined) {
-      this.subscribeToSaveResponse(this.configurationTauxService.update(configurationTaux, configurationTaux.id));
+      this.subscribeToSaveResponse(this.configurationTauxService.update(configurationTaux));
     } else {
       this.subscribeToSaveResponse(this.configurationTauxService.create(configurationTaux));
     }
@@ -91,7 +89,7 @@ export class ConfigurationTauxUpdateComponent implements OnInit {
       dateDebut: this.editForm.get(['dateDebut'])!.value ? moment(this.editForm.get(['dateDebut'])!.value, DATE_TIME_FORMAT) : undefined,
       dateFin: this.editForm.get(['dateFin'])!.value ? moment(this.editForm.get(['dateFin'])!.value, DATE_TIME_FORMAT) : undefined,
       invalid: this.editForm.get(['invalid'])!.value,
-      paysA: this.editForm.get(['paysA'])!.value,
+      pays: this.editForm.get(['pays'])!.value,
     };
   }
 

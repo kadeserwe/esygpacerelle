@@ -17,8 +17,8 @@ export class PaysUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
-    codepays: [],
+    libelle: [null, [Validators.required]],
+    codePays: [null, [Validators.required]],
   });
 
   constructor(protected paysService: PaysService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -33,7 +33,7 @@ export class PaysUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: pays.id,
       libelle: pays.libelle,
-      codepays: pays.codepays,
+      codePays: pays.codePays,
     });
   }
 
@@ -56,7 +56,7 @@ export class PaysUpdateComponent implements OnInit {
       ...new Pays(),
       id: this.editForm.get(['id'])!.value,
       libelle: this.editForm.get(['libelle'])!.value,
-      codepays: this.editForm.get(['codepays'])!.value,
+      codePays: this.editForm.get(['codePays'])!.value,
     };
   }
 

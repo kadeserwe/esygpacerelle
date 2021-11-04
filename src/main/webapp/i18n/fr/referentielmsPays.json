@@ -14,7 +14,7 @@
         "title": "Pays"
       },
       "libelle": "Libelle",
-      "codepays": "Codepays"
+      "codePays": "Code Pays"
     }
   },
   "referentielmsApp": {

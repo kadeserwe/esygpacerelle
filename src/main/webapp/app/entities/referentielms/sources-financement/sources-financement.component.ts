@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { combineLatest, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
+import { Subscription, combineLatest } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ISourcesFinancement } from 'app/shared/model/referentielms/sources-financement.model';
+
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { SourcesFinancementService } from './sources-financement.service';
 import { SourcesFinancementDeleteDialogComponent } from './sources-financement-delete-dialog.component';
-import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
 import { LoaderService } from '../../../loader/loader.service';
-import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
-import { IBanque } from '../../../shared/model/referentielms/banque.model';
 
 @Component({
   selector: 'jhi-sources-financement',
@@ -19,25 +19,24 @@ import { IBanque } from '../../../shared/model/referentielms/banque.model';
 export class SourcesFinancementComponent implements OnInit, OnDestroy {
   sourcesFinancements?: ISourcesFinancement[];
   eventSubscriber?: Subscription;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
-
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected sourcesFinancementService: SourcesFinancementService,
+    protected activatedRoute: ActivatedRoute,
+    protected router: Router,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
-    protected activatedRoute: ActivatedRoute,
-    public loaderService: LoaderService,
-    protected router: Router
+    public loaderService: LoaderService
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {
@@ -55,6 +54,11 @@ export class SourcesFinancementComponent implements OnInit, OnDestroy {
       );
   }
 
+  ngOnInit(): void {
+    this.handleNavigation();
+    this.registerChangeInSourcesFinancements();
+  }
+
   protected handleNavigation(): void {
     combineLatest(this.activatedRoute.data, this.activatedRoute.queryParamMap, (data: Data, params: ParamMap) => {
       const page = params.get('page');
@@ -68,17 +72,6 @@ export class SourcesFinancementComponent implements OnInit, OnDestroy {
         this.loadPage(pageNumber, true);
       }
     }).subscribe();
-  }
-
-  loadAll(): void {
-    this.sourcesFinancementService
-      .query()
-      .subscribe((res: HttpResponse<ISourcesFinancement[]>) => (this.sourcesFinancements = res.body || []));
-  }
-
-  ngOnInit(): void {
-    this.handleNavigation();
-    this.registerChangeInSourcesFinancements();
   }
 
   ngOnDestroy(): void {
@@ -113,7 +106,7 @@ export class SourcesFinancementComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/sources-financemennt/sources-financement'], {
+      this.router.navigate(['/sources-financement'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

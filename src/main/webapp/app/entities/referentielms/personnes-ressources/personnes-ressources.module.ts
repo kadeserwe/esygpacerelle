@@ -7,10 +7,9 @@ import { PersonnesRessourcesDetailComponent } from './personnes-ressources-detai
 import { PersonnesRessourcesUpdateComponent } from './personnes-ressources-update.component';
 import { PersonnesRessourcesDeleteDialogComponent } from './personnes-ressources-delete-dialog.component';
 import { personnesRessourcesRoute } from './personnes-ressources.route';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
-  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(personnesRessourcesRoute)],
+  imports: [GatewaysigmapSharedModule, RouterModule.forChild(personnesRessourcesRoute)],
   declarations: [
     PersonnesRessourcesComponent,
     PersonnesRessourcesDetailComponent,

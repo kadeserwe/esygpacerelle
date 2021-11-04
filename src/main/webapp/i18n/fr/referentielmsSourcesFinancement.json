@@ -13,8 +13,9 @@
       "detail": {
         "title": "Sources Financement"
       },
+      "code": "Code",
       "libelle": "Libelle",
-      "type": "Type"
+      "corbeille": "Corbeille"
     }
   },
   "referentielmsApp": {

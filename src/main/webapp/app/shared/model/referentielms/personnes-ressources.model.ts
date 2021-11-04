@@ -1,9 +1,9 @@
 export interface IPersonnesRessources {
   id?: number;
-  nom?: string;
   prenom?: string;
-  telephone?: number;
+  nom?: string;
   email?: string;
+  telephone?: number;
   fonction?: string;
   commentaires?: string;
 }
@@ -11,10 +11,10 @@ export interface IPersonnesRessources {
 export class PersonnesRessources implements IPersonnesRessources {
   constructor(
     public id?: number,
-    public nom?: string,
     public prenom?: string,
-    public telephone?: number,
+    public nom?: string,
     public email?: string,
+    public telephone?: number,
     public fonction?: string,
     public commentaires?: string
   ) {}

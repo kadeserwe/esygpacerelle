@@ -1,4 +1,4 @@
-<div>
+<div class="ff">
     <div _ngcontent-aay-c151="">
 
         <div >
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-personnes-ressources" [routerLink]="['/personnes-ressourcees/personnes-ressources/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-personnes-ressources" [routerLink]="['/personnes-ressources/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
@@ -43,7 +43,8 @@
         </div>
     </div>
 
-    <!--<jhi-alert-error></jhi-alert-error>-->
+
+  <!--  <jhi-alert-error></jhi-alert-error> -->
 
     <jhi-alert></jhi-alert>
 
@@ -51,46 +52,49 @@
         <span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.home.notFound">No personnesRessources found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="personnesRessources && personnesRessources.length > 0">
+    <div class="table-responsive  text-nowrap" id="entities" *ngIf="personnesRessources && personnesRessources.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                 <!--   <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.nom">Nom</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.prenom">Prenom</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.telephone">Telephone</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.email">Email</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.fonction">Fonction</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.commentaires">Commentaires</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+               <!--     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fonction"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.fonction">Fonction</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="commentaires"><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.commentaires">Commentaires</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let personnesRessources of personnesRessources | filter:term">
-                  <!--  <td><a [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'view']">{{ personnesRessources.id }}</a></td> -->
-                    <td>{{ personnesRessources.nom }}</td>
+                <tr *ngFor="let personnesRessources of personnesRessources ;trackBy: trackId">
+                    <!-- <td><a [routerLink]="['/personnes-ressources', personnesRessources.id, 'view']">{{ personnesRessources.id }}</a></td> -->
                     <td>{{ personnesRessources.prenom }}</td>
-                    <td>{{ personnesRessources.telephone }}</td>
+                    <td>{{ personnesRessources.nom }}</td>
                     <td>{{ personnesRessources.email }}</td>
+                    <td>{{ personnesRessources.telephone }}</td>
                     <td>{{ personnesRessources.fonction }}</td>
                     <td>{{ personnesRessources.commentaires }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'view']"
+                                    [routerLink]="['/personnes-ressources', personnesRessources.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/personnes-ressourcees/personnes-ressources', personnesRessources.id, 'edit']"
+                                    [routerLink]="['/personnes-ressources', personnesRessources.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>
 
                             <button type="submit" (click)="delete(personnesRessources)"
                                     class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
                                 <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                             </button>
                         </div>
                     </td>
@@ -98,6 +102,7 @@
             </tbody>
         </table>
     </div>
+
     <div *ngIf="personnesRessources && personnesRessources.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>

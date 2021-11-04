@@ -7,9 +7,10 @@ import { SygAutoriteContractanteDetailComponent } from './syg-autorite-contracta
 import { SygAutoriteContractanteUpdateComponent } from './syg-autorite-contractante-update.component';
 import { SygAutoriteContractanteDeleteDialogComponent } from './syg-autorite-contractante-delete-dialog.component';
 import { sygAutoriteContractanteRoute } from './syg-autorite-contractante.route';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
-  imports: [GatewaysigmapSharedModule, RouterModule.forChild(sygAutoriteContractanteRoute)],
+  imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(sygAutoriteContractanteRoute)],
   declarations: [
     SygAutoriteContractanteComponent,
     SygAutoriteContractanteDetailComponent,

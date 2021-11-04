@@ -7,7 +7,7 @@ import { ConfigurationTauxDetailComponent } from './configuration-taux-detail.co
 import { ConfigurationTauxUpdateComponent } from './configuration-taux-update.component';
 import { ConfigurationTauxDeleteDialogComponent } from './configuration-taux-delete-dialog.component';
 import { configurationTauxRoute } from './configuration-taux.route';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(configurationTauxRoute)],

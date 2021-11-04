@@ -19,8 +19,8 @@ export class CategorieFournisseurService {
     return this.http.post<ICategorieFournisseur>(this.resourceUrl, categorieFournisseur, { observe: 'response' });
   }
 
-  update(categorieFournisseur: ICategorieFournisseur, id: number): Observable<EntityResponseType> {
-    return this.http.put<ICategorieFournisseur>(`${this.resourceUrl}/${id}`, categorieFournisseur, { observe: 'response' });
+  update(categorieFournisseur: ICategorieFournisseur): Observable<EntityResponseType> {
+    return this.http.put<ICategorieFournisseur>(this.resourceUrl, categorieFournisseur, { observe: 'response' });
   }
 
   find(id: number): Observable<EntityResponseType> {

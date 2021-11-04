@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="ff">
     <div class="col-8">
         <div *ngIf="configurationTaux">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.detail.title">Configuration Taux</span> {{ configurationTaux.id }}</h2>
@@ -32,10 +32,10 @@
                 <dd>
                     <span>{{ configurationTaux.invalid }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.paysA">Pays A</span></dt>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsConfigurationTaux.pays">Pays</span></dt>
                 <dd>
-                    <div *ngIf="configurationTaux.paysA">
-                        <a [routerLink]="['/pays', configurationTaux.paysA?.id, 'view']">{{ configurationTaux.paysA?.id }}</a>
+                    <div *ngIf="configurationTaux.pays">
+                        <a [routerLink]="['/pays', configurationTaux.pays?.id, 'view']">{{ configurationTaux.pays?.id }}</a>
                     </div>
                 </dd>
             </dl>

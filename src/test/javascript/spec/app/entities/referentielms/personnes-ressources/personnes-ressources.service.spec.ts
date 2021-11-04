@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(PersonnesRessourcesService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new PersonnesRessources(0, 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new PersonnesRessources(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,10 +54,10 @@ describe('Service Tests', () => {
       it('should update a PersonnesRessources', () => {
         const returnedFromService = Object.assign(
           {
-            nom: 'BBBBBB',
             prenom: 'BBBBBB',
-            telephone: 1,
+            nom: 'BBBBBB',
             email: 'BBBBBB',
+            telephone: 1,
             fonction: 'BBBBBB',
             commentaires: 'BBBBBB',
           },
@@ -76,10 +76,10 @@ describe('Service Tests', () => {
       it('should return a list of PersonnesRessources', () => {
         const returnedFromService = Object.assign(
           {
-            nom: 'BBBBBB',
             prenom: 'BBBBBB',
-            telephone: 1,
+            nom: 'BBBBBB',
             email: 'BBBBBB',
+            telephone: 1,
             fonction: 'BBBBBB',
             commentaires: 'BBBBBB',
           },

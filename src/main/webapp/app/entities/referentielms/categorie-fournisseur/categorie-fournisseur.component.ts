@@ -19,16 +19,16 @@ import { LoaderService } from '../../../loader/loader.service';
 export class CategorieFournisseurComponent implements OnInit, OnDestroy {
   categorieFournisseurs?: ICategorieFournisseur[];
   eventSubscriber?: Subscription;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  term: any;
 
   constructor(
     protected categorieFournisseurService: CategorieFournisseurService,
@@ -106,7 +106,7 @@ export class CategorieFournisseurComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/categorie-fournisseuur/categorie-fournisseur'], {
+      this.router.navigate(['/categorie-fournisseur'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

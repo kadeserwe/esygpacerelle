@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center " class="fff">
     <div class="col-8">
         <div *ngIf="sourcesFinancement">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.detail.title">Sources Financement</span> {{ sourcesFinancement.id }}</h2>
@@ -8,13 +8,17 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.code">Code</span></dt>
+                <dd>
+                    <span>{{ sourcesFinancement.code }}</span>
+                </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.libelle">Libelle</span></dt>
                 <dd>
                     <span>{{ sourcesFinancement.libelle }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.type">Type</span></dt>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsSourcesFinancement.corbeille">Corbeille</span></dt>
                 <dd>
-                    <span>{{ sourcesFinancement.type }}</span>
+                    <span>{{ sourcesFinancement.corbeille }}</span>
                 </dd>
             </dl>
 

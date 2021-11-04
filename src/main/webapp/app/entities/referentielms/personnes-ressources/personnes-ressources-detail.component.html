@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="ff">
     <div class="col-8">
         <div *ngIf="personnesRessources">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.detail.title">Personnes Ressources</span> {{ personnesRessources.id }}</h2>
@@ -8,21 +8,21 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.nom">Nom</span></dt>
-                <dd>
-                    <span>{{ personnesRessources.nom }}</span>
-                </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.prenom">Prenom</span></dt>
                 <dd>
                     <span>{{ personnesRessources.prenom }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.telephone">Telephone</span></dt>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.nom">Nom</span></dt>
                 <dd>
-                    <span>{{ personnesRessources.telephone }}</span>
+                    <span>{{ personnesRessources.nom }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.email">Email</span></dt>
                 <dd>
                     <span>{{ personnesRessources.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ personnesRessources.telephone }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPersonnesRessources.fonction">Fonction</span></dt>
                 <dd>

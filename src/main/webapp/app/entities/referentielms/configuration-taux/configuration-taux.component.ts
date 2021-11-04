@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { combineLatest, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
+import { Subscription, combineLatest } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoaderService } from '../../../loader/loader.service';
-import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
+
 import { IConfigurationTaux } from 'app/shared/model/referentielms/configuration-taux.model';
+
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { ConfigurationTauxService } from './configuration-taux.service';
 import { ConfigurationTauxDeleteDialogComponent } from './configuration-taux-delete-dialog.component';
-import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
+import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-configuration-taux',
@@ -17,23 +19,23 @@ import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from
 export class ConfigurationTauxComponent implements OnInit, OnDestroy {
   configurationTauxes?: IConfigurationTaux[];
   eventSubscriber?: Subscription;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
-  ngbPaginationPage = 1;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   predicate!: string;
   ascending!: boolean;
+  ngbPaginationPage = 1;
+  term: any;
 
   constructor(
     protected configurationTauxService: ConfigurationTauxService,
-    protected eventManager: JhiEventManager,
     protected activatedRoute: ActivatedRoute,
-    protected modalService: NgbModal,
     protected router: Router,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal,
     public loaderService: LoaderService
   ) {}
 
@@ -50,12 +52,6 @@ export class ConfigurationTauxComponent implements OnInit, OnDestroy {
         (res: HttpResponse<IConfigurationTaux[]>) => this.onSuccess(res.body, res.headers, pageToLoad, !dontNavigate),
         () => this.onError()
       );
-  }
-
-  loadAll(): void {
-    this.configurationTauxService
-      .query()
-      .subscribe((res: HttpResponse<IConfigurationTaux[]>) => (this.configurationTauxes = res.body || []));
   }
 
   ngOnInit(): void {
@@ -93,6 +89,11 @@ export class ConfigurationTauxComponent implements OnInit, OnDestroy {
     this.eventSubscriber = this.eventManager.subscribe('configurationTauxListModification', () => this.loadPage());
   }
 
+  delete(configurationTaux: IConfigurationTaux): void {
+    const modalRef = this.modalService.open(ConfigurationTauxDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+    modalRef.componentInstance.configurationTaux = configurationTaux;
+  }
+
   sort(): string[] {
     const result = [this.predicate + ',' + (this.ascending ? 'asc' : 'desc')];
     if (this.predicate !== 'id') {
@@ -105,7 +106,7 @@ export class ConfigurationTauxComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/configuration-tauux/configuration-taux'], {
+      this.router.navigate(['/configuration-taux'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,
@@ -119,10 +120,5 @@ export class ConfigurationTauxComponent implements OnInit, OnDestroy {
 
   protected onError(): void {
     this.ngbPaginationPage = this.page ?? 1;
-  }
-
-  delete(configurationTaux: IConfigurationTaux): void {
-    const modalRef = this.modalService.open(ConfigurationTauxDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
-    modalRef.componentInstance.configurationTaux = configurationTaux;
   }
 }

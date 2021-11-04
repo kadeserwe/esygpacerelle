@@ -9,10 +9,11 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
 import { IFournisseur, Fournisseur } from 'app/shared/model/referentielms/fournisseur.model';
 import { FournisseurService } from './fournisseur.service';
-import { ICategorieFournisseur } from 'app/shared/model/referentielms/categorie-fournisseur.model';
-import { CategorieFournisseurService } from 'app/entities/referentielms/categorie-fournisseur/categorie-fournisseur.service';
+
 import { IPays } from 'app/shared/model/referentielms/pays.model';
 import { PaysService } from 'app/entities/referentielms/pays/pays.service';
+import { ICategorieFournisseur } from '../../../shared/model/referentielms/categorie-fournisseur.model';
+import { CategorieFournisseurService } from '../categorie-fournisseur/categorie-fournisseur.service';
 
 type SelectableEntity = ICategorieFournisseur | IPays;
 
@@ -27,18 +28,17 @@ export class FournisseurUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    raisonSociale: [null, [Validators.required, Validators.maxLength(255)]],
+    raisonSociale: [null, [Validators.required]],
     adresse: [null, [Validators.required]],
-    email: [null, [Validators.maxLength(20)]],
-    fax: [null, [Validators.maxLength(15)]],
-    telephone: [null, [Validators.maxLength(15)]],
-    pieceJointe: [null, [Validators.maxLength(15)]],
-    numeroRegistreCommerce: [null, [Validators.maxLength(15)]],
+    email: [null, [Validators.required]],
+    telephone: [null, [Validators.required]],
+    pieceJointe: [],
+    numeroRegistreCommerce: [],
     date: [null, [Validators.required]],
-    sigle: [null, [Validators.maxLength(7)]],
-    numeroIdentiteFiscale: [null, [Validators.maxLength(7)]],
-    categorieFournisseur: [null, Validators.required],
-    pays: [null, Validators.required],
+    sigle: [],
+    numeroIdentiteFiscale: [],
+    categorieFournisseur: [],
+    pays: [],
   });
 
   constructor(
@@ -72,7 +72,6 @@ export class FournisseurUpdateComponent implements OnInit {
       raisonSociale: fournisseur.raisonSociale,
       adresse: fournisseur.adresse,
       email: fournisseur.email,
-      fax: fournisseur.fax,
       telephone: fournisseur.telephone,
       pieceJointe: fournisseur.pieceJointe,
       numeroRegistreCommerce: fournisseur.numeroRegistreCommerce,
@@ -105,7 +104,6 @@ export class FournisseurUpdateComponent implements OnInit {
       raisonSociale: this.editForm.get(['raisonSociale'])!.value,
       adresse: this.editForm.get(['adresse'])!.value,
       email: this.editForm.get(['email'])!.value,
-      fax: this.editForm.get(['fax'])!.value,
       telephone: this.editForm.get(['telephone'])!.value,
       pieceJointe: this.editForm.get(['pieceJointe'])!.value,
       numeroRegistreCommerce: this.editForm.get(['numeroRegistreCommerce'])!.value,

@@ -1,9 +1,10 @@
 export interface ISourcesFinancement {
   id?: number;
+  code?: string;
   libelle?: string;
-  type?: string;
+  corbeille?: string;
 }
 
 export class SourcesFinancement implements ISourcesFinancement {
-  constructor(public id?: number, public libelle?: string, public type?: string) {}
+  constructor(public id?: number, public code?: string, public libelle?: string, public corbeille?: string) {}
 }

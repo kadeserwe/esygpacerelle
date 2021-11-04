@@ -19,16 +19,16 @@ import { LoaderService } from '../../../loader/loader.service';
 export class FournisseurComponent implements OnInit, OnDestroy {
   fournisseurs?: IFournisseur[];
   eventSubscriber?: Subscription;
+  term: any;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected fournisseurService: FournisseurService,
@@ -81,6 +81,7 @@ export class FournisseurComponent implements OnInit, OnDestroy {
   }
 
   trackId(index: number, item: IFournisseur): number {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
 
@@ -105,7 +106,7 @@ export class FournisseurComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/fournisseuur/fournisseur'], {
+      this.router.navigate(['/fournisseur'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

@@ -1,4 +1,4 @@
-<div>
+<div class="ff">
     <div _ngcontent-aay-c151="">
 
         <div >
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseuur/categorie-fournisseur/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseur/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
@@ -42,31 +42,8 @@
             </div>
         </div>
     </div>
-  <!--  <h2 id="page-heading">
-        <span>Categories Fournisseur</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-categorie-fournisseur" [routerLink]="['/categorie-fournisseuur/categorie-fournisseur/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span>
-            Ajouter
-            </span>
-        </button> <br>
-
-    </h2>
-
-    <div class="row">
-        <div class="col-md-9"></div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <strong><b>Rechercher terme(s) :</b></strong>
-                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
-                <br>
-            </div>
-        </div>
-    </div>
-
-
--->
+   <!-- <jhi-alert-error></jhi-alert-error> -->
 
     <jhi-alert></jhi-alert>
 
@@ -85,27 +62,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let categorieFournisseur of categorieFournisseurs | filter:term">
-                <!--    <td><a [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td> -->
+                <tr *ngFor="let categorieFournisseur of categorieFournisseurs | filter: term">
+                   <!-- <td><a [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'view']">{{ categorieFournisseur.id }}</a></td> -->
                     <td>{{ categorieFournisseur.libelle }}</td>
                     <td>{{ categorieFournisseur.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'view']"
+                                    [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
+
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/categorie-fournisseuur/categorie-fournisseur', categorieFournisseur.id, 'edit']"
+                                    [routerLink]="['/categorie-fournisseur', categorieFournisseur.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
+
                             </button>
 
                             <button type="submit" (click)="delete(categorieFournisseur)"
                                     class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
                                 <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
+
                             </button>
                         </div>
                     </td>

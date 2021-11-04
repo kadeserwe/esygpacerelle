@@ -13,8 +13,9 @@
       "detail": {
         "title": "Pieces Administratives"
       },
-      "codePiece": "Code Piece",
+      "code": "Code",
       "libelle": "Libelle",
+      "description": "Description",
       "localisation": "Localisation",
       "type": "Type"
     }

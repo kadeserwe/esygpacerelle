@@ -1,11 +1,11 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center " class="ff">
     <div class="col-8">
         <div *ngIf="fournisseur">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.detail.title">Fournisseur</span> {{ fournisseur.id }}</h2>
 
             <hr>
 
-            <jhi-alert-error></jhi-alert-error>
+          <!--  <jhi-alert-error></jhi-alert-error> -->
 
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.raisonSociale">Raison Sociale</span></dt>
@@ -19,10 +19,6 @@
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.email">Email</span></dt>
                 <dd>
                     <span>{{ fournisseur.email }}</span>
-                </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.fax">Fax</span></dt>
-                <dd>
-                    <span>{{ fournisseur.fax }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.telephone">Telephone</span></dt>
                 <dd>
@@ -48,7 +44,7 @@
                 <dd>
                     <span>{{ fournisseur.numeroIdentiteFiscale }}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.categorieFournisseur">Categorie Fournisseur</span></dt>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsFournisseur.categorieFourniseur">Categorie Fourniseur</span></dt>
                 <dd>
                     <div *ngIf="fournisseur.categorieFournisseur">
                         <a [routerLink]="['/categorie-fournisseur', fournisseur.categorieFournisseur?.id, 'view']">{{ fournisseur.categorieFournisseur?.id }}</a>

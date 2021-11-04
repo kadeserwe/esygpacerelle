@@ -71,7 +71,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let sygAutoriteContractante of sygAutoriteContractantes  | filter:term ">
+                <tr *ngFor="let sygAutoriteContractante of sygAutoriteContractantes  | filter: term ">
                     <td>{{ sygAutoriteContractante.denomination }}</td>
                   <!--  <td><a [routerLink]="['autorite-contractante/syg-autorite-contractante', sygAutoriteContractante.id, 'view']">{{ sygAutoriteContractante.id }}</a></td>
                     <td>{{ sygAutoriteContractante.ordre }}</td>

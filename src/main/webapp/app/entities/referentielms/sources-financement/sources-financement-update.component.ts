@@ -17,8 +17,9 @@ export class SourcesFinancementUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
+    code: [null, [Validators.required]],
     libelle: [null, [Validators.required]],
-    type: [null, [Validators.required]],
+    corbeille: [],
   });
 
   constructor(
@@ -36,8 +37,9 @@ export class SourcesFinancementUpdateComponent implements OnInit {
   updateForm(sourcesFinancement: ISourcesFinancement): void {
     this.editForm.patchValue({
       id: sourcesFinancement.id,
+      code: sourcesFinancement.code,
       libelle: sourcesFinancement.libelle,
-      type: sourcesFinancement.type,
+      corbeille: sourcesFinancement.corbeille,
     });
   }
 
@@ -59,8 +61,9 @@ export class SourcesFinancementUpdateComponent implements OnInit {
     return {
       ...new SourcesFinancement(),
       id: this.editForm.get(['id'])!.value,
+      code: this.editForm.get(['code'])!.value,
       libelle: this.editForm.get(['libelle'])!.value,
-      type: this.editForm.get(['type'])!.value,
+      corbeille: this.editForm.get(['corbeille'])!.value,
     };
   }
 

@@ -1,9 +1,9 @@
-<div>
+<div class="ff">
     <div _ngcontent-aay-c151="">
 
         <div >
             <div role="alert" class="alert alert-success">
-                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES TYPES DE MARCHÉS</strong></marquee></h3>
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES TYPES DE MARCHE</strong></marquee></h3>
                 <br/>
             </div>
         </div>
@@ -12,7 +12,7 @@
     <div class="row ">
         <div class="col-4">
             <h2 id="page-heading">
-                <span > Types Marchés </span>
+                <span > TYPES MARCHES</span>
 
             </h2>
         </div> <div class="col-4"></div>
@@ -25,16 +25,15 @@
             </div>
         </div>
         <div class="col-1.5"  >
-            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-syg-autorite-contractante" [routerLink]="['/autorite-contractante/syg-autorite-contractante/new']">
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-types-marches" [routerLink]="['/types-marches/new']">
                 <fa-icon icon="plus"></fa-icon>
                 <span>  Ajouter
                             </span>
             </button>
         </div>
-
     </div>
 
-    <div *ngIf="loaderService.isLoading | async" class="app-loading">
+    <div *ngIf="loaderService.isLoading  | async" class="app-loading">
         <div class="lds-css ng-scope">
             <div class="lds-pacman">
                 <div><div></div><div></div><div></div></div>
@@ -43,31 +42,7 @@
         </div>
     </div>
 
-    <!-- <h2 id="page-heading">
-         <span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.home.title">Types Marches</span>
-
-         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-types-marches" [routerLink]="['/types-marchees/types-marches/new']">
-             <fa-icon icon="plus"></fa-icon>
-             <span>
-             Ajouter
-             </span>
-         </button> <br>
-
-     </h2>
-
-     <div class="row">
-         <div class="col-md-9"></div>
-         <div class="col-md-3">
-             <div class="form-group">
-                 <strong><b>Rechercher terme(s) :</b></strong>
-                 <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
-                 <br>
-             </div>
-         </div>
-     </div> -->
-
-
-    <!--<jhi-alert-error></jhi-alert-error>-->
+  <!--  <jhi-alert-error></jhi-alert-error> -->
 
     <jhi-alert></jhi-alert>
 
@@ -78,30 +53,30 @@
     <div class="table-responsive" id="entities" *ngIf="typesMarches && typesMarches.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                  <!--  <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th> -->
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.code">Code</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.libelle">Libelle</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.description">Description</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                <!--    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th> -->
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="gatewaysigmapApp.referentielmsTypesMarches.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let typesMarches of typesMarches | filter:term">
-                <!--    <td><a [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'view']">{{ typesMarches.id }}</a></td> -->
+                <tr *ngFor="let typesMarches of typesMarches | filter: term">
+                 <!--   <td><a [routerLink]="['/types-marches', typesMarches.id, 'view']">{{ typesMarches.id }}</a></td> -->
                     <td>{{ typesMarches.code }}</td>
                     <td>{{ typesMarches.libelle }}</td>
                     <td>{{ typesMarches.description }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'view']"
+                                    [routerLink]="['/types-marches', typesMarches.id, 'view']"
                                     class="btn  btn-sm" [ngbTooltip]="btnDetails">
                                 <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/types-marchees/types-marches', typesMarches.id, 'edit']"
+                                    [routerLink]="['/types-marches', typesMarches.id, 'edit']"
                                     class="btn  btn-sm" [ngbTooltip]="btnModifier">
                                 <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
@@ -116,6 +91,7 @@
             </tbody>
         </table>
     </div>
+
     <div *ngIf="typesMarches && typesMarches.length > 0">
         <div class="row justify-content-center">
             <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>

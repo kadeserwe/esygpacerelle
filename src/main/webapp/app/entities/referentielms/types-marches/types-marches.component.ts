@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { combineLatest, Subscription } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
+import { Subscription, combineLatest } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ITypesMarches } from 'app/shared/model/referentielms/types-marches.model';
+
+import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { TypesMarchesService } from './types-marches.service';
 import { TypesMarchesDeleteDialogComponent } from './types-marches-delete-dialog.component';
-import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from '../../../shared/constants/pagination.constants';
 import { LoaderService } from '../../../loader/loader.service';
-import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-types-marches',
@@ -17,23 +19,23 @@ import { ActivatedRoute, Data, ParamMap, Router } from '@angular/router';
 export class TypesMarchesComponent implements OnInit, OnDestroy {
   typesMarches?: ITypesMarches[];
   eventSubscriber?: Subscription;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  btnSuprimer = BOUTON_SUPRIMER;
+  btnModifier = BOUTON_MODIFIER;
+  btnDetails = BOUTON_DETAILS;
+  term: any;
 
   constructor(
     protected typesMarchesService: TypesMarchesService,
+    protected activatedRoute: ActivatedRoute,
+    protected router: Router,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
-    protected router: Router,
-    protected activatedRoute: ActivatedRoute,
     public loaderService: LoaderService
   ) {}
 
@@ -52,6 +54,11 @@ export class TypesMarchesComponent implements OnInit, OnDestroy {
       );
   }
 
+  ngOnInit(): void {
+    this.handleNavigation();
+    this.registerChangeInTypesMarches();
+  }
+
   protected handleNavigation(): void {
     combineLatest(this.activatedRoute.data, this.activatedRoute.queryParamMap, (data: Data, params: ParamMap) => {
       const page = params.get('page');
@@ -65,15 +72,6 @@ export class TypesMarchesComponent implements OnInit, OnDestroy {
         this.loadPage(pageNumber, true);
       }
     }).subscribe();
-  }
-
-  loadAll(): void {
-    this.typesMarchesService.query().subscribe((res: HttpResponse<ITypesMarches[]>) => (this.typesMarches = res.body || []));
-  }
-
-  ngOnInit(): void {
-    this.handleNavigation();
-    this.registerChangeInTypesMarches();
   }
 
   ngOnDestroy(): void {
@@ -108,7 +106,7 @@ export class TypesMarchesComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/types-marchees/types-marches'], {
+      this.router.navigate(['/types-marches'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

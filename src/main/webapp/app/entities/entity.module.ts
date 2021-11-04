@@ -11,14 +11,12 @@ import { CategorieFournisseuurComponent } from './modules/referentielms/categori
 import { BanquueComponent } from './modules/referentielms/banquue/banquue.component';
 import { TypeAutoriteContractanteeComponent } from './modules/referentielms/type-autorite-contractantee/type-autorite-contractantee.component';
 import { ModeSelectioonComponent } from './modules/referentielms/mode-selectioon/mode-selectioon.component';
-
 import { DirectioonComponent } from './modules/referentielms/directioon/directioon.component';
 import { HierarchiieComponent } from './modules/referentielms/hierarchiie/hierarchiie.component';
 import { PersonnesRessourceesComponent } from './modules/referentielms/personnes-ressourcees/personnes-ressourcees.component';
 import { CriteresQualificatioonComponent } from './modules/referentielms/criteres-qualificatioon/criteres-qualificatioon.component';
 import { SourcesFinancemenntComponent } from './modules/referentielms/sources-financemennt/sources-financemennt.component';
 import { ConfigurationTauuxComponent } from './modules/referentielms/configuration-tauux/configuration-tauux.component';
-import { PiecesAdministrativeesComponent } from './modules/referentielms/pieces-administrativees/pieces-administrativees.component';
 import { DelaiisComponent } from './modules/referentielms/delaiis/delaiis.component';
 import { JoursFeriiesComponent } from './modules/referentielms/jours-feriies/jours-feriies.component';
 import { GroupesImputatioonComponent } from './modules/referentielms/groupes-imputatioon/groupes-imputatioon.component';
@@ -27,7 +25,6 @@ import { DepartemeentComponent } from './modules/referentielms/departemeent/depa
 import { SpecialitesPersonneelComponent } from './modules/referentielms/specialites-personneel/specialites-personneel.component';
 import { NaturesGarantiieComponent } from './modules/referentielms/natures-garantiie/natures-garantiie.component';
 import { GarantiieComponent } from './modules/referentielms/garantiie/garantiie.component';
-import { FournisseuurComponent } from './modules/referentielms/fournisseuur/fournisseuur.component';
 import { AvisGenerauuxComponent } from './modules/referentielms/avis-generauux/avis-generauux.component';
 import { ReferentielPrixComponent } from 'app/entities/modules/referentielms/referentiel-prix/referentiel-prix.component';
 import { AutoriteContractanteComponent } from 'app/entities/modules/referentielms/autorite-contractante/autorite-contractante.component';
@@ -70,16 +67,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           {
             path: 'fonction',
             loadChildren: () => import('./referentielms/fonction/fonction.module').then(m => m.ReferentielmsFonctionModule),
-          },
-        ],
-      },
-      {
-        path: 'payys',
-        component: PayysComponent,
-        children: [
-          {
-            path: 'pays',
-            loadChildren: () => import('./referentielms/pays/pays.module').then(m => m.ReferentielmsPaysModule),
           },
         ],
       },
@@ -159,16 +146,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
         ],
       },
       {
-        path: 'types-marchees',
-        component: TypesMarcheesComponent,
-        children: [
-          {
-            path: 'types-marches',
-            loadChildren: () => import('./referentielms/types-marches/types-marches.module').then(m => m.ReferentielmsTypesMarchesModule),
-          },
-        ],
-      },
-      {
         path: 'criteres-qualificatioon',
         component: CriteresQualificatioonComponent,
         children: [
@@ -188,19 +165,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           {
             path: 'direction',
             loadChildren: () => import('./referentielms/direction/direction.module').then(m => m.ReferentielmsDirectionModule),
-          },
-        ],
-      },
-      {
-        path: 'personnes-ressourcees',
-        component: PersonnesRessourceesComponent,
-        children: [
-          {
-            path: 'personnes-ressources',
-            loadChildren: () =>
-              import('./referentielms/personnes-ressources/personnes-ressources.module').then(
-                m => m.ReferentielmsPersonnesRessourcesModule
-              ),
           },
         ],
       },
@@ -237,43 +201,7 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           },
         ],
       },
-      {
-        path: 'configuration-tauux',
-        component: ConfigurationTauuxComponent,
-        children: [
-          {
-            path: 'configuration-taux',
-            loadChildren: () =>
-              import('./referentielms/configuration-taux/configuration-taux.module').then(m => m.ReferentielmsConfigurationTauxModule),
-          },
-        ],
-      },
-      {
-        path: 'pieces-administrativees',
-        component: PiecesAdministrativeesComponent,
-        children: [
-          {
-            path: 'pieces-administratives',
-            loadChildren: () =>
-              import('./referentielms/pieces-administratives/pieces-administratives.module').then(
-                m => m.ReferentielmsPiecesAdministrativesModule
-              ),
-          },
-        ],
-      },
-      {
-        path: 'categorie-fournisseuur',
-        component: CategorieFournisseuurComponent,
-        children: [
-          {
-            path: 'categorie-fournisseur',
-            loadChildren: () =>
-              import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(
-                m => m.ReferentielmsCategorieFournisseurModule
-              ),
-          },
-        ],
-      },
+
       {
         path: 'mode-selectioon',
         component: ModeSelectioonComponent,
@@ -282,27 +210,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
             path: 'mode-selection',
             loadChildren: () =>
               import('./referentielms/mode-selection/mode-selection.module').then(m => m.ReferentielmsModeSelectionModule),
-          },
-        ],
-      },
-      {
-        path: 'sources-financemennt',
-        component: SourcesFinancemenntComponent,
-        children: [
-          {
-            path: 'sources-financement',
-            loadChildren: () =>
-              import('./referentielms/sources-financement/sources-financement.module').then(m => m.ReferentielmsSourcesFinancementModule),
-          },
-        ],
-      },
-      {
-        path: 'fournisseuur',
-        component: FournisseuurComponent,
-        children: [
-          {
-            path: 'fournisseur',
-            loadChildren: () => import('./referentielms/fournisseur/fournisseur.module').then(m => m.ReferentielmsFournisseurModule),
           },
         ],
       },
@@ -339,7 +246,48 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
           },
         ],
       },
+      {
+        path: 'pieces-administratives',
+        loadChildren: () =>
+          import('./referentielms/pieces-administratives/pieces-administratives.module').then(
+            m => m.ReferentielmsPiecesAdministrativesModule
+          ),
+      },
+      {
+        path: 'sources-financement',
+        loadChildren: () =>
+          import('./referentielms/sources-financement/sources-financement.module').then(m => m.ReferentielmsSourcesFinancementModule),
+      },
+      {
+        path: 'configuration-taux',
+        loadChildren: () =>
+          import('./referentielms/configuration-taux/configuration-taux.module').then(m => m.ReferentielmsConfigurationTauxModule),
+      },
 
+      {
+        path: 'types-marches',
+        loadChildren: () => import('./referentielms/types-marches/types-marches.module').then(m => m.ReferentielmsTypesMarchesModule),
+      },
+
+      {
+        path: 'personnes-ressources',
+        loadChildren: () =>
+          import('./referentielms/personnes-ressources/personnes-ressources.module').then(m => m.ReferentielmsPersonnesRessourcesModule),
+      },
+
+      {
+        path: 'pays',
+        loadChildren: () => import('./referentielms/pays/pays.module').then(m => m.ReferentielmsPaysModule),
+      },
+      {
+        path: 'categorie-fournisseur',
+        loadChildren: () =>
+          import('./referentielms/categorie-fournisseur/categorie-fournisseur.module').then(m => m.ReferentielmsCategorieFournisseurModule),
+      },
+      {
+        path: 'fournisseur',
+        loadChildren: () => import('./referentielms/fournisseur/fournisseur.module').then(m => m.ReferentielmsFournisseurModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
     FontAwesomeModule,
@@ -357,7 +305,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
     CriteresQualificatioonComponent,
     SourcesFinancemenntComponent,
     ConfigurationTauuxComponent,
-    PiecesAdministrativeesComponent,
     DelaiisComponent,
     JoursFeriiesComponent,
     GroupesImputatioonComponent,
@@ -366,7 +313,6 @@ import { AutoriteContractanteComponent } from 'app/entities/modules/referentielm
     SpecialitesPersonneelComponent,
     NaturesGarantiieComponent,
     GarantiieComponent,
-    FournisseuurComponent,
     AvisGenerauuxComponent,
     AutoriteContractanteComponent,
   ],

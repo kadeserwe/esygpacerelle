@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center" class="fff">
     <div class="col-8">
         <div *ngIf="piecesAdministratives">
             <h2><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.detail.title">Pieces Administratives</span> {{ piecesAdministratives.id }}</h2>
@@ -8,13 +8,17 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.codePiece">Code Piece</span></dt>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.code">Code</span></dt>
                 <dd>
-                    <span>{{ piecesAdministratives.codePiece }}</span>
+                    <span>{{ piecesAdministratives.code }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.libelle">Libelle</span></dt>
                 <dd>
                     <span>{{ piecesAdministratives.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.description">Description</span></dt>
+                <dd>
+                    <span>{{ piecesAdministratives.description }}</span>
                 </dd>
                 <dt><span jhiTranslate="gatewaysigmapApp.referentielmsPiecesAdministratives.localisation">Localisation</span></dt>
                 <dd>

@@ -7,7 +7,7 @@ import { SourcesFinancementDetailComponent } from './sources-financement-detail.
 import { SourcesFinancementUpdateComponent } from './sources-financement-update.component';
 import { SourcesFinancementDeleteDialogComponent } from './sources-financement-delete-dialog.component';
 import { sourcesFinancementRoute } from './sources-financement.route';
-import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [GatewaysigmapSharedModule, Ng2SearchPipeModule, RouterModule.forChild(sourcesFinancementRoute)],
