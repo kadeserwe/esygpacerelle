@@ -31,7 +31,6 @@
   },
   "defaultProject": "gatewaysigmap",
   "cli": {
-    "packageManager": "npm",
-    "analytics": false
+    "packageManager": "npm"
   }
 }

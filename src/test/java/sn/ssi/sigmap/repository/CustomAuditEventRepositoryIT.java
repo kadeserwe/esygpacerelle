@@ -3,6 +3,7 @@ package sn.ssi.sigmap.repository;
 import sn.ssi.sigmap.GatewaysigmapApp;
 
 import sn.ssi.sigmap.config.Constants;
+import sn.ssi.sigmap.config.TestSecurityConfiguration;
 import sn.ssi.sigmap.config.audit.AuditEventConverter;
 import sn.ssi.sigmap.domain.PersistentAuditEvent;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +29,7 @@ import static sn.ssi.sigmap.repository.CustomAuditEventRepository.EVENT_DATA_COL
 /**
  * Integration tests for {@link CustomAuditEventRepository}.
  */
-@SpringBootTest(classes = GatewaysigmapApp.class)
+@SpringBootTest(classes = {GatewaysigmapApp.class, TestSecurityConfiguration.class})
 @Transactional
 public class CustomAuditEventRepositoryIT {
 

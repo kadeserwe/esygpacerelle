@@ -6,9 +6,6 @@
     },
     {
       "path": "./tsconfig.e2e.json"
-    },
-    {
-      "path": "./tslint.json"
     }
   ]
 }

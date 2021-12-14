@@ -44,7 +44,7 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/gateway
+    url: jdbc:postgresql://localhost:5432/gatewaysigmap
     username: postgres
     password: admin
     hikari:
@@ -104,14 +104,6 @@ jhipster:
     exposed-headers: 'Authorization,Link,X-Total-Count'
     allow-credentials: true
     max-age: 1800
-  security:
-    authentication:
-      jwt:
-        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: YWM4ZmI4MWNjY2ZkYjhjNjc4MWFlYWNmZWJkMDY0MTNkNWJlMDRhZDM4ODNiOTk3NDZkMDI1MDIxMWZlZWM3OTNmNjI4NGUzN2FkMzliZjliNWEzNjFmNGQyZDM3ZjU5MmM0OTE5NmU5N2E0Y2E0Nzg4Y2JkNWViZmQyYjBlYzI=
-        # Token is valid 24 hours
-        token-validity-in-seconds: 86400
-        token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
     base-url: http://127.0.0.1:7071
   metrics:

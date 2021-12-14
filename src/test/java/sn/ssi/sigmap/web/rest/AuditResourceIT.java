@@ -1,6 +1,7 @@
 package sn.ssi.sigmap.web.rest;
 
 import sn.ssi.sigmap.GatewaysigmapApp;
+import sn.ssi.sigmap.config.TestSecurityConfiguration;
 import sn.ssi.sigmap.domain.PersistentAuditEvent;
 import sn.ssi.sigmap.repository.PersistenceAuditEventRepository;
 import sn.ssi.sigmap.security.AuthoritiesConstants;
@@ -30,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
-@SpringBootTest(classes = GatewaysigmapApp.class)
+@SpringBootTest(classes = {GatewaysigmapApp.class, TestSecurityConfiguration.class})
 @Transactional
 public class AuditResourceIT {
 

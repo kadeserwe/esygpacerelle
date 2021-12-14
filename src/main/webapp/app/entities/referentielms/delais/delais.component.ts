@@ -7,10 +7,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IDelais } from 'app/shared/model/referentielms/delais.model';
 
-import { BOUTON_DETAILS, BOUTON_MODIFIER, BOUTON_SUPRIMER, ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
+import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DelaisService } from './delais.service';
 import { DelaisDeleteDialogComponent } from './delais-delete-dialog.component';
-import { LoaderService } from '../../../loader/loader.service';
 
 @Component({
   selector: 'jhi-delais',
@@ -25,18 +24,13 @@ export class DelaisComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
-  term: any;
-  btnSuprimer = BOUTON_SUPRIMER;
-  btnModifier = BOUTON_MODIFIER;
-  btnDetails = BOUTON_DETAILS;
 
   constructor(
     protected delaisService: DelaisService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal,
-    public loaderService: LoaderService
+    protected modalService: NgbModal
   ) {}
 
   loadPage(page?: number, dontNavigate?: boolean): void {
@@ -106,7 +100,7 @@ export class DelaisComponent implements OnInit, OnDestroy {
     this.totalItems = Number(headers.get('X-Total-Count'));
     this.page = page;
     if (navigate) {
-      this.router.navigate(['/delaiis/delais'], {
+      this.router.navigate(['/delais'], {
         queryParams: {
           page: this.page,
           size: this.itemsPerPage,

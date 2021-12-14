@@ -1,563 +1,563 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <!--class="navbar navbar-dark navbar-expand-md bg-dark fixed-top"-->
-  <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-    <span class="logo-img"></span>
-    <span>SIGMAP</span>
-    <!--<span class="navbar-version">{{ version }}</span>-->
-  </a>
-  <a
-    class="navbar-toggler d-lg-none"
-    href="javascript:void(0);"
-    data-toggle="collapse"
-    data-target="#navbarResponsive"
-    aria-controls="navbarResponsive"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    (click)="toggleNavbar()"
-  >
-    <fa-icon icon="bars"></fa-icon>
-  </a>
-  <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+    <!--class="navbar navbar-dark navbar-expand-md bg-dark fixed-top"-->
+    <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+        <span class="logo-img"></span>
+        <span>SIGMAP</span>
+        <!--<span class="navbar-version">{{ version }}</span>-->
+    </a>
+    <a
+        class="navbar-toggler d-lg-none"
+        href="javascript:void(0);"
+        data-toggle="collapse"
+        data-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        (click)="toggleNavbar()"
+    >
+        <fa-icon icon="bars"></fa-icon>
+    </a>
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
           <span>
             <fa-icon icon="home"></fa-icon>
             <span jhiTranslate="global.menu.home">Home</span>
           </span>
-        </a>
-      </li>
-      <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-      <li
-        *ngSwitchCase="true"
-        ngbDropdown
-        class="nav-item dropdown pointer"
-        display="dynamic"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <a class="nav-link dropdown-toggle scrollable-menu" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+                </a>
+            </li>
+            <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+            <li
+                *ngSwitchCase="true"
+                ngbDropdown
+                class="nav-item dropdown pointer"
+                display="dynamic"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                <a class="nav-link dropdown-toggle scrollable-menu" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
           <span>
             <fa-icon icon="th-list"></fa-icon>
             <span> Modules </span>
           </span>
-        </a>
-        <!--                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">-->
-        <!-- <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu" id="sous-menu">
-                    <button class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</button> &lt;!&ndash; bouton &ndash;&gt;
-                    <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="sous-menu">
-                        <a class="dropdown-item" href="#">Service 1</a>
-                        <a class="dropdown-item" href="#">Autre service</a>
-                        <a class="dropdown-item" href="#">Dernier Service</a>
-                    </div>
-                </div>-->
+                </a>
+                <!--                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">-->
+                <!-- <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu" id="sous-menu">
+                            <button class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</button> &lt;!&ndash; bouton &ndash;&gt;
+                            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="sous-menu">
+                                <a class="dropdown-item" href="#">Service 1</a>
+                                <a class="dropdown-item" href="#">Autre service</a>
+                                <a class="dropdown-item" href="#">Dernier Service</a>
+                            </div>
+                        </div>-->
 
-        <ul class="dropdown-men" ngbDropdownMenu aria-labelledby="admin-menu">
-          <li >
-            <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="dropdown-item" ngbDropdownToggle>Plan de passation</button>
-              <div class="dropdown-menu scrollable-menu" ngbDropdownMenu>
-                <a
-                  class="dropdown-item"
-                  routerLink="plan-de-passation"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span>Plan Passation</span>
-                </a>
-                <a
-                  class="dropdown-item"
-                  routerLink="historique"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <!--                            <fa-icon icon="album" [fixedWidth]="true"></fa-icon>-->
-                  <span>Historique</span>
-                </a>
+                <ul class="dropdown-men" ngbDropdownMenu aria-labelledby="admin-menu">
+                    <li >
+                        <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                            <button class="dropdown-item" ngbDropdownToggle>Plan de passation</button>
+                            <div class="dropdown-menu scrollable-menu" ngbDropdownMenu>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="plan-de-passation"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span>Plan Passation</span>
+                                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="historique"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <!--                            <fa-icon icon="album" [fixedWidth]="true"></fa-icon>-->
+                                    <span>Historique</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="realisation"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span jhiTranslate="global.menu.entities.planpassationmsRealisation">Realisation</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="realisation"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span jhiTranslate="global.menu.entities.planpassationmsRealisation">Realisation</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-service"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span> Service</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-service"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span> Service</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-type-service"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span> Type Service</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-type-service"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span> Type Service</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-type-marche"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span> Type Marche</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-type-marche"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span> Type Marche</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-type-source-financement"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span> Type Source Financement</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-type-source-financement"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span> Type Source Financement</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-source-financement"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span> Source Financement</span>
-                </a>
-                <a
-                  class="dropdown-item"
-                  routerLink="syg-realisation"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span jhiTranslate="global.menu.entities.planpassationmsSygRealisation">Syg Realisation</span>
-                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-source-financement"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span> Source Financement</span>
+                                </a>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="syg-realisation"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span jhiTranslate="global.menu.entities.planpassationmsSygRealisation">Syg Realisation</span>
+                                </a>
 
-                <a
-                  class="dropdown-item"
-                  routerLink="conf-table-row"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <span jhiTranslate="global.menu.entities.planpassationmsConfTableRow">Conf Table Row</span>
-                </a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="dropdown-item" ngbDropdownToggle>Référentiel</button>
-              <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="banquue/banque"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Banque</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/categorie-fournisseur"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Categorie Fournisseur</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/configuration-taux"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Configuration Taux</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="criteres-qualificatioon/criteres-qualification"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Critères Qualification</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="delaiis/delais"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Délais</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="departemeent/departement"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Département</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="directioon/direction"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Direction</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" routerLink="fonctionns/fonction" routerLinkActive="active" (click)="collapseNavbar()">
-                    <span>Fonctions</span>
-                  </a>
-                </li>
-                  <li>
-                      <a
-                          class="dropdown-item"
-                          routerLink="garantiie/garantie"
-                          routerLinkActive="active"
-                          [routerLinkActiveOptions]="{ exact: true }"
-                          (click)="collapseNavbar()"
-                      >
-                          <span>Garantie</span>
-                      </a>
-                  </li>
-                <li>
-                  <a class="dropdown-item"
-                     routerLink="groupes-imputatioon/groupes-imputation"
-                     routerLinkActive="active" (click)="collapseNavbar()">
-                    <span>Groupes Imputation</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="hierarchiie/hierarchie"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Hiérarchie</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" routerLink="jours-feriies/jours-feries" routerLinkActive="active" (click)="collapseNavbar()">
-                    <span>Jours Fériés</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="mode-selectioon/mode-selection"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Mode Selection</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" routerLink="/pays" routerLinkActive="active" (click)="collapseNavbar()">
-                    <span>Pays</span>
-                  </a>
-                </li>
-                  <li>
-                      <a
-                          class="dropdown-item"
-                          routerLink="natures-garantiie/natures-garantie"
-                          routerLinkActive="active"
-                          [routerLinkActiveOptions]="{ exact: true }"
-                          (click)="collapseNavbar()"
-                      >
-                          <span>Natures Garantie</span>
-                      </a>
-                  </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/personnes-ressources"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Personnes Resources</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item"
-                     routerLink="/pieces-administratives"
-                     routerLinkActive="active" (click)="collapseNavbar()">
-                    <span>Pièces Administratives</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/sources-financement"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Sources Financement</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="specialites-personneel/specialites-personnel"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Spécialités Personnel</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="type-autorite-contractantee/type-autorite-contractante"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/types-marches"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Types Marchés</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="/fournisseur"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
-                  </a>
-                </li>
-                  <li>
-                      <a
-                          class="dropdown-item"
-                          routerLink="referentiel-prix/categories"
-                          routerLinkActive="active"
-                          [routerLinkActiveOptions]="{ exact: true }"
-                          (click)="collapseNavbar()"
-                      >
-                          <span>Référentiel Prix</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a
-                          class="dropdown-item"
-                          routerLink="autorite-contractante/syg-autorite-contractante"
-                          routerLinkActive="active"
-                          [routerLinkActiveOptions]="{ exact: true }"
-                          (click)="collapseNavbar()"
-                      >
-                          <span>Autorite Contractante</span>
-                      </a>
-                  </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-              <button class="dropdown-item" ngbDropdownToggle>Avis Généraux</button>
-              <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    routerLink="avis-generauux/avis-generaux"
-                    routerLinkActive="active"
-                    [routerLinkActiveOptions]="{ exact: true }"
-                    (click)="collapseNavbar()"
-                  >
-                    <span>Avis Generaux</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </li>
+                                <a
+                                    class="dropdown-item"
+                                    routerLink="conf-table-row"
+                                    routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{ exact: true }"
+                                    (click)="collapseNavbar()"
+                                >
+                                    <span jhiTranslate="global.menu.entities.planpassationmsConfTableRow">Conf Table Row</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                            <button class="dropdown-item" ngbDropdownToggle>Référentiel</button>
+                            <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="banquue/banque"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Banque</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/categorie-fournisseur"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Categorie Fournisseur</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/configuration-taux"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Configuration Taux</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="criteres-qualificatioon/criteres-qualification"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Critères Qualification</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="delaiis/delais"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Délais</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="departemeent/departement"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Département</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="directioon/direction"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Direction</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" routerLink="fonctionns/fonction" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <span>Fonctions</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="garantiie/garantie"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Garantie</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       routerLink="groupes-imputatioon/groupes-imputation"
+                                       routerLinkActive="active" (click)="collapseNavbar()">
+                                        <span>Groupes Imputation</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="hierarchiie/hierarchie"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Hiérarchie</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" routerLink="jours-feriies/jours-feries" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <span>Jours Fériés</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="mode-selectioon/mode-selection"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Mode Selection</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" routerLink="/pays" routerLinkActive="active" (click)="collapseNavbar()">
+                                        <span>Pays</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="natures-garantiie/natures-garantie"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Natures Garantie</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/personnes-ressources"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Personnes Resources</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                       routerLink="/pieces-administratives"
+                                       routerLinkActive="active" (click)="collapseNavbar()">
+                                        <span>Pièces Administratives</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/sources-financement"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Sources Financement</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="specialites-personneel/specialites-personnel"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Spécialités Personnel</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="type-autorite-contractantee/type-autorite-contractante"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/types-marches"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Types Marchés</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="/fournisseur"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="referentiel-prix/categories"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Référentiel Prix</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="autorite-contractante/syg-autorite-contractante"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Autorite Contractante</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                            <button class="dropdown-item" ngbDropdownToggle>Avis Généraux</button>
+                            <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        routerLink="avis-generauux/avis-generaux"
+                                        routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{ exact: true }"
+                                        (click)="collapseNavbar()"
+                                    >
+                                        <span>Avis Generaux</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
 
-      <li
-        *jhiHasAnyAuthority="'ROLE_ADMIN'"
-        ngbDropdown
-        class="nav-item dropdown pointer"
-        display="dynamic"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
+            <li
+                *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                ngbDropdown
+                class="nav-item dropdown pointer"
+                display="dynamic"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
           <span>
             <fa-icon icon="user-plus"></fa-icon>
             <span jhiTranslate="global.menu.admin.main">Administration</span>
           </span>
-        </a>
-        <ul class="dropdown-men" ngbDropdownMenu aria-labelledby="admin-menu">
-          <li>
-            <a class="dropdown-item" routerLink="admin/gateway" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="road" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="user" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.userManagement">User management</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.health">Health</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="list" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="bell" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.audits">Audits</span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.logs">Logs</span>
-            </a>
-          </li>
-          <li *ngIf="swaggerEnabled">
-            <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.admin.apidocs">API</span>
-            </a>
-          </li>
-          <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-        </ul>
-      </li>
-      <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
-        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+                </a>
+                <ul class="dropdown-men" ngbDropdownMenu aria-labelledby="admin-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/gateway" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="road" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="user" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/health" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="heart" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.health">Health</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/configuration" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="list" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/audits" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="bell" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.audits">Audits</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="tasks" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.logs">Logs</span>
+                        </a>
+                    </li>
+                    <li *ngIf="swaggerEnabled">
+                        <a class="dropdown-item" routerLink="admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.admin.apidocs">API</span>
+                        </a>
+                    </li>
+                    <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                </ul>
+            </li>
+            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
           <span>
             <fa-icon icon="flag"></fa-icon>
             <span jhiTranslate="global.menu.language">Language</span>
           </span>
-        </a>
-        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
-          <li *ngFor="let language of languages">
-            <a
-              class="dropdown-item"
-              [jhiActiveMenu]="language"
-              href="javascript:void(0);"
-              (click)="changeLanguage(language); collapseNavbar()"
-              >{{ language | findLanguageFromKey }}</a
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+                    <li *ngFor="let language of languages">
+                        <a
+                            class="dropdown-item"
+                            [jhiActiveMenu]="language"
+                            href="javascript:void(0);"
+                            (click)="changeLanguage(language); collapseNavbar()"
+                        >{{ language | findLanguageFromKey }}</a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li
+                ngbDropdown
+                class="nav-item dropdown pointer"
+                display="dynamic"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
             >
-          </li>
-        </ul>
-      </li>
-      <li
-        ngbDropdown
-        class="nav-item dropdown pointer"
-        display="dynamic"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
           <span *ngIf="!getImageUrl()">
             <fa-icon icon="user"></fa-icon>
             <span jhiTranslate="global.menu.account.main"> Account </span>
           </span>
-          <span *ngIf="getImageUrl()">
+                    <span *ngIf="getImageUrl()">
             <img [src]="getImageUrl()" class="profile-image rounded-circle" alt="Avatar" />
           </span>
-        </a>
-        <ul class="dropdown-men dropdown-menu-lg-right" ngbDropdownMenu aria-labelledby="account-menu">
-          <li *ngSwitchCase="true">
-            <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.account.settings">Settings</span>
-            </a>
-          </li>
-          <li *ngSwitchCase="true">
-            <a class="dropdown-item" routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.account.password">Password</span>
-            </a>
-          </li>
-          <li *ngSwitchCase="true">
-            <a class="dropdown-item" (click)="logout()" id="logout">
-              <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.account.logout">Sign out</span>
-            </a>
-          </li>
-          <li *ngSwitchCase="false">
-            <a class="dropdown-item" (click)="login()" id="login">
-              <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.account.login">Sign in</span>
-            </a>
-          </li>
-          <li *ngSwitchCase="false">
-            <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
-              <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
-              <span jhiTranslate="global.menu.account.register">Register</span>
-            </a>
-          </li>
+                </a>
+                <ul class="dropdown-men dropdown-menu-lg-right" ngbDropdownMenu aria-labelledby="account-menu">
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="account/settings" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="wrench" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.settings">Settings</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.password">Password</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
+                        <a class="dropdown-item" (click)="logout()" id="logout">
+                            <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.logout">Sign out</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="false">
+                        <a class="dropdown-item" (click)="login()" id="login">
+                            <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.login">Sign in</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="false">
+                        <a class="dropdown-item" routerLink="account/register" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.register">Register</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-  </div>
+    </div>
 </nav>

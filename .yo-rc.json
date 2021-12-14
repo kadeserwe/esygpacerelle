@@ -11,7 +11,7 @@
     "packageName": "sn.ssi.sigmap",
     "packageFolder": "sn/ssi/sigmap",
     "serverPort": "7071",
-    "authenticationType": "jwt",
+    "authenticationType": "oauth2",
     "cacheProvider": "ehcache",
     "enableHibernateCache": true,
     "websocket": false,

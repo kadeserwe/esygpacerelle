@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * An authority (a security role) used by Spring Security. by
+ * An authority (a security role) used by Spring Security.
  */
 @Entity
 @Table(name = "jhi_authority")
