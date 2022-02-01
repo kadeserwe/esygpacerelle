@@ -84,7 +84,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span jhiTranslate="global.menu.entities.planpassationmsRealisation">Realisation</span>
+                                    <span>Realisation</span>
                                 </a>
 
                                 <a
@@ -94,7 +94,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span> Service</span>
+                                    <span>Service</span>
                                 </a>
 
                                 <a
@@ -104,7 +104,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span> Type Service</span>
+                                    <span>Type Service</span>
                                 </a>
 
                                 <a
@@ -114,7 +114,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span> Type Marche</span>
+                                    <span>Type Marche</span>
                                 </a>
 
                                 <a
@@ -124,7 +124,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span> Type Source Financement</span>
+                                    <span>Type Source Financement</span>
                                 </a>
 
                                 <a
@@ -143,7 +143,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span jhiTranslate="global.menu.entities.planpassationmsSygRealisation">Syg Realisation</span>
+                                    <span>Syg Realisation</span>
                                 </a>
 
                                 <a
@@ -153,7 +153,7 @@
                                     [routerLinkActiveOptions]="{ exact: true }"
                                     (click)="collapseNavbar()"
                                 >
-                                    <span jhiTranslate="global.menu.entities.planpassationmsConfTableRow">Conf Table Row</span>
+                                    <span>Conf Table Row</span>
                                 </a>
                             </div>
                         </div>
@@ -209,7 +209,7 @@
                                 <li>
                                     <a
                                         class="dropdown-item"
-                                        routerLink="delaiis/delais"
+                                        routerLink="/delais"
                                         routerLinkActive="active"
                                         [routerLinkActiveOptions]="{ exact: true }"
                                         (click)="collapseNavbar()"
@@ -353,7 +353,7 @@
                                         [routerLinkActiveOptions]="{ exact: true }"
                                         (click)="collapseNavbar()"
                                     >
-                                        <span jhiTranslate="global.menu.entities.referentielmsTypeAutoriteContractante">Type Autorite Contractante</span>
+                                        <span>Type Autorite Contractante</span>
                                     </a>
                                 </li>
                                 <li>
@@ -375,7 +375,7 @@
                                         [routerLinkActiveOptions]="{ exact: true }"
                                         (click)="collapseNavbar()"
                                     >
-                                        <span jhiTranslate="global.menu.entities.referentielmsFournisseur">Registre des fournisseurs</span>
+                                        <span>Registre des fournisseurs</span>
                                     </a>
                                 </li>
                                 <li>
@@ -404,11 +404,12 @@
                         </div>
                     </li>
                     <li>
-                        <div class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                        <div  *jhiHasAnyAuthority="'TEST'" class="btn-group dropright" ngbDropdown role="group" aria-label="Button group with nested dropdown">
                             <button class="dropdown-item" ngbDropdownToggle>Avis Généraux</button>
                             <ul class="dropdown-menu scrollable-menu" ngbDropdownMenu>
-                                <li>
+                                <li >
                                     <a
+
                                         class="dropdown-item"
                                         routerLink="avis-generauux/avis-generaux"
                                         routerLinkActive="active"
@@ -443,12 +444,6 @@
                         <a class="dropdown-item" routerLink="admin/gateway" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="road" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
-                            <fa-icon icon="user" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.admin.userManagement">User management</span>
                         </a>
                     </li>
                     <li>

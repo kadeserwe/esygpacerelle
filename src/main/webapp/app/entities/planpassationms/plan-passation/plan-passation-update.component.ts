@@ -9,7 +9,6 @@ import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } 
 import { IPlanPassation, PlanPassation } from 'app/shared/model/planpassationms/plan-passation.model';
 import { PlanPassationService } from './plan-passation.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
-import { annees } from './annees';
 import { DatePipe } from '@angular/common';
 import * as _moment from 'moment';
 

@@ -28,13 +28,66 @@ import { ConfigurationTauuxComponent } from 'app/entities/modules/referentielms/
 import { TypesMarcheesComponent } from 'app/entities/modules/referentielms/types-marchees/types-marchees.component';
 import { PayysComponent } from 'app/entities/modules/referentielms/payys/payys.component';
 import { CategorieFournisseuurComponent } from 'app/entities/modules/referentielms/categorie-fournisseuur/categorie-fournisseuur.component';
+import { PiecesAdministrativeesComponent } from 'app/entities/modules/referentielms/pieces-administrativees/pieces-administrativees.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
+        path: 'syg-service',
+        loadChildren: () => import('./planpassationms/syg-service/syg-service.module').then(m => m.PlanpassationmsSygServiceModule),
+      },
+      {
         path: 'historique',
         loadChildren: () => import('./planpassationms/historique/historique.module').then(m => m.PlanpassationmsHistoriqueModule),
+      },
+      {
+        path: 'conf-gen-sequence',
+        loadChildren: () =>
+          import('./planpassationms/conf-gen-sequence/conf-gen-sequence.module').then(m => m.PlanpassationmsConfGenSequenceModule),
+      },
+      {
+        path: 'conf-sequence-generator',
+        loadChildren: () =>
+          import('./planpassationms/conf-sequance-generator/conf-sequance-generator.module').then(
+            m => m.PlanpassationmsConfSequanceGeneratorModule
+          ),
+      },
+      {
+        path: 'conf-table-de-transaction',
+        loadChildren: () =>
+          import('./planpassationms/conf-table-de-transaction/conf-table-de-transaction.module').then(
+            m => m.PlanpassationmsConfTableDeTransactionModule
+          ),
+      },
+      {
+        path: 'conf-table-row',
+        loadChildren: () => import('./planpassationms/conf-table-row/conf-table-row.module').then(m => m.PlanpassationmsConfTableRowModule),
+      },
+      {
+        path: 'realisation',
+        loadChildren: () => import('./planpassationms/realisation/realisation.module').then(m => m.PlanpassationmsRealisationModule),
+      },
+      {
+        path: 'syg-realisation',
+        loadChildren: () =>
+          import('./planpassationms/syg-realisation/syg-realisation.module').then(m => m.PlanpassationmsSygRealisationModule),
+      },
+      {
+        path: 'syg-source-financement',
+        loadChildren: () => import('./planpassationms/syg-source-financement/syg-source-financement.module').then(m => m),
+      },
+      {
+        path: 'syg-type-marche',
+        loadChildren: () =>
+          import('./planpassationms/syg-type-marche/syg-type-marche.module').then(m => m.PlanpassationmsSygTypeMarcheModule),
+      },
+      {
+        path: 'syg-type-source-financement',
+        loadChildren: () =>
+          import('./planpassationms/syg-type-source-financement/syg-type-source-financement.module').then(
+            m => m.PlanpassationmsSygTypeSourceFinancementModule
+          ),
       },
       {
         path: 'plan-de-passation',
@@ -71,14 +124,8 @@ import { CategorieFournisseuurComponent } from 'app/entities/modules/referentiel
         ],
       },
       {
-        path: 'delaiis',
-        component: DelaiisComponent,
-        children: [
-          {
-            path: 'delais',
-            loadChildren: () => import('./referentielms/delais/delais.module').then(m => m.ReferentielmsDelaisModule),
-          },
-        ],
+        path: 'delais',
+        loadChildren: () => import('./referentielms/delais/delais.module').then(m => m.ReferentielmsDelaisModule),
       },
       {
         path: 'departemeent',
@@ -315,6 +362,7 @@ import { CategorieFournisseuurComponent } from 'app/entities/modules/referentiel
     GarantiieComponent,
     AvisGenerauuxComponent,
     AutoriteContractanteComponent,
+    PiecesAdministrativeesComponent,
   ],
 })
 export class GatewaysigmapEntityModule {}

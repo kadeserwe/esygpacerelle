@@ -1,16 +1,48 @@
-<div>
-    <h2 id="page-heading">
-        <span jhiTranslate="gatewaysigmapApp.referentielmsDelais.home.title">Delais</span>
+<div  class="ff">
+    <div _ngcontent-aay-c151="">
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-delais" [routerLink]="['/delais/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gatewaysigmapApp.referentielmsDelais.home.createLabel">
-            Create a new Delais
-            </span>
-        </button>
-    </h2>
+        <div >
+            <div role="alert" class="alert alert-success">
+                <h3 align="center"><marquee scrollamount="12" scrolldelay="7" direction="left"><strong>GESTION DES DELAIS</strong></marquee></h3>
+                <br/>
+            </div>
+        </div>
+    </div>
 
-    <jhi-alert-error></jhi-alert-error>
+    <div class="row ">
+        <div class="col-4">
+            <h2 id="page-heading">
+                <span > Délais</span>
+
+            </h2>
+        </div> <div class="col-4"></div>
+        <div class="col-3" >
+
+            <div class="form-group">
+                <strong><b>Rechercher terme(s) :</b></strong>
+                <input type="text" style="background-color: #c3e6f1" class="form-control" name="term" placeholder="Recherche" [(ngModel)]="term">
+                <br>
+            </div>
+        </div>
+        <div class="col-1.5"  >
+            <button style="margin-top: 25%" id="jh-create-entity" class="btn btn-primary  float-left jh-create-entity create-delais" [routerLink]="['/delais/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span>  Ajouter
+                            </span>
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="loaderService.isLoading  | async" class="app-loading">
+        <div class="lds-css ng-scope">
+            <div class="lds-pacman">
+                <div><div></div><div></div><div></div></div>
+                <div><div></div><div></div><div></div></div>
+            </div>
+        </div>
+    </div>
+
+
 
     <jhi-alert></jhi-alert>
 
@@ -18,11 +50,11 @@
         <span jhiTranslate="gatewaysigmapApp.referentielmsDelais.home.notFound">No delais found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="delais && delais.length > 0">
+    <div class="table-responsive  text-nowrap" id="entities" *ngIf="delais && delais.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                   <!-- <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>  -->
                     <th scope="col"  jhiSortBy="libelle"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.libelle">Libelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="code"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unite"><span jhiTranslate="gatewaysigmapApp.referentielmsDelais.unite">Unite</span> <fa-icon icon="sort"></fa-icon></th>
@@ -34,8 +66,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let delais of delais ;trackBy: trackId">
-                    <td><a [routerLink]="['/delais', delais.id, 'view']">{{ delais.id }}</a></td>
+                <tr *ngFor="let delais of delais | filter: term">
+                  <!--  <td><a [routerLink]="['/delais', delais.id, 'view']">{{ delais.id }}</a></td> -->
                     <td>{{ delais.libelle }}</td>
                     <td>{{ delais.code }}</td>
                     <td>{{ delais.unite }}</td>
@@ -47,22 +79,19 @@
                         <div class="btn-group">
                             <button type="submit"
                                     [routerLink]="['/delais', delais.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnDetails">
+                                <fa-icon icon="eye" style="color: #28a745"></fa-icon>
                             </button>
 
                             <button type="submit"
                                     [routerLink]="['/delais', delais.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnModifier">
+                                <fa-icon icon="pencil-alt" style="color: #17a2b8"></fa-icon>
                             </button>
 
                             <button type="submit" (click)="delete(delais)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                    class="btn  btn-sm" [ngbTooltip]="btnSuprimer">
+                                <fa-icon icon="trash-alt" style="color: #aa0000"></fa-icon>
                             </button>
                         </div>
                     </td>

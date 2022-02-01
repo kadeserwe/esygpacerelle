@@ -92,7 +92,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 10em;
+  top: 5em;
 }
 .app-loading p {
   display: block;
@@ -131,9 +131,9 @@
   position: absolute;
   top: 97px;
   left: -8px;
-  width: 24px;
-  height: 10px;
-  background-image: url('../images/logo-jhipster.png');
+  width: 26px;
+  height: 12px;
+  background-image: url('../images/Senegal.svg.png');
   background-size: contain;
   -webkit-animation: lds-pacman-3 1s linear infinite;
   animation: lds-pacman-3 1.5s linear infinite;
