@@ -11,8 +11,8 @@ export class BanquueComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public highlightRow() {
-    this.rdInvisible = 'disabled';
-    // console.log(this.rdInvisible)
-  }
+  // public highlightRow() {
+  //   this.rdInvisible = 'disabled';
+  // console.log(this.rdInvisible)
+  // }
 }

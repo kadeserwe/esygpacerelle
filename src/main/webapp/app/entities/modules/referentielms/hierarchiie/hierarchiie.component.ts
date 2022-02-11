@@ -3,17 +3,16 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'jhi-hierarchiie',
   templateUrl: './hierarchiie.component.html',
-  styleUrls: ['./hierarchiie.component.scss']
+  styleUrls: ['./hierarchiie.component.scss'],
 })
 export class HierarchiieComponent implements OnInit {
   rdInvisible: any;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  public highlightRow() {
-    this.rdInvisible = 'disabled';
-    // console.log(this.rdInvisible)
-  }
+  // public highlightRow() {
+  //  this.rdInvisible = 'disabled';
+  // console.log(this.rdInvisible)
+  //}
 }

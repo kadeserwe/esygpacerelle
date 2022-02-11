@@ -44,6 +44,7 @@ export class MiseAJourPpComponent implements OnInit, OnDestroy {
     private datePipe: DatePipe
   ) {}
 
+  // tslint:disable-next-line:typedef
   public highlightRow(planPassation: any) {
     this.selectedId = planPassation.id;
     // console.log(this.selectedId)
@@ -129,22 +130,20 @@ export class MiseAJourPpComponent implements OnInit, OnDestroy {
   }
 
   trackId(index: number, item: IPlanPassation): number {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
-  //
+
   byteSize(base64String: string): string {
     return this.dataUtils.byteSize(base64String);
   }
-  //
+
   openFile(contentType = '', base64String: string): void {
     return this.dataUtils.openFile(contentType, base64String);
   }
-  //
+
   registerChangeInPlanPassations(): void {
     this.eventSubscriber = this.eventManager.subscribe('planPassationListModification', () => this.loadData());
   }
-  //
 
   delete(planPassation: IPlanPassation): void {
     const modalRef = this.modalService.open(PlanPassationDeleteDialogComponent, { size: 'lg', backdrop: 'static' });

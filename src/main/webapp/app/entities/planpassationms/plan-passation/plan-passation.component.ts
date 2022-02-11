@@ -46,6 +46,7 @@ export class PlanPassationComponent implements OnInit, OnDestroy {
     private datePipe: DatePipe
   ) {}
 
+  // tslint:disable-next-line:typedef
   public highlightRow(planPassation: any) {
     this.selectedId = planPassation.id;
     // console.log(this.selectedId)
